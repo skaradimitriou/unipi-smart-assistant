@@ -1,7 +1,8 @@
-package com.stathis.smartassistant
+package com.stathis.smartassistant.ui.onboarding
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.stathis.smartassistant.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
