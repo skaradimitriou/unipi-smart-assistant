@@ -1,20 +1,24 @@
 package com.stathis.smartassistant.ui.dashboard.planner
 
+import androidx.fragment.app.viewModels
 import com.stathis.smartassistant.R
 import com.stathis.smartassistant.abstraction.BaseFragment
 import com.stathis.smartassistant.databinding.FragmentPlannerBinding
+import com.stathis.smartassistant.ui.dashboard.home.HomeViewModel
 
 class PlannerFragment : BaseFragment<FragmentPlannerBinding>(R.layout.fragment_planner) {
 
+    private val viewModel : PlannerViewModel by viewModels()
+
     override fun init() {
-        TODO("Not yet implemented")
+
     }
 
     override fun startOps() {
-        TODO("Not yet implemented")
+
     }
 
     override fun stopOps() {
-        TODO("Not yet implemented")
+
     }
 }

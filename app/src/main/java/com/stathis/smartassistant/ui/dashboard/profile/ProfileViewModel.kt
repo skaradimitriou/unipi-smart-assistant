@@ -1,4 +1,6 @@
 package com.stathis.smartassistant.ui.dashboard.profile
 
-class ProfileViewModel {
+import androidx.lifecycle.ViewModel
+
+class ProfileViewModel : ViewModel() {
 }

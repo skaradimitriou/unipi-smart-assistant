@@ -1,4 +1,6 @@
 package com.stathis.smartassistant.ui.dashboard.planner
 
-class PlannerViewModel {
+import androidx.lifecycle.ViewModel
+
+class PlannerViewModel : ViewModel(){
 }
