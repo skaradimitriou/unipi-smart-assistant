@@ -10,9 +10,15 @@ class HomeFragment : BaseFragment<FragmentRoomsBinding>(R.layout.fragment_rooms)
 
     private val viewModel : HomeViewModel by viewModels()
 
-    override fun init() {}
+    override fun init() {
+        viewModel.getData()
+    }
 
-    override fun startOps() {}
+    override fun startOps() {
+        viewModel.observe(viewLifecycleOwner)
+    }
 
-    override fun stopOps() {}
+    override fun stopOps() {
+        viewModel.release(viewLifecycleOwner)
+    }
 }

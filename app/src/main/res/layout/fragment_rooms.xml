@@ -8,14 +8,54 @@
         android:layout_height="match_parent"
         tools:context=".ui.dashboard.home.HomeFragment">
 
+        <ImageView
+            android:id="@+id/userImgView"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_margin="@dimen/dimen_l"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@mipmap/ic_launcher" />
+
         <TextView
-            android:layout_width="wrap_content"
+            android:id="@+id/userGreetingTxtView"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_m"
+            android:text="Καλησπέρα"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/userImgView"
+            app:layout_constraintTop_toTopOf="@id/userImgView" />
+
+        <TextView
+            android:id="@+id/userNameTxtView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_m"
             android:text="@string/nav_home"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/userImgView"
+            app:layout_constraintTop_toBottomOf="@id/userGreetingTxtView" />
+
+        <TextView
+            android:id="@+id/userAddressTxtView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/dimen_l"
+            android:layout_marginTop="@dimen/dimen_xl"
+            android:drawablePadding="@dimen/dimen_s"
+            android:text="Μπουμπουλίνας 1, Χαλάνδρι"
+            android:textSize="16sp"
+            app:drawableStartCompat="@drawable/ic_home_blue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/userImgView" />
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
