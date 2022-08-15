@@ -8,4 +8,16 @@
     <string name="nav_planner">Planner</string>
     <string name="nav_profile">Profile</string>
 
+    <!-- Home Screen -->
+    <string name="greeting">Καλησπέρα Γιάννη</string>
+    <string name="user_address">Μπουμπουλίνας 1, Χαλάνδρι</string>
+    <string name="user_directions"><b>Κάνε tap στο κάθε δωμάτιο</b> για να πλοηγηθείς</string>
+
+    <string name="living_room">Living Room</string>
+    <string name="kitchen">Kitchen</string>
+    <string name="garden">Garden</string>
+    <string name="main_bedroom">Main Bedroom</string>
+    <string name="sons_room">Son\'s room</string>
+    <string name="daughters_room">Daughter\'s room</string>
+
 </resources>

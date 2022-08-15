@@ -14,35 +14,57 @@
             type="com.stathis.smartassistant.callbacks.ItemCallback" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_s"
+        android:layout_marginTop="@dimen/dimen_10"
+        android:layout_marginEnd="@dimen/dimen_xs"
         android:onClick="@{(view) -> callback.onItemTap(view)}"
-        android:tag="@{model}">
+        android:tag="@{model}"
+        app:cardCornerRadius="@dimen/dimen_10">
 
-        <ImageView
-            android:id="@+id/holderRoomImgView"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:scaleType="centerCrop"
-            android:src="@mipmap/ic_launcher"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/holderRoomTitleTxtView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="@{model.title}"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Living Room" />
+            <ImageView
+                android:id="@+id/holderRoomImgView"
+                imageResource="@{model.image}"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_100"
+                android:contentDescription="@{model.title}"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@mipmap/ic_launcher" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@color/opacity_60_tint"
+                app:layout_constraintBottom_toBottomOf="@id/holderRoomImgView"
+                app:layout_constraintEnd_toEndOf="@id/holderRoomImgView"
+                app:layout_constraintStart_toStartOf="@id/holderRoomImgView"
+                app:layout_constraintTop_toTopOf="@id/holderRoomImgView" />
+
+            <TextView
+                android:id="@+id/holderRoomTitleTxtView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@{model.title}"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Living Room" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
 </layout>

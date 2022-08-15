@@ -3,16 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.stathis.smartassistant.ui.dashboard.home.HomeViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.dashboard.home.HomeFragment">
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/userImgView"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:layout_margin="@dimen/dimen_l"
+            loadImg="@{viewModel.userImg}"
+            android:layout_width="@dimen/dimen_2xl"
+            android:layout_height="@dimen/dimen_2xl"
+            android:layout_margin="@dimen/dimen_m"
             android:scaleType="centerCrop"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -23,38 +31,73 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dimen_m"
-            android:text="Καλησπέρα"
+            android:text="@string/greeting"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/userImgView"
             app:layout_constraintTop_toTopOf="@id/userImgView" />
 
         <TextView
-            android:id="@+id/userNameTxtView"
+            android:id="@+id/userAddressTxtView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dimen_m"
-            android:text="@string/nav_home"
-            android:textSize="18sp"
-            android:textStyle="bold"
+            android:layout_marginHorizontal="@dimen/dimen_m"
+            android:drawablePadding="@dimen/dimen_s"
+            android:text="@string/user_address"
+            app:drawableStartCompat="@drawable/ic_home_blue"
+            app:layout_constraintBottom_toBottomOf="@+id/userImgView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/userImgView"
             app:layout_constraintTop_toBottomOf="@id/userGreetingTxtView" />
 
-        <TextView
-            android:id="@+id/userAddressTxtView"
+        <View
+            android:id="@+id/homeRoundedBgView"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/dimen_l"
-            android:layout_marginTop="@dimen/dimen_xl"
-            android:drawablePadding="@dimen/dimen_s"
-            android:text="Μπουμπουλίνας 1, Χαλάνδρι"
-            android:textSize="16sp"
-            app:drawableStartCompat="@drawable/ic_home_blue"
+            android:layout_height="@dimen/dimen_m"
+            android:layout_marginTop="@dimen/dimen_l"
+            android:background="@drawable/home_top_rounded_bg"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/userImgView" />
+            app:layout_constraintTop_toBottomOf="@id/userAddressTxtView" />
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/light_blue"
+            android:paddingHorizontal="@dimen/dimen_m"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/homeRoundedBgView">
+
+            <TextView
+                android:id="@+id/roomsTitleTxtView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingBottom="@dimen/dimen_10"
+                android:text="@string/user_directions"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/homeScreenRecycler"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:adapter="@{viewModel.adapter}"
+                android:orientation="vertical"
+                android:overScrollMode="never"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/roomsTitleTxtView"
+                app:spanCount="2"
+                tools:listitem="@layout/holder_home_room_item" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
