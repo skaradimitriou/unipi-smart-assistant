@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.stathis.smartassistant.models.RoomUtil" />
+
+        <variable
+            name="callback"
+            type="com.stathis.smartassistant.callbacks.ItemCallback" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{(view) -> callback.onItemTap(view)}"
+        android:tag="@{model}">
+
+        <TextView
+            android:id="@+id/roomUtilTxtView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:padding="@dimen/dimen_m"
+            android:text="@{model.title}"
+            android:textSize="16sp"
+            tools:text="@string/kitchen" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
