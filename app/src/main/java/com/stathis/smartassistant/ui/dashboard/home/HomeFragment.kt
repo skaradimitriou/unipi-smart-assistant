@@ -23,11 +23,9 @@ class HomeFragment : BaseFragment<FragmentRoomsBinding>(R.layout.fragment_rooms)
     override fun startOps() {
         binding.userGreetingTxtView.setUserGreeting()
 
-        viewModel.getData(object : HomeRoomCallback {
-            override fun onRoomClick(room: Room) {
-                goToRoomUtilsScreen(roomName = room.title)
-            }
-        })
+        viewModel.getData { room ->
+            goToRoomUtilsScreen(roomName = room.title)
+        }
     }
 
     override fun stopOps() {}

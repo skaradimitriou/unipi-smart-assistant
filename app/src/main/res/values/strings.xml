@@ -10,6 +10,7 @@
 
     <!-- Home Screen -->
     <string name="greeting">Καλησπέρα Γιάννη</string>
+    <string name="username">Γιάννης</string>
     <string name="user_address">Μπουμπουλίνας 1, Χαλάνδρι</string>
     <string name="user_directions"><b>Κάνε tap στο κάθε δωμάτιο</b> για να πλοηγηθείς</string>
 

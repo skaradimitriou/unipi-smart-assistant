@@ -10,14 +10,14 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(R.layout.fragment_p
     private val viewModel : ProfileViewModel by viewModels()
 
     override fun init() {
-
+        binding.viewModel = viewModel
     }
 
     override fun startOps() {
-
+        viewModel.registerCallback {
+            //FIXME: Handle profile option clicks
+        }
     }
 
-    override fun stopOps() {
-
-    }
+    override fun stopOps() {}
 }
