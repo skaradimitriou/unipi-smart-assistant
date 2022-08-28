@@ -1,10 +1,11 @@
 package com.stathis.smartassistant.ui.dashboard.planner
 
+import android.content.Intent
 import androidx.fragment.app.viewModels
 import com.stathis.smartassistant.R
 import com.stathis.smartassistant.abstraction.BaseFragment
 import com.stathis.smartassistant.databinding.FragmentPlannerBinding
-import com.stathis.smartassistant.ui.dashboard.home.HomeViewModel
+import com.stathis.smartassistant.ui.events.EventsActivity
 
 class PlannerFragment : BaseFragment<FragmentPlannerBinding>(R.layout.fragment_planner) {
 
@@ -15,7 +16,7 @@ class PlannerFragment : BaseFragment<FragmentPlannerBinding>(R.layout.fragment_p
     }
 
     override fun startOps() {
-
+        startActivity(Intent(requireContext(), EventsActivity::class.java))
     }
 
     override fun stopOps() {

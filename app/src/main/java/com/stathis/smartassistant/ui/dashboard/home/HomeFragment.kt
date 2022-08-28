@@ -4,9 +4,7 @@ import android.content.Intent
 import androidx.fragment.app.viewModels
 import com.stathis.smartassistant.R
 import com.stathis.smartassistant.abstraction.BaseFragment
-import com.stathis.smartassistant.callbacks.HomeRoomCallback
 import com.stathis.smartassistant.databinding.FragmentRoomsBinding
-import com.stathis.smartassistant.models.Room
 import com.stathis.smartassistant.ui.rooms.RoomsActivity
 import com.stathis.smartassistant.util.ROOM_NAME
 import com.stathis.smartassistant.util.setUserGreeting
