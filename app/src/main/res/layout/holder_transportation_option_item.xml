@@ -7,7 +7,7 @@
 
         <variable
             name="model"
-            type="com.stathis.smartassistant.models.Room" />
+            type="com.stathis.smartassistant.models.TransportationOption" />
 
         <variable
             name="callback"
@@ -26,42 +26,33 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="@color/opacity_60_tint">
 
             <ImageView
                 android:id="@+id/holderOptionImgView"
                 imageResource="@{model.image}"
-                android:layout_width="match_parent"
+                android:layout_width="@dimen/dimen_3xl"
                 android:layout_height="@dimen/dimen_100"
                 android:contentDescription="@{model.title}"
                 android:scaleType="centerCrop"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:src="@mipmap/ic_launcher" />
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:background="@color/opacity_60_tint"
-                app:layout_constraintBottom_toBottomOf="@id/holderOptionImgView"
-                app:layout_constraintEnd_toEndOf="@id/holderOptionImgView"
-                app:layout_constraintStart_toStartOf="@id/holderOptionImgView"
-                app:layout_constraintTop_toTopOf="@id/holderOptionImgView" />
-
             <TextView
-                android:id="@+id/holderRoomTitleTxtView"
-                android:layout_width="match_parent"
+                android:id="@+id/holderOptionTitleTxtView"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
+                android:paddingStart="@dimen/dimen_m"
                 android:text="@{model.title}"
                 android:textColor="@color/white"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@id/holderOptionImgView"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Living Room" />
 

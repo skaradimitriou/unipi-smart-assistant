@@ -28,4 +28,12 @@
     <string name="events_additionals_title">Νέο Γεγονός | Πρόσθετα</string>
     <string name="events_result_title">Νέο Γεγονός | Επιτυχία</string>
 
+    <!-- Transportation Screen -->
+    <string name="transport_screen_title">Πώς θα γίνει η μετάβαση;</string>
+    <string name="transport_train">Με Μετρό</string>
+    <string name="transport_car">Με Αυτοκίνητο</string>
+    <string name="transport_bus">Με Λεωφορείο</string>
+    <string name="transport_bike">Με Ποδήλατο</string>
+    <string name="transport_walk">Με τα πόδια</string>
+
 </resources>

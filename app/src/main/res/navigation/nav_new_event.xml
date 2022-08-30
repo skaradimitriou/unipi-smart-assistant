@@ -31,13 +31,16 @@
         <action
             android:id="@+id/goToAdditionalsScreen"
             app:destination="@id/additionalsFragment" />
+        <argument
+            android:name="transporType"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/transportFragment"
         android:name="com.stathis.smartassistant.ui.events.transport.TransportFragment"
         android:label="TransportFragment" >
         <action
-            android:id="@+id/goTToTrafficScreen"
+            android:id="@+id/goToTrafficScreen"
             app:destination="@id/trafficFragment" />
     </fragment>
 </navigation>

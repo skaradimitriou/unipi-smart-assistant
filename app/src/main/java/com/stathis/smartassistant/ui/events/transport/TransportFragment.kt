@@ -1,37 +1,43 @@
 package com.stathis.smartassistant.ui.events.transport
 
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.stathis.smartassistant.R
 import com.stathis.smartassistant.abstraction.BaseFragment
 import com.stathis.smartassistant.databinding.FragmentTransportBinding
 import com.stathis.smartassistant.ui.events.EventsViewModel
-import com.stathis.smartassistant.ui.events.traffic.TrafficFragmentDirections
 
 class TransportFragment : BaseFragment<FragmentTransportBinding>(R.layout.fragment_transport) {
 
-    private val viewModel: EventsViewModel by activityViewModels()
+    private val sharedViewModel: EventsViewModel by activityViewModels()
+    private val viewModel: TransportViewModel by viewModels()
 
     override fun init() {
-        viewModel.screenTitle.value = getString(R.string.events_transport_title)
+        sharedViewModel.screenTitle.value = getString(R.string.events_transport_title)
+        binding.viewModel = viewModel
     }
 
     override fun startOps() {
-        binding.nextButton.setOnClickListener {
-            goToTrafficScreen()
+        /*
+         * FIXME: Add UI Stylings
+         *        Add Motion Layout on RecyclerView Scroll
+         */
+
+        viewModel.onTransportOptionTap { selectedOption ->
+            //handle item callback
+            goToTrafficScreen(selectedOption.title)
         }
     }
 
-    override fun stopOps() {
-        //
-    }
+    override fun stopOps() {}
 
     /*
      * Navigates to the traffic screen via safeargs
      */
 
-    private fun goToTrafficScreen() {
-        val action = TransportFragmentDirections.goTToTrafficScreen()
+    private fun goToTrafficScreen(option: String) {
+        val action = TransportFragmentDirections.goToTrafficScreen(option)
         findNavController().navigate(action)
     }
 }

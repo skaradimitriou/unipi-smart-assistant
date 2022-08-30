@@ -12,7 +12,9 @@ class IntroFragment : BaseFragment<FragmentIntroBinding>(R.layout.fragment_intro
 
     private val viewModel : EventsViewModel by activityViewModels()
 
-    override fun init() {}
+    override fun init() {
+        viewModel.screenTitle.value = getString(R.string.events_intro_title)
+    }
 
     override fun startOps() {
         binding.nextButton.setOnClickListener {
