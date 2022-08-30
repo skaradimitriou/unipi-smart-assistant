@@ -21,4 +21,11 @@
     <string name="sons_room">Son\'s room</string>
     <string name="daughters_room">Daughter\'s room</string>
 
+    <!-- Events Screens -->
+    <string name="events_intro_title">Νέο Γεγονός | Περιγραφή</string>
+    <string name="events_transport_title">Νέο Γεγονός | Μετακίνηση</string>
+    <string name="events_traffic_title">Νέο Γεγονός | Οδηγίες</string>
+    <string name="events_additionals_title">Νέο Γεγονός | Πρόσθετα</string>
+    <string name="events_result_title">Νέο Γεγονός | Επιτυχία</string>
+
 </resources>

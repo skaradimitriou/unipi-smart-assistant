@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_new_event"
+    app:startDestination="@id/introFragment">
+
+    <fragment
+        android:id="@+id/introFragment"
+        android:name="com.stathis.smartassistant.ui.events.intro.IntroFragment"
+        android:label="IntroFragment" >
+        <action
+            android:id="@+id/goToTransportationsScreen"
+            app:destination="@id/transportFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/additionalsFragment"
+        android:name="com.stathis.smartassistant.ui.events.additionals.AdditionalsFragment"
+        android:label="AdditionalsFragment" >
+        <action
+            android:id="@+id/goToResultScreen"
+            app:destination="@id/resultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.stathis.smartassistant.ui.events.result.ResultFragment"
+        android:label="ResultFragment" />
+    <fragment
+        android:id="@+id/trafficFragment"
+        android:name="com.stathis.smartassistant.ui.events.traffic.TrafficFragment"
+        android:label="TrafficFragment" >
+        <action
+            android:id="@+id/goToAdditionalsScreen"
+            app:destination="@id/additionalsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/transportFragment"
+        android:name="com.stathis.smartassistant.ui.events.transport.TransportFragment"
+        android:label="TransportFragment" >
+        <action
+            android:id="@+id/goTToTrafficScreen"
+            app:destination="@id/trafficFragment" />
+    </fragment>
+</navigation>

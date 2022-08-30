@@ -8,6 +8,19 @@
         android:layout_height="match_parent"
         tools:context=".ui.dashboard.planner.PlannerFragment" >
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/newEventBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_xl"
+            android:background="@color/purple_700"
+            android:text="New Event"
+            android:textColor="@color/white"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

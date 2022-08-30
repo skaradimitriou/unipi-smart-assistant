@@ -16,7 +16,9 @@ class PlannerFragment : BaseFragment<FragmentPlannerBinding>(R.layout.fragment_p
     }
 
     override fun startOps() {
-        startActivity(Intent(requireContext(), EventsActivity::class.java))
+        binding.newEventBtn.setOnClickListener {
+            startActivity(Intent(requireContext(), EventsActivity::class.java))
+        }
     }
 
     override fun stopOps() {

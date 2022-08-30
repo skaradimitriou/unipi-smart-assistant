@@ -7,7 +7,7 @@ import com.stathis.smartassistant.databinding.FragmentProfileBinding
 
 class ProfileFragment : BaseFragment<FragmentProfileBinding>(R.layout.fragment_profile) {
 
-    private val viewModel : ProfileViewModel by viewModels()
+    private val viewModel: ProfileViewModel by viewModels()
 
     override fun init() {
         binding.viewModel = viewModel
