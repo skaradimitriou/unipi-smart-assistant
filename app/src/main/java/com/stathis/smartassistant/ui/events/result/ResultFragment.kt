@@ -9,19 +9,20 @@ import com.stathis.smartassistant.ui.events.EventsViewModel
 
 class ResultFragment : BaseFragment<FragmentResultBinding>(R.layout.fragment_result) {
 
-    private val viewModel : EventsViewModel by activityViewModels()
+    private val viewModel: EventsViewModel by activityViewModels()
 
     override fun init() {
         viewModel.screenTitle.value = getString(R.string.events_result_title)
     }
 
     override fun startOps() {
+        binding.event = viewModel.getEvent()
+
         binding.nextButton.setOnClickListener {
+            //returns to planner screen in dashboard activity
             requireActivity().finish()
         }
     }
 
-    override fun stopOps() {
-        //
-    }
+    override fun stopOps() {}
 }

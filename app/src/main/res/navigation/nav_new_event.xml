@@ -31,9 +31,6 @@
         <action
             android:id="@+id/goToAdditionalsScreen"
             app:destination="@id/additionalsFragment" />
-        <argument
-            android:name="transporType"
-            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/transportFragment"

@@ -25,8 +25,8 @@ class TransportFragment : BaseFragment<FragmentTransportBinding>(R.layout.fragme
          */
 
         viewModel.onTransportOptionTap { selectedOption ->
-            //handle item callback
-            goToTrafficScreen(selectedOption.title)
+            sharedViewModel.transportationOption = selectedOption
+            goToTrafficScreen()
         }
     }
 
@@ -36,8 +36,8 @@ class TransportFragment : BaseFragment<FragmentTransportBinding>(R.layout.fragme
      * Navigates to the traffic screen via safeargs
      */
 
-    private fun goToTrafficScreen(option: String) {
-        val action = TransportFragmentDirections.goToTrafficScreen(option)
+    private fun goToTrafficScreen() {
+        val action = TransportFragmentDirections.goToTrafficScreen()
         findNavController().navigate(action)
     }
 }

@@ -1,9 +1,11 @@
 package com.stathis.smartassistant.util
 
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.stathis.smartassistant.R
+import com.stathis.smartassistant.models.Event
 
 /**
  * This file contains the binding adapters that are used across the app
@@ -25,4 +27,9 @@ fun ImageView.loadImg(url: String? = null) {
     } ?: kotlin.run {
         setImageResource(R.mipmap.ic_launcher)
     }
+}
+
+@BindingAdapter("bindEventData")
+fun TextView.bindEventData(event : Event) {
+    text = this.context.getString(R.string.event_overview,event.title, event.transportationOption.title)
 }
