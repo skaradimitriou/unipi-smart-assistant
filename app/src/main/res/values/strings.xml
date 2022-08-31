@@ -44,6 +44,11 @@
     <string name="transport_bike">Με Ποδήλατο</string>
     <string name="transport_walk">Με τα πόδια</string>
 
+    <!-- Traffic Screen -->
+    <string name="dummy_address">Βυζαντίου 1 Ηλιούπολη</string>
+    <string name="transport_via">Μετακίνηση %s</string>
+    <string name="transport_estimated_time">Εκτιμώμενος Χρόνος Διαδομής: %s λεπτά</string>
+
     <!-- Result Screen -->
     <string name="event_overview"><b>Τίτλος:</b> %s\n<b>Μετακίνηση:</b> %s\n</string>
     <string name="event_overview_title">Σύνοψη</string>

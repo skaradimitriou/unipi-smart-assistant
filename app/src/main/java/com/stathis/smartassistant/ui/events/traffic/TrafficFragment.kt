@@ -16,6 +16,11 @@ class TrafficFragment : BaseFragment<FragmentTrafficBinding>(R.layout.fragment_t
     }
 
     override fun startOps() {
+        val transportationType = viewModel.transportationOption?.title
+        binding.transportTypeTxtView.text = getString(R.string.transport_via, transportationType)
+
+        binding.transportTimeTxtView.text = getString(R.string.transport_estimated_time, "30")
+
         binding.nextButton.setOnClickListener {
             goToAdditionalsScreen()
         }
