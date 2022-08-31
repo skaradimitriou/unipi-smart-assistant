@@ -21,12 +21,20 @@
     <string name="sons_room">Son\'s room</string>
     <string name="daughters_room">Daughter\'s room</string>
 
+    <!-- General -->
+    <string name="continue_btn">Συνέχεια</string>
+
     <!-- Events Screens -->
     <string name="events_intro_title">Νέο Γεγονός | Περιγραφή</string>
     <string name="events_transport_title">Νέο Γεγονός | Μετακίνηση</string>
     <string name="events_traffic_title">Νέο Γεγονός | Οδηγίες</string>
     <string name="events_additionals_title">Νέο Γεγονός | Πρόσθετα</string>
     <string name="events_result_title">Νέο Γεγονός | Επιτυχία</string>
+
+    <!-- Events Intro Screen -->
+    <string name="events_intro_desc">Προσθήκη Τίτλου</string>
+    <string name="events_intro_label">Τίτλος</string>
+    <string name="events_error_msg">Ο τίτλος θα πρέπει να αποτελείται απο τουλάχιστον 3 χαρακτήρες</string>
 
     <!-- Transportation Screen -->
     <string name="transport_screen_title">Πώς θα γίνει η μετάβαση;</string>

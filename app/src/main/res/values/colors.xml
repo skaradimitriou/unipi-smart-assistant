@@ -10,6 +10,7 @@
 
     <!-- App's colors -->
     <color name="light_blue">#CFEEFF</color>
+    <color name="light_bg">#fefefe</color>
     <color name="opacity_60_tint">#60000000</color>
 
 </resources>

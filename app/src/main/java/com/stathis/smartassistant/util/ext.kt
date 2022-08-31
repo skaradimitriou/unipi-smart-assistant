@@ -1,10 +1,14 @@
 package com.stathis.smartassistant.util
 
+import android.text.Editable
 import android.text.SpannableStringBuilder
+import android.text.TextWatcher
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.text.bold
 import com.bumptech.glide.Glide
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 import com.stathis.smartassistant.R
 
 /**
@@ -36,4 +40,22 @@ fun TextView.setUserGreeting() {
         .bold { append("Γιάννη") }
 
     text = greeting
+}
+
+
+fun TextInputEditText.afterTextChanged(input: (String) -> Unit) {
+    this.addTextChangedListener(object : TextWatcher {
+        override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+        override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+        override fun afterTextChanged(editable: Editable?) {
+            input.invoke(editable.toString())
+        }
+    })
+
+}fun TextInputEditText.onTextChanged(input: (String) -> Unit) {
+    this.addTextChangedListener(object : TextWatcher {
+        override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+        override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) = input.invoke(p0.toString())
+        override fun afterTextChanged(editable: Editable?) {}
+    })
 }
