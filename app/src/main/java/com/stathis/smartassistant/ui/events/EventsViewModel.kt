@@ -15,6 +15,8 @@ class EventsViewModel(val app: Application) : BaseViewModel(app) {
 
     fun getEvent() = Event(
         title = eventTitle.toUiModel(),
+        date = "",
+        time = "",
         transportationOption = transportationOption.toUiModel()
     )
 }

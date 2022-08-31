@@ -8,6 +8,10 @@
     <string name="nav_planner">Planner</string>
     <string name="nav_profile">Profile</string>
 
+    <string name="home_title">Αρχική</string>
+    <string name="planner_title">Το Πλάνο μου</string>
+    <string name="profile_title">Προφίλ</string>
+
     <!-- Home Screen -->
     <string name="greeting">Καλησπέρα Γιάννη</string>
     <string name="username">Γιάννης</string>
@@ -23,6 +27,15 @@
 
     <!-- General -->
     <string name="continue_btn">Συνέχεια</string>
+    <string name="ok">OK</string>
+
+    <!--- Planner Screen -->
+    <string name="menu_info">Info</string>
+    <string name="menu_add">Add</string>
+    <string name="planner_info">Σε αυτή την οθόνη εμφανίζονται τα συμβάντα που έχετε προσθέσει ανά ημέρα. \n\nΠατώντας το εικονίδιο (+) μπορείτε να δημιουργήσετε ένα νέο.</string>
+    <string name="dummy_transport_type">Μετακίνηση με αυτοκίνητο</string>
+    <string name="dummy_date">19/09/2022</string>
+    <string name="dummy_time">09:00</string>
 
     <!-- Events Screens -->
     <string name="events_intro_title">Νέο Γεγονός | Περιγραφή</string>
@@ -53,5 +66,6 @@
     <string name="event_overview"><b>Τίτλος:</b> %s\n<b>Μετακίνηση:</b> %s\n</string>
     <string name="event_overview_title">Σύνοψη</string>
     <string name="event_overview_btn">Προσθήκη στο Ημερολόγιο</string>
+
 
 </resources>

@@ -7,6 +7,7 @@ import com.stathis.smartassistant.abstraction.BaseFragment
 import com.stathis.smartassistant.databinding.FragmentRoomsBinding
 import com.stathis.smartassistant.ui.rooms.RoomsActivity
 import com.stathis.smartassistant.util.ROOM_NAME
+import com.stathis.smartassistant.util.setScreenTitle
 import com.stathis.smartassistant.util.setUserGreeting
 
 
@@ -15,6 +16,7 @@ class HomeFragment : BaseFragment<FragmentRoomsBinding>(R.layout.fragment_rooms)
     private val viewModel: HomeViewModel by viewModels()
 
     override fun init() {
+        setScreenTitle(getString(R.string.home_title))
         binding.viewModel = viewModel
     }
 

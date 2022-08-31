@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.stathis.smartassistant.models.Event" />
+
+        <variable
+            name="callback"
+            type="com.stathis.smartassistant.callbacks.ItemCallback" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_s"
+        android:layout_marginTop="@dimen/dimen_10"
+        android:layout_marginEnd="@dimen/dimen_xs"
+        android:onClick="@{(view) -> callback.onItemTap(view)}"
+        android:tag="@{model}"
+        app:cardCornerRadius="@dimen/dimen_10">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/holderEventTitleTxtView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/purple_500"
+                android:gravity="center_horizontal"
+                android:padding="@dimen/dimen_s"
+                android:text="@{model.title}"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Event title" />
+
+            <TextView
+                android:id="@+id/holderEventDateTxtView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/dimen_s"
+                android:gravity="start|center_vertical"
+                android:paddingHorizontal="@dimen/dimen_m"
+                android:paddingVertical="@dimen/dimen_s"
+                android:text="@{model.transportationOption.title}"
+                app:drawableStartCompat="@drawable/ic_transportation_white"
+                app:drawableTint="@color/black"
+                app:layout_constraintTop_toBottomOf="@id/holderEventTitleTxtView"
+                tools:text="@string/dummy_transport_type" />
+
+            <View
+                android:id="@+id/firstDividerView"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="@dimen/dimen_m"
+                android:background="@color/grey_light"
+                app:layout_constraintTop_toBottomOf="@id/holderEventDateTxtView" />
+
+            <TextView
+                android:id="@+id/holderEventLocationTxtView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/dimen_s"
+                android:gravity="start|center_vertical"
+                android:paddingHorizontal="@dimen/dimen_m"
+                android:paddingVertical="@dimen/dimen_s"
+                android:text="@{model.date}"
+                app:drawableStartCompat="@drawable/ic_date_white"
+                app:drawableTint="@color/black"
+                app:layout_constraintTop_toBottomOf="@id/firstDividerView"
+                tools:text="@string/dummy_date" />
+
+            <View
+                android:id="@+id/dividerView"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="@dimen/dimen_m"
+                android:background="@color/grey_light"
+                app:layout_constraintTop_toBottomOf="@id/holderEventLocationTxtView" />
+
+            <TextView
+                android:id="@+id/holderEventTimeTxtView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/dimen_s"
+                android:gravity="start|center_vertical"
+                android:paddingHorizontal="@dimen/dimen_m"
+                android:paddingVertical="@dimen/dimen_s"
+                android:text="@{model.time}"
+                app:drawableStartCompat="@drawable/ic_time_white"
+                app:drawableTint="@color/black"
+                app:layout_constraintTop_toBottomOf="@id/dividerView"
+                tools:text="@string/dummy_time" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
