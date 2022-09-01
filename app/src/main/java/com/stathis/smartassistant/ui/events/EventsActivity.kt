@@ -16,16 +16,12 @@ class EventsActivity : BaseActivity<ActivityEventsBinding>(R.layout.activity_eve
 
     override fun init() {
         navController = findNavController(R.id.events_nav_host_fragment)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     override fun startOps() {
         viewModel.screenTitle.observe(this) { title ->
             supportActionBar?.title = title
-
-            when (title) {
-                getString(R.string.events_intro_title) -> supportActionBar?.setDisplayHomeAsUpEnabled(false)
-                else -> supportActionBar?.setDisplayHomeAsUpEnabled(true)
-            }
         }
     }
 
@@ -33,10 +29,13 @@ class EventsActivity : BaseActivity<ActivityEventsBinding>(R.layout.activity_eve
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean = when (item.itemId) {
         android.R.id.home -> {
-            navController.popBackStack()
+            if (navController.graph.startDestinationId == navController.currentDestination?.id) {
+                finish()
+            } else {
+                navController.popBackStack()
+            }
             true
         }
-
         else -> false
     }
 }
