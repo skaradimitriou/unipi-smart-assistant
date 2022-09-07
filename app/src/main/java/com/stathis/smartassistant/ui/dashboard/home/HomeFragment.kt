@@ -7,6 +7,7 @@ import com.stathis.smartassistant.abstraction.BaseFragment
 import com.stathis.smartassistant.databinding.FragmentRoomsBinding
 import com.stathis.smartassistant.ui.rooms.RoomsActivity
 import com.stathis.smartassistant.util.ROOM_NAME
+import com.stathis.smartassistant.util.makeHomeTransition
 import com.stathis.smartassistant.util.setScreenTitle
 import com.stathis.smartassistant.util.setUserGreeting
 
@@ -22,6 +23,7 @@ class HomeFragment : BaseFragment<FragmentRoomsBinding>(R.layout.fragment_rooms)
 
     override fun startOps() {
         binding.userGreetingTxtView.setUserGreeting()
+        binding.constraintLayout.makeHomeTransition(binding.homeRoundedBgView)
 
         viewModel.getData { room ->
             goToRoomUtilsScreen(roomName = room.title)

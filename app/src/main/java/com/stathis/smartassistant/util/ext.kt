@@ -3,8 +3,11 @@ package com.stathis.smartassistant.util
 import android.text.Editable
 import android.text.SpannableStringBuilder
 import android.text.TextWatcher
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.content.res.AppCompatResources
+import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.core.text.bold
 import com.bumptech.glide.Glide
 import com.google.android.material.textfield.TextInputEditText
@@ -52,10 +55,43 @@ fun TextInputEditText.afterTextChanged(input: (String) -> Unit) {
         }
     })
 
-}fun TextInputEditText.onTextChanged(input: (String) -> Unit) {
+}
+
+fun TextInputEditText.onTextChanged(input: (String) -> Unit) {
     this.addTextChangedListener(object : TextWatcher {
         override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
-        override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) = input.invoke(p0.toString())
+        override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) =
+            input.invoke(p0.toString())
+
         override fun afterTextChanged(editable: Editable?) {}
+    })
+}
+
+fun MotionLayout.makeHomeTransition(view: View) {
+    setTransitionListener(object : MotionLayout.TransitionListener {
+        override fun onTransitionStarted(motionLayout: MotionLayout?, startId: Int, endId: Int) {}
+        override fun onTransitionChange(
+            motionLayout: MotionLayout?,
+            startId: Int,
+            endId: Int,
+            progress: Float
+        ) {}
+
+        override fun onTransitionCompleted(motionLayout: MotionLayout?, currentId: Int) {
+            motionLayout?.let {
+                if (motionLayout.currentState == R.id.start) {
+                    view.background = AppCompatResources.getDrawable(context, R.drawable.home_top_rounded_bg)
+                } else {
+                    view.background = AppCompatResources.getDrawable(context, R.drawable.home_top_bg)
+                }
+            }
+        }
+
+        override fun onTransitionTrigger(
+            motionLayout: MotionLayout?,
+            triggerId: Int,
+            positive: Boolean,
+            progress: Float
+        ) {}
     })
 }

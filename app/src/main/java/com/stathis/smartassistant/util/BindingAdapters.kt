@@ -2,10 +2,13 @@ package com.stathis.smartassistant.util
 
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.constraintlayout.motion.widget.MotionLayout
+import androidx.constraintlayout.utils.widget.MotionLabel
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.stathis.smartassistant.R
 import com.stathis.smartassistant.models.Event
+import kotlinx.coroutines.NonCancellable.start
 
 /**
  * This file contains the binding adapters that are used across the app
@@ -30,6 +33,10 @@ fun ImageView.loadImg(url: String? = null) {
 }
 
 @BindingAdapter("bindEventData")
-fun TextView.bindEventData(event : Event) {
-    text = this.context.getString(R.string.event_overview,event.title, event.transportationOption.title)
+fun TextView.bindEventData(event: Event) {
+    text = this.context.getString(
+        R.string.event_overview,
+        event.title,
+        event.transportationOption.title
+    )
 }

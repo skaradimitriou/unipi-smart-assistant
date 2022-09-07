@@ -1,6 +1,6 @@
 package com.stathis.smartassistant.util
 
-import android.content.DialogInterface
+import android.app.Activity
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.MenuProvider
 import androidx.databinding.ViewDataBinding
@@ -19,6 +19,14 @@ fun Fragment.addMenuProvider(menuProvider: MenuProvider) {
 
 fun Fragment.showAlertDialog(message: String) {
     AlertDialog.Builder(requireActivity())
+        .setMessage(message)
+        .setPositiveButton(R.string.ok) { dialog, id ->
+            dialog.dismiss()
+        }.create().show()
+}
+
+fun Activity.showAlertDialog(message: String) {
+    AlertDialog.Builder(this)
         .setMessage(message)
         .setPositiveButton(R.string.ok) { dialog, id ->
             dialog.dismiss()

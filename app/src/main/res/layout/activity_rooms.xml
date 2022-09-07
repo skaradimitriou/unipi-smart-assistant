@@ -19,32 +19,17 @@
         android:layout_height="match_parent"
         tools:context=".ui.rooms.RoomsActivity">
 
-        <TextView
-            android:id="@+id/selectedRoomTxtView"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="@color/light_blue"
-            android:gravity="center_horizontal|center_vertical"
-            android:text="@{selectedRoom}"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="@string/kitchen" />
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/roomUtilsRecycler"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="match_parent"
             android:adapter="@{viewModel.adapter}"
             android:orientation="vertical"
-            tools:listitem="@layout/holder_room_util_item"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/selectedRoomTxtView" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/holder_room_util_item" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

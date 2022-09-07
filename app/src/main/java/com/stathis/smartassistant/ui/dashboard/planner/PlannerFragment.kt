@@ -41,7 +41,10 @@ class PlannerFragment : BaseFragment<FragmentPlannerBinding>(R.layout.fragment_p
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
         when (menuItem.itemId) {
             R.id.infoItem -> showAlertDialog(getString(R.string.planner_info))
-            R.id.addItem -> startActivity(Intent(requireContext(), EventsActivity::class.java))
+            R.id.addItem -> {
+                val intent = Intent(requireContext(), EventsActivity::class.java)
+                startActivityForResult(intent, 100)
+            }
         }
         return false
     }

@@ -10,9 +10,11 @@
             type="com.stathis.smartassistant.ui.dashboard.home.HomeViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        app:layoutDescription="@xml/fragment_rooms_xml_constraintlayout_scene"
         tools:context=".ui.dashboard.home.HomeFragment">
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -53,52 +55,44 @@
         <View
             android:id="@+id/homeRoundedBgView"
             android:layout_width="0dp"
-            android:layout_height="@dimen/dimen_m"
+            android:layout_height="0dp"
             android:layout_marginTop="@dimen/dimen_l"
             android:background="@drawable/home_top_rounded_bg"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/userAddressTxtView" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <TextView
+            android:id="@+id/roomsTitleTxtView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:paddingHorizontal="@dimen/dimen_m"
+            android:paddingTop="@dimen/dimen_m"
+            android:text="@string/user_directions"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/homeRoundedBgView" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/homeScreenRecycler"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="@color/light_blue"
+            android:adapter="@{viewModel.adapter}"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:overScrollMode="never"
             android:paddingHorizontal="@dimen/dimen_m"
+            android:paddingBottom="@dimen/dimen_2xl"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/homeRoundedBgView">
+            app:layout_constraintTop_toBottomOf="@id/roomsTitleTxtView"
+            app:spanCount="2"
+            tools:listitem="@layout/holder_home_room_item" />
 
-            <TextView
-                android:id="@+id/roomsTitleTxtView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:paddingBottom="@dimen/dimen_10"
-                android:text="@string/user_directions"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/homeScreenRecycler"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:adapter="@{viewModel.adapter}"
-                android:orientation="vertical"
-                android:overScrollMode="never"
-                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/roomsTitleTxtView"
-                app:spanCount="2"
-                tools:listitem="@layout/holder_home_room_item" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.motion.widget.MotionLayout>
 </layout>

@@ -18,12 +18,16 @@
     <string name="user_address">Μπουμπουλίνας 1, Χαλάνδρι</string>
     <string name="user_directions"><b>Κάνε tap στο κάθε δωμάτιο</b> για να πλοηγηθείς</string>
 
-    <string name="living_room">Living Room</string>
-    <string name="kitchen">Kitchen</string>
-    <string name="garden">Garden</string>
-    <string name="main_bedroom">Main Bedroom</string>
-    <string name="sons_room">Son\'s room</string>
-    <string name="daughters_room">Daughter\'s room</string>
+    <string name="living_room">Σαλόνι</string>
+    <string name="kitchen">Κουζίνα</string>
+    <string name="garden">Κήπος</string>
+    <string name="main_bedroom">Κρεβατοκάμαρα #1</string>
+    <string name="sons_room">Παιδικό Δωμάτιο #1</string>
+    <string name="daughters_room">Παιδικό Δωμάτιο #2</string>
+
+    <!-- Rooms Screen -->
+    <string name="rooms_info">Σε αυτή την οθόνη εμφανίζονται οι δυνατότητες που έχει ο χρήστης στο συγκεκριμένο δωμάτιο. \n\nΠατώντας την αντίστοιχη ενότητα, μπορείτε να έχετε τον έλεγχο του σπιτιού σας κατευθείαν απο το κινητό!</string>
+
 
     <!-- General -->
     <string name="continue_btn">Συνέχεια</string>
