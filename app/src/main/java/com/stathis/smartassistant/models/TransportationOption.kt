@@ -1,10 +1,13 @@
 package com.stathis.smartassistant.models
 
 import com.stathis.smartassistant.abstraction.LocalModel
+import kotlin.random.Random
 
 data class TransportationOption(
     val title: String,
-    val image: Int
+    val image: Int,
+    val estimatedMinutes: Int = Random.nextInt(10, 59),
+    var isTheFasestWay: Boolean? = false
 ) : LocalModel {
     override fun equalsContent(obj: LocalModel): Boolean = when (obj) {
         is TransportationOption -> title == obj.title && image == obj.image

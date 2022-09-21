@@ -60,6 +60,8 @@
     <string name="transport_bus">Με Λεωφορείο</string>
     <string name="transport_bike">Με Ποδήλατο</string>
     <string name="transport_walk">Με τα πόδια</string>
+    <string name="estimated_time_minutes">%s λεπτά</string>
+    <string name="transport_fastest_option">Βέλτιστη Επιλογή</string>
 
     <!-- Traffic Screen -->
     <string name="dummy_address">Βυζαντίου 1 Ηλιούπολη</string>
@@ -70,6 +72,5 @@
     <string name="event_overview"><b>Τίτλος:</b> %s\n<b>Μετακίνηση:</b> %s\n</string>
     <string name="event_overview_title">Σύνοψη</string>
     <string name="event_overview_btn">Προσθήκη στο Ημερολόγιο</string>
-
 
 </resources>

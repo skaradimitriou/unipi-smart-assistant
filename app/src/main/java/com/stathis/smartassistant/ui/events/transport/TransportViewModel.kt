@@ -20,12 +20,18 @@ class TransportViewModel(val app: Application) : BaseViewModel(app), ItemCallbac
 
     private fun getData() {
         val list = listOf(
-            TransportationOption(getString(R.string.transport_train), R.drawable.living_room),
-            TransportationOption(getString(R.string.transport_car), R.drawable.living_room),
-            TransportationOption(getString(R.string.transport_bus), R.drawable.living_room),
-            TransportationOption(getString(R.string.transport_bike), R.drawable.living_room),
-            TransportationOption(getString(R.string.transport_walk), R.drawable.living_room)
+            TransportationOption(getString(R.string.transport_train), R.drawable.metro),
+            TransportationOption(getString(R.string.transport_car), R.drawable.car),
+            TransportationOption(getString(R.string.transport_bus), R.drawable.bus),
+            TransportationOption(getString(R.string.transport_bike), R.drawable.bike),
+            TransportationOption(getString(R.string.transport_walk), R.drawable.walk)
         )
+
+        list.map {
+            val bestSolution = list.minByOrNull { it.estimatedMinutes }
+            bestSolution?.isTheFasestWay = true
+        }
+
         adapter.submitList(list)
     }
 

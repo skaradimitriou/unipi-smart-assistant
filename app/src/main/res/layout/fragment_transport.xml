@@ -11,9 +11,12 @@
 
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.constraintlayout.motion.widget.MotionLayout
+        android:id="@+id/constraintLayout2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/grey_bg"
+        app:layoutDescription="@xml/fragment_transport_xml_constraintlayout2_scene"
         tools:context=".ui.events.transport.TransportFragment">
 
         <TextView
@@ -22,7 +25,7 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/dimen_m"
             android:text="@string/transport_screen_title"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -43,5 +46,5 @@
             tools:itemCount="5"
             tools:listitem="@layout/holder_transportation_option_item" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.motion.widget.MotionLayout>
 </layout>
