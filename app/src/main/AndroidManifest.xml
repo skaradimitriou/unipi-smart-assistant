@@ -13,7 +13,7 @@
         android:theme="@style/Theme.SmartAssistant">
         <activity
             android:name=".ui.events.EventsActivity"
-            android:windowSoftInputMode="adjustResize"
+            android:windowSoftInputMode="adjustNothing"
             android:exported="false" />
         <activity
             android:name=".ui.rooms.RoomsActivity"

@@ -13,7 +13,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/light_bg"
+        android:background="@color/grey_bg"
         tools:context=".ui.events.intro.IntroFragment">
 
         <TextView
@@ -28,25 +28,93 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/eventDescInputField"
-            style="?attr/textInputOutlinedStyle"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/eventInputConstraint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/dimen_l"
-            android:hint="@string/events_intro_label"
-            app:errorEnabled="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintBottom_toTopOf="@id/nextButton"
+            app:layout_constraintTop_toBottomOf="@id/introDescTxtView">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/eventDescriptionEditTxt"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/eventDescInputField"
+                style="?attr/textInputOutlinedStyle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:hint="@string/events_intro_label"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-        </com.google.android.material.textfield.TextInputLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/eventDescriptionEditTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionDone"
+                    android:singleLine="true" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/dateDescTxtView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_xl"
+                android:drawablePadding="@dimen/dimen_s"
+                android:gravity="start|center_vertical"
+                android:paddingVertical="@dimen/dimen_s"
+                android:text="@string/date"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:drawableStartCompat="@drawable/ic_date_white"
+                app:drawableTint="@color/black"
+                app:layout_constraintEnd_toStartOf="@id/timeDescTxtView"
+                app:layout_constraintStart_toStartOf="@id/eventDescInputField"
+                app:layout_constraintTop_toBottomOf="@id/eventDescInputField" />
+
+            <TextView
+                android:id="@+id/eventDateTxtView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingVertical="@dimen/dimen_s"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@id/dateDescTxtView"
+                app:layout_constraintStart_toStartOf="@id/dateDescTxtView"
+                app:layout_constraintTop_toBottomOf="@id/dateDescTxtView"
+                tools:text="@string/dummy_date" />
+
+            <TextView
+                android:id="@+id/timeDescTxtView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_xl"
+                android:drawablePadding="@dimen/dimen_s"
+                android:gravity="start|center_horizontal"
+                android:paddingVertical="@dimen/dimen_s"
+                android:text="@string/time"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:drawableStartCompat="@drawable/ic_time_white"
+                app:drawableTint="@color/black"
+                app:layout_constraintEnd_toEndOf="@id/eventDescInputField"
+                app:layout_constraintStart_toEndOf="@id/dateDescTxtView"
+                app:layout_constraintTop_toBottomOf="@id/eventDescInputField" />
+
+            <TextView
+                android:id="@+id/eventTimeTxtView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:paddingVertical="@dimen/dimen_s"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@id/eventDescInputField"
+                app:layout_constraintStart_toStartOf="@id/timeDescTxtView"
+                app:layout_constraintTop_toBottomOf="@id/timeDescTxtView"
+                tools:text="@string/dummy_time" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/nextButton"

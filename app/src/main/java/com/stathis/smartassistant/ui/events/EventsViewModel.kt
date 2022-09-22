@@ -11,6 +11,8 @@ class EventsViewModel(val app: Application) : BaseViewModel(app) {
 
     val screenTitle = MutableLiveData<String>()
     var eventTitle: String? = null
+    var eventTime : String? = null
+    var eventDate : String? = null
     var transportationOption: TransportationOption? = null
 
     fun getEvent() = Event(

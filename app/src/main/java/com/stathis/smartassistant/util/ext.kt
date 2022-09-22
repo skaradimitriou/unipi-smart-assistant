@@ -11,8 +11,8 @@ import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.core.text.bold
 import com.bumptech.glide.Glide
 import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
 import com.stathis.smartassistant.R
+import java.util.*
 
 /**
  * This file contains the extension functions that are used across the app
@@ -94,4 +94,18 @@ fun MotionLayout.makeHomeTransition(view: View) {
             progress: Float
         ) {}
     })
+}
+
+fun getDateAndTime(currentDate: (String) -> Unit, currentTime: (String) -> Unit) {
+    val c = Calendar.getInstance()
+
+    val year = c.get(Calendar.YEAR)
+    val month = c.get(Calendar.MONTH)
+    val day = c.get(Calendar.DAY_OF_MONTH)
+
+    val hour = c.get(Calendar.HOUR_OF_DAY)
+    val minute = c.get(Calendar.MINUTE)
+
+    currentDate.invoke("$day/$month/$year")
+    currentTime.invoke(String.format("%02d:%02d", hour, minute))
 }
