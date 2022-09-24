@@ -13,6 +13,7 @@ class EventsViewModel(val app: Application) : BaseViewModel(app) {
     var eventTitle: String? = null
     var eventTime : String? = null
     var eventDate : String? = null
+    var eventLocation : String? = null
     var transportationOption: TransportationOption? = null
 
     fun getEvent() = Event(

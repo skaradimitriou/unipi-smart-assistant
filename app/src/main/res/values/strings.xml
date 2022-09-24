@@ -52,9 +52,11 @@
     <string name="events_intro_desc">Προσθήκη Τίτλου</string>
     <string name="events_intro_label">Τίτλος</string>
     <string name="events_error_msg">Ο τίτλος θα πρέπει να αποτελείται απο τουλάχιστον 3 χαρακτήρες</string>
+    <string name="events_location_error_msg">Η τοποθεσία δεν μπορεί να είναι κενή</string>
     <string name="select_date">Επιλογή ημέρομηνίας</string>
     <string name="date">Ημερομηνία</string>
     <string name="time">Ώρα</string>
+    <string name="events_intro_location">Τοποθεσία</string>
 
     <!-- Transportation Screen -->
     <string name="transport_screen_title">Πώς θα γίνει η μετάβαση;</string>
@@ -69,7 +71,7 @@
     <!-- Traffic Screen -->
     <string name="dummy_address">Βυζαντίου 1 Ηλιούπολη</string>
     <string name="transport_via">Μετακίνηση %s</string>
-    <string name="transport_estimated_time">Εκτιμώμενος Χρόνος Διαδομής: %s λεπτά</string>
+    <string name="transport_estimated_time">Εκτιμώμενος Χρόνος Διαδομής: %d λεπτά</string>
 
     <!-- Result Screen -->
     <string name="event_overview"><b>Τίτλος:</b> %s\n<b>Μετακίνηση:</b> %s\n</string>

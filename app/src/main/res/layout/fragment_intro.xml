@@ -60,7 +60,7 @@
                 android:id="@+id/dateDescTxtView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dimen_xl"
+                android:layout_marginTop="@dimen/dimen_s"
                 android:drawablePadding="@dimen/dimen_s"
                 android:gravity="start|center_vertical"
                 android:paddingVertical="@dimen/dimen_s"
@@ -88,7 +88,7 @@
                 android:id="@+id/timeDescTxtView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dimen_xl"
+                android:layout_marginTop="@dimen/dimen_s"
                 android:drawablePadding="@dimen/dimen_s"
                 android:gravity="start|center_horizontal"
                 android:paddingVertical="@dimen/dimen_s"
@@ -112,6 +112,27 @@
                 app:layout_constraintStart_toStartOf="@id/timeDescTxtView"
                 app:layout_constraintTop_toBottomOf="@id/timeDescTxtView"
                 tools:text="@string/dummy_time" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/eventLocationInputField"
+                style="?attr/textInputOutlinedStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_s"
+                android:hint="@string/events_intro_location"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/eventDateTxtView">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/eventLocationEditTxt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:imeOptions="actionDone"
+                    android:singleLine="true" />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,6 +4,7 @@ import android.text.Editable
 import android.text.SpannableStringBuilder
 import android.text.TextWatcher
 import android.view.View
+import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
@@ -108,4 +109,13 @@ fun getDateAndTime(currentDate: (String) -> Unit, currentTime: (String) -> Unit)
 
     currentDate.invoke("$day/$month/$year")
     currentTime.invoke(String.format("%02d:%02d", hour, minute))
+}
+
+fun EditText.checkIfItsValid(isValid: (Boolean) -> Unit) {
+    if (this.text.isNotEmpty()) {
+        error = null
+        isValid.invoke(true)
+    } else {
+        isValid.invoke(false)
+    }
 }

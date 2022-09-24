@@ -6,10 +6,7 @@ import com.stathis.smartassistant.R
 import com.stathis.smartassistant.abstraction.BaseFragment
 import com.stathis.smartassistant.databinding.FragmentIntroBinding
 import com.stathis.smartassistant.ui.events.EventsViewModel
-import com.stathis.smartassistant.util.afterTextChanged
-import com.stathis.smartassistant.util.getDateAndTime
-import com.stathis.smartassistant.util.showDatePicker
-import com.stathis.smartassistant.util.showTimePicker
+import com.stathis.smartassistant.util.*
 
 
 class IntroFragment : BaseFragment<FragmentIntroBinding>(R.layout.fragment_intro) {
@@ -21,7 +18,7 @@ class IntroFragment : BaseFragment<FragmentIntroBinding>(R.layout.fragment_intro
     }
 
     override fun startOps() {
-        binding.ctaEnabled = true
+        binding.ctaEnabled = false
 
         getDateAndTime(
             currentDate = { date -> binding.eventDateTxtView.text = date },
@@ -32,15 +29,23 @@ class IntroFragment : BaseFragment<FragmentIntroBinding>(R.layout.fragment_intro
             validateInput(input)
         }
 
+        binding.eventLocationEditTxt.afterTextChanged { input ->
+            binding.eventLocationEditTxt.checkIfItsValid { isValid ->
+                binding.ctaEnabled = isValid
+
+                if(!isValid) binding.eventLocationInputField.error = getString(R.string.events_location_error_msg)
+            }
+        }
+
         binding.eventDateTxtView.setOnClickListener {
-            //open date input selection & bind the result to the screen
+            //open date selection & bind the result to the screen
             showDatePicker { selectedDate ->
                 binding.eventDateTxtView.text = selectedDate
             }
         }
 
         binding.eventTimeTxtView.setOnClickListener {
-            //open time input selection & bind the result to the screen
+            //open time selection & bind the result to the screen
             showTimePicker { selectedTime ->
                 binding.eventTimeTxtView.text = selectedTime
             }
@@ -50,6 +55,7 @@ class IntroFragment : BaseFragment<FragmentIntroBinding>(R.layout.fragment_intro
             binding.ctaEnabled = false
             viewModel.eventDate = binding.eventDateTxtView.text.toString()
             viewModel.eventTime = binding.eventTimeTxtView.text.toString()
+            viewModel.eventLocation = binding.eventLocationEditTxt.text.toString()
             goToTransportScreen()
         }
     }
