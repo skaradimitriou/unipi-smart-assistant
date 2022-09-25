@@ -15,11 +15,7 @@
     <fragment
         android:id="@+id/additionalsFragment"
         android:name="com.stathis.smartassistant.ui.events.additionals.AdditionalsFragment"
-        android:label="AdditionalsFragment" >
-        <action
-            android:id="@+id/goToResultScreen"
-            app:destination="@id/resultFragment" />
-    </fragment>
+        android:label="AdditionalsFragment" />
     <fragment
         android:id="@+id/resultFragment"
         android:name="com.stathis.smartassistant.ui.events.result.ResultFragment"
@@ -27,17 +23,13 @@
     <fragment
         android:id="@+id/trafficFragment"
         android:name="com.stathis.smartassistant.ui.events.traffic.TrafficFragment"
-        android:label="TrafficFragment" >
-        <action
-            android:id="@+id/goToAdditionalsScreen"
-            app:destination="@id/additionalsFragment" />
-    </fragment>
+        android:label="TrafficFragment" />
     <fragment
         android:id="@+id/transportFragment"
         android:name="com.stathis.smartassistant.ui.events.transport.TransportFragment"
         android:label="TransportFragment" >
         <action
-            android:id="@+id/goToTrafficScreen"
-            app:destination="@id/trafficFragment" />
+            android:id="@+id/goToAdditionalsScreen"
+            app:destination="@id/additionalsFragment" />
     </fragment>
 </navigation>

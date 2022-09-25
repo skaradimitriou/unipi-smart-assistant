@@ -6,6 +6,7 @@ import androidx.navigation.fragment.findNavController
 import com.stathis.smartassistant.R
 import com.stathis.smartassistant.abstraction.BaseFragment
 import com.stathis.smartassistant.databinding.FragmentTransportBinding
+import com.stathis.smartassistant.models.TransportationOption
 import com.stathis.smartassistant.ui.events.EventsViewModel
 
 class TransportFragment : BaseFragment<FragmentTransportBinding>(R.layout.fragment_transport) {
@@ -26,18 +27,41 @@ class TransportFragment : BaseFragment<FragmentTransportBinding>(R.layout.fragme
 
         viewModel.onTransportOptionTap { selectedOption ->
             sharedViewModel.transportationOption = selectedOption
-            goToTrafficScreen()
+            decideNextScreen(selectedOption)
         }
     }
 
     override fun stopOps() {}
 
+    private fun decideNextScreen(option: TransportationOption) = when (option.title) {
+        getString(R.string.transport_car) -> goToParkingScreen()
+        else -> goToAdditionalsScreen()
+    }
+
+    /*
+     * Navigates to the parking screen via safeargs
+     */
+
+    private fun goToParkingScreen() {
+//        val action = TransportFragmentDirections.goToTrafficScreen()
+//        findNavController().navigate(action)
+    }
+
+    /*
+     * Navigates to the additionals screen via safeargs
+     */
+
+    private fun goToAdditionalsScreen() {
+        val action = TransportFragmentDirections.goToAdditionalsScreen()
+        findNavController().navigate(action)
+    }
+
     /*
      * Navigates to the traffic screen via safeargs
      */
 
-    private fun goToTrafficScreen() {
-        val action = TransportFragmentDirections.goToTrafficScreen()
-        findNavController().navigate(action)
-    }
+//    private fun goToTrafficScreen() {
+//        val action = TransportFragmentDirections.goToTrafficScreen()
+//        findNavController().navigate(action)
+//    }
 }
