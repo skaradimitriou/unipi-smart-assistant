@@ -42,3 +42,8 @@ fun TextView.bindEventData(event: Event) {
 fun TextView.bindEstimatedTime(minutes: Int) {
     text = context.getString(R.string.estimated_time_minutes, minutes.toString())
 }
+
+@BindingAdapter("locationRange")
+fun TextView.locationRange(distance: Int) {
+    text = context.getString(R.string.shop_range, distance)
+}

@@ -1,6 +1,7 @@
 package com.stathis.smartassistant.ui.events.additionals
 
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.stathis.smartassistant.R
 import com.stathis.smartassistant.abstraction.BaseFragment
 import com.stathis.smartassistant.databinding.FragmentAdditionalsBinding
@@ -17,15 +18,24 @@ class AdditionalsFragment : BaseFragment<FragmentAdditionalsBinding>(R.layout.fr
 
     override fun startOps() {
         binding.pickStoreButton.setOnClickListener {
-
+            goToShopSelection()
         }
 
         binding.notNowButton.setOnClickListener {
-
+            //FIXME: add functionality
         }
     }
 
     override fun stopOps() {
         //
+    }
+
+    /*
+     * Navigates to the result screen via safeargs
+     */
+
+    private fun goToShopSelection() {
+        val action = AdditionalsFragmentDirections.goToShopsScreen()
+        findNavController().navigate(action)
     }
 }

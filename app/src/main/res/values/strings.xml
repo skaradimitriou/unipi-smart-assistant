@@ -45,7 +45,9 @@
     <string name="events_intro_title">Νέο Γεγονός | Περιγραφή</string>
     <string name="events_transport_title">Νέο Γεγονός | Μετακίνηση</string>
     <string name="events_traffic_title">Νέο Γεγονός | Οδηγίες</string>
-    <string name="events_additionals_title">Νέο Γεγονός | Πρόσθετα</string>
+    <string name="events_additionals_title">Πρόσθετα</string>
+    <string name="events_shops_title">Επιλογή Καταστήματος</string>
+    <string name="events_coffee_title">Επιλογή Καταστήματος</string>
     <string name="events_result_title">Νέο Γεγονός | Επιτυχία</string>
 
     <!-- Events Intro Screen -->
@@ -72,6 +74,15 @@
     <string name="additionals_header">Θα χρειαστείς καφέ;</string>
     <string name="additionals_desc">Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. </string>
     <string name="test">Θα χρειαστείς καφέ;</string>
+
+    <!-- Shop Screen -->
+    <string name="coffee_island">Coffee Island</string>
+    <string name="coffee_lab">Coffee Lab</string>
+    <string name="coffee_hoop">Coffee Hoop</string>
+    <string name="gregorys">Γρηγόρης</string>
+    <string name="mikel">Mikel</string>
+    <string name="coffee_berry">Coffee Berry</string>
+    <string name="shop_range">%dm</string>
 
     <!-- Traffic Screen -->
     <string name="dummy_address">Βυζαντίου 1 Ηλιούπολη</string>
