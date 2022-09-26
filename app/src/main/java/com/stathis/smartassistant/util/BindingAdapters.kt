@@ -47,3 +47,8 @@ fun TextView.bindEstimatedTime(minutes: Int) {
 fun TextView.locationRange(distance: Int) {
     text = context.getString(R.string.shop_range, distance)
 }
+
+@BindingAdapter("productPrice")
+fun TextView.productPrice(price: Double) {
+    text = context.getString(R.string.coffee_price_euros, price)
+}

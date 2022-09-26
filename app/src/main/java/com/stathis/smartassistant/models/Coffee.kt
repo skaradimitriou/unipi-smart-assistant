@@ -1,0 +1,20 @@
+package com.stathis.smartassistant.models
+
+import com.stathis.smartassistant.abstraction.LocalModel
+import kotlin.random.Random
+
+data class Coffee(
+    val title: String,
+    val image: Int,
+    val sugar: SugarType = SugarType.SWEET,
+    val price: Double = Random.nextDouble(1.00, 2.20)
+) : LocalModel {
+    override fun equalsContent(obj: LocalModel): Boolean = when (obj) {
+        is Coffee -> true
+        else -> false
+    }
+}
+
+enum class SugarType {
+    NO_SUGAR, REGULAR, SWEET
+}

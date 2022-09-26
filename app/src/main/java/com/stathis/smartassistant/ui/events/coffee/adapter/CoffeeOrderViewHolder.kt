@@ -1,18 +1,18 @@
-package com.stathis.smartassistant.ui.events.store.adapter
+package com.stathis.smartassistant.ui.events.coffee.adapter
 
 import androidx.databinding.ViewDataBinding
 import com.stathis.smartassistant.BR
 import com.stathis.smartassistant.abstraction.BaseViewHolder
 import com.stathis.smartassistant.abstraction.LocalModel
 import com.stathis.smartassistant.callbacks.ItemCallback
-import com.stathis.smartassistant.models.CoffeeShop
+import com.stathis.smartassistant.models.Coffee
 
-class CoffeeShopsViewHolder(val binding: ViewDataBinding, val callback: ItemCallback) :
+class CoffeeOrderViewHolder(val binding: ViewDataBinding, val callback: ItemCallback) :
     BaseViewHolder(binding) {
 
     override fun present(data: LocalModel) {
         when (data) {
-            is CoffeeShop -> {
+            is Coffee -> {
                 binding.setVariable(BR.model, data)
                 binding.setVariable(BR.callback, callback)
             }

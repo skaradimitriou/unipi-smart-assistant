@@ -3,6 +3,7 @@ package com.stathis.smartassistant.ui.events
 import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import com.stathis.smartassistant.abstraction.BaseViewModel
+import com.stathis.smartassistant.models.Coffee
 import com.stathis.smartassistant.models.CoffeeShop
 import com.stathis.smartassistant.models.Event
 import com.stathis.smartassistant.models.TransportationOption
@@ -16,6 +17,7 @@ class EventsViewModel(val app: Application) : BaseViewModel(app) {
     var eventDate: String? = null
     var eventLocation: String? = null
     var selectedShop: CoffeeShop? = null
+    var selectedCoffee : Coffee? = null
     var transportationOption: TransportationOption? = null
 
     fun getEvent() = Event(
