@@ -16,9 +16,7 @@ class ResultFragment : BaseFragment<FragmentResultBinding>(R.layout.fragment_res
     }
 
     override fun startOps() {
-        binding.event = viewModel.getEvent()
-
-        binding.nextButton.setOnClickListener {
+        binding.returnToPlannerBtn.setOnClickListener {
             //returns to planner screen in dashboard activity
             requireActivity().finish()
         }

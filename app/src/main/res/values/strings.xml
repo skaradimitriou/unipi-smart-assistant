@@ -74,6 +74,8 @@
     <string name="additionals_header">Θα χρειαστείς καφέ;</string>
     <string name="additionals_desc">Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. </string>
     <string name="test">Θα χρειαστείς καφέ;</string>
+    <string name="additionals_primary_btn">Επιλογή Καταστήματος</string>
+    <string name="additionals_secondary_btn">Όχι τώρα</string>
 
     <!-- Shop Screen -->
     <string name="coffee_island">Coffee Island</string>
@@ -85,19 +87,6 @@
     <string name="shop_range">%dm</string>
 
     <!-- Coffee Order Screen -->
-    <string name="coffee_price_euros">%,.2f€</string>
-
-    <!-- Traffic Screen -->
-    <string name="dummy_address">Βυζαντίου 1 Ηλιούπολη</string>
-    <string name="transport_via">Μετακίνηση %s</string>
-    <string name="transport_estimated_time">Εκτιμώμενος Χρόνος Διαδομής: %d λεπτά</string>
-
-    <!-- Result Screen -->
-    <string name="event_overview"><b>Τίτλος:</b> %s\n<b>Μετακίνηση:</b> %s\n</string>
-    <string name="event_overview_title">Σύνοψη</string>
-    <string name="event_overview_btn">Προσθήκη στο Ημερολόγιο</string>
-    <string name="additionals_primary_btn">Επιλογή Καταστήματος</string>
-    <string name="additionals_secondary_btn">Όχι τώρα</string>
     <string name="freddo_espresso">Freddo Espresso</string>
     <string name="freddo_cappuccino">Freddo Cappuccino</string>
     <string name="espresso">Espresso</string>
@@ -108,6 +97,19 @@
     <string name="frappe">Frappe</string>
     <string name="filtered_v60">Φίλτρου V60</string>
     <string name="greek_coffee">Ελληνικός</string>
+    <string name="coffee_price_euros">%,.2f€</string>
+
+    <!-- Traffic Screen -->
+    <string name="dummy_address">Βυζαντίου 1 Ηλιούπολη</string>
+    <string name="transport_via">Μετακίνηση %s</string>
+    <string name="transport_estimated_time">Εκτιμώμενος Χρόνος Διαδομής: %d λεπτά</string>
+
+    <!-- Result Screen -->
+    <string name="event_success">Το event δημιουργήθηκε!</string>
+    <string name="event_overview"><b>Τίτλος:</b> %s\n<b>Μετακίνηση:</b> %s\n</string>
+    <string name="event_overview_title">Σύνοψη</string>
+    <string name="event_overview_btn">Επιστροφή στο Ημερολόγιο</string>
+
 
 
 </resources>

@@ -19,6 +19,9 @@
         <action
             android:id="@+id/goToShopsScreen"
             app:destination="@id/coffeeShopsFragment" />
+        <action
+            android:id="@+id/goToOverviewScreen"
+            app:destination="@id/overviewFragment" />
     </fragment>
     <fragment
         android:id="@+id/resultFragment"
@@ -47,5 +50,17 @@
     <fragment
         android:id="@+id/coffeeOrderFragment"
         android:name="com.stathis.smartassistant.ui.events.coffee.CoffeeOrderFragment"
-        android:label="CoffeeOrderFragment" />
+        android:label="CoffeeOrderFragment" >
+        <action
+            android:id="@+id/goToOverviewScreen"
+            app:destination="@id/overviewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/overviewFragment"
+        android:name="com.stathis.smartassistant.ui.events.overview.OverviewFragment"
+        android:label="OverviewFragment" >
+        <action
+            android:id="@+id/goToResultScreen"
+            app:destination="@id/resultFragment" />
+    </fragment>
 </navigation>

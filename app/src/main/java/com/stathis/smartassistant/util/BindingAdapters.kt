@@ -34,7 +34,7 @@ fun TextView.bindEventData(event: Event) {
     text = this.context.getString(
         R.string.event_overview,
         event.title,
-        event.transportationOption.title
+        event.transportationOption?.title
     )
 }
 

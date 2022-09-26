@@ -22,13 +22,11 @@ class AdditionalsFragment : BaseFragment<FragmentAdditionalsBinding>(R.layout.fr
         }
 
         binding.notNowButton.setOnClickListener {
-            //FIXME: add functionality
+            goToEventOverview()
         }
     }
 
-    override fun stopOps() {
-        //
-    }
+    override fun stopOps() {}
 
     /*
      * Navigates to the result screen via safeargs
@@ -36,6 +34,15 @@ class AdditionalsFragment : BaseFragment<FragmentAdditionalsBinding>(R.layout.fr
 
     private fun goToShopSelection() {
         val action = AdditionalsFragmentDirections.goToShopsScreen()
+        findNavController().navigate(action)
+    }
+
+    /*
+     * Navigates to the overview screen via safeargs
+     */
+
+    private fun goToEventOverview() {
+        val action = AdditionalsFragmentDirections.goToOverviewScreen()
         findNavController().navigate(action)
     }
 }

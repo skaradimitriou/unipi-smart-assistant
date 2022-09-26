@@ -2,6 +2,7 @@ package com.stathis.smartassistant.ui.events.coffee
 
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.stathis.smartassistant.R
 import com.stathis.smartassistant.abstraction.BaseFragment
 import com.stathis.smartassistant.databinding.FragmentCoffeeOrderBinding
@@ -31,6 +32,7 @@ class CoffeeOrderFragment : BaseFragment<FragmentCoffeeOrderBinding>(R.layout.fr
      */
 
     private fun goToOverviewScreen() {
-        //FIXME: Add functionality
+        val action = CoffeeOrderFragmentDirections.goToOverviewScreen()
+        findNavController().navigate(action)
     }
 }
