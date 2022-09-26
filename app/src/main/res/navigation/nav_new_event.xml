@@ -38,6 +38,9 @@
         <action
             android:id="@+id/goToAdditionalsScreen"
             app:destination="@id/additionalsFragment" />
+        <action
+            android:id="@+id/goToParkingSlotScreen"
+            app:destination="@id/parkingSlotFragment" />
     </fragment>
     <fragment
         android:id="@+id/coffeeShopsFragment"
@@ -63,4 +66,8 @@
             android:id="@+id/goToResultScreen"
             app:destination="@id/resultFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/parkingSlotFragment"
+        android:name="com.stathis.smartassistant.ui.events.parking.ParkingSlotFragment"
+        android:label="ParkingSlotFragment" />
 </navigation>

@@ -20,11 +20,6 @@ class TransportFragment : BaseFragment<FragmentTransportBinding>(R.layout.fragme
     }
 
     override fun startOps() {
-        /*
-         * FIXME: Add UI Stylings
-         *        Add Motion Layout on RecyclerView Scroll
-         */
-
         viewModel.onTransportOptionTap { selectedOption ->
             sharedViewModel.transportationOption = selectedOption
             decideNextScreen(selectedOption)
@@ -43,8 +38,8 @@ class TransportFragment : BaseFragment<FragmentTransportBinding>(R.layout.fragme
      */
 
     private fun goToParkingScreen() {
-//        val action = TransportFragmentDirections.goToTrafficScreen()
-//        findNavController().navigate(action)
+        val action = TransportFragmentDirections.goToParkingSlotScreen()
+        findNavController().navigate(action)
     }
 
     /*
