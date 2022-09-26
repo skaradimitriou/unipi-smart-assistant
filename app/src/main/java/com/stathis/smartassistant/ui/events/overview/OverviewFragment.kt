@@ -19,7 +19,7 @@ class OverviewFragment : BaseFragment<FragmentOverviewBinding>(R.layout.fragment
 
     override fun startOps() {
         val fullEventData = sharedViewModel.getEvent()
-        //viewModel.bindModel(fullEventData)
+        viewModel.bindModel(fullEventData)
 
         binding.continueBtn.setOnClickListener {
             goToResultScreen()

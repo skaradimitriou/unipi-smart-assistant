@@ -14,4 +14,8 @@ data class Event(
         is Event -> title == obj.title && transportationOption == obj.transportationOption
         else -> false
     }
+
+    fun hasAdditionals(): Boolean {
+        return shop != null && coffee != null
+    }
 }

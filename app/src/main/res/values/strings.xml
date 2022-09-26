@@ -109,7 +109,9 @@
     <string name="event_overview"><b>Τίτλος:</b> %s\n<b>Μετακίνηση:</b> %s\n</string>
     <string name="event_overview_title">Σύνοψη</string>
     <string name="event_overview_btn">Επιστροφή στο Ημερολόγιο</string>
-
+    <string name="coffee_order">Παραγγελία Καφέ</string>
+    <string name="transport_type">Τρόπος Μετακίνησης</string>
+    <string name="add_to_planner">Προσθήκη στο Planner μου</string>
 
 
 </resources>

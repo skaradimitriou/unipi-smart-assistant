@@ -1,19 +1,15 @@
 package com.stathis.smartassistant.ui.events.overview
 
-import android.app.Application
-import android.view.View
-import com.stathis.smartassistant.abstraction.BaseViewModel
-import com.stathis.smartassistant.callbacks.ItemCallback
+import androidx.lifecycle.ViewModel
 import com.stathis.smartassistant.models.Event
-import com.stathis.smartassistant.ui.dashboard.planner.adapter.PlannerAdapter
+import com.stathis.smartassistant.ui.events.overview.adapter.EventOverviewAdapter
 
-class OverviewViewModel(val app: Application) : BaseViewModel(app), ItemCallback {
+class OverviewViewModel() : ViewModel() {
 
-    val adapter = PlannerAdapter(this)
+    val adapter = EventOverviewAdapter()
 
-
-    override fun onItemTap(view: View) = when (view.tag) {
-        is Event -> { }
-        else -> Unit
+    fun bindModel(event: Event) {
+        val list = listOf(event)
+        adapter.submitList(list)
     }
 }

@@ -22,8 +22,10 @@ class EventsViewModel(val app: Application) : BaseViewModel(app) {
 
     fun getEvent() = Event(
         title = eventTitle.toUiModel(),
-        date = "",
-        time = "",
-        transportationOption = transportationOption.toUiModel()
+        date = eventDate.toUiModel(),
+        time = eventTime.toUiModel(),
+        transportationOption = transportationOption.toUiModel(),
+        shop = selectedShop,
+        coffee = selectedCoffee,
     )
 }
