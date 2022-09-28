@@ -39,8 +39,8 @@
             android:id="@+id/goToAdditionalsScreen"
             app:destination="@id/additionalsFragment" />
         <action
-            android:id="@+id/goToParkingSlotScreen"
-            app:destination="@id/parkingSlotFragment" />
+            android:id="@+id/goToParkingPromoScreen"
+            app:destination="@id/parkingPromoFragment" />
     </fragment>
     <fragment
         android:id="@+id/coffeeShopsFragment"
@@ -67,7 +67,22 @@
             app:destination="@id/resultFragment" />
     </fragment>
     <fragment
+        android:id="@+id/parkingPromoFragment"
+        android:name="com.stathis.smartassistant.ui.events.parking.ParkingPromoFragment"
+        android:label="ParkingSlotFragment" >
+        <action
+            android:id="@+id/goToAdditionalsScreen"
+            app:destination="@id/additionalsFragment" />
+        <action
+            android:id="@+id/goToParkingSlotScreen"
+            app:destination="@id/parkingSlotFragment" />
+    </fragment>
+    <fragment
         android:id="@+id/parkingSlotFragment"
         android:name="com.stathis.smartassistant.ui.events.parking.ParkingSlotFragment"
-        android:label="ParkingSlotFragment" />
+        android:label="ParkingSlotFragment" >
+        <action
+            android:id="@+id/goToAdditionalsScreen"
+            app:destination="@id/additionalsFragment" />
+    </fragment>
 </navigation>

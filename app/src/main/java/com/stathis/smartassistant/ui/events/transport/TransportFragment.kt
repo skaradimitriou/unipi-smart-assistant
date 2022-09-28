@@ -38,7 +38,7 @@ class TransportFragment : BaseFragment<FragmentTransportBinding>(R.layout.fragme
      */
 
     private fun goToParkingScreen() {
-        val action = TransportFragmentDirections.goToParkingSlotScreen()
+        val action = TransportFragmentDirections.goToParkingPromoScreen()
         findNavController().navigate(action)
     }
 
@@ -50,13 +50,4 @@ class TransportFragment : BaseFragment<FragmentTransportBinding>(R.layout.fragme
         val action = TransportFragmentDirections.goToAdditionalsScreen()
         findNavController().navigate(action)
     }
-
-    /*
-     * Navigates to the traffic screen via safeargs
-     */
-
-//    private fun goToTrafficScreen() {
-//        val action = TransportFragmentDirections.goToTrafficScreen()
-//        findNavController().navigate(action)
-//    }
 }

@@ -16,6 +16,7 @@ class EventsViewModel(val app: Application) : BaseViewModel(app) {
     var eventTime: String? = null
     var eventDate: String? = null
     var eventLocation: String? = null
+    var parkingSlot: String? = null
     var selectedShop: CoffeeShop? = null
     var selectedCoffee : Coffee? = null
     var transportationOption: TransportationOption? = null

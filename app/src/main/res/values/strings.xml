@@ -112,6 +112,10 @@
     <string name="coffee_order">Παραγγελία Καφέ</string>
     <string name="transport_type">Τρόπος Μετακίνησης</string>
     <string name="add_to_planner">Προσθήκη στο Planner μου</string>
+    <string name="parking_slot_header">Η θέση σου είναι έτοιμη!</string>
+    <string name="parking_slot_dummy">D24</string>
+    <string name="parking_promo_header">Parking εύκολα και γρήγορα</string>
+    <string name="parking_promo_search_btn">Αναζήτηση Θέσης Parking</string>
 
 
 </resources>

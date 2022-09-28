@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="@dimen/dimen_l"
-        tools:context=".ui.events.parking.ParkingSlotFragment">
+        tools:context=".ui.events.parking.ParkingPromoFragment">
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/parkingImgView"
@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:paddingTop="@dimen/dimen_m"
-            android:text="@string/parking_slot_header"
+            android:text="@string/parking_promo_header"
             android:textSize="22sp"
             android:textStyle="bold"
             app:layout_constraintTop_toBottomOf="@id/parkingImgView" />
@@ -41,19 +41,6 @@
             android:textSize="16sp"
             app:layout_constraintTop_toBottomOf="@id/parkingHeaderTxtView" />
 
-        <TextView
-            android:id="@+id/parkingSlotTxtView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:paddingTop="@dimen/dimen_s"
-            android:text="@string/parking_slot_dummy"
-            android:textSize="34sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/bottomConstraint"
-            app:layout_constraintTop_toBottomOf="@id/parkingDescTxtView" />
-
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/bottomConstraint"
             android:layout_width="match_parent"
@@ -63,11 +50,24 @@
             app:layout_constraintStart_toStartOf="parent">
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/continueButton"
+                android:id="@+id/searchForParkingSlotButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_s"
+                android:background="@color/purple_700"
+                android:text="@string/parking_promo_search_btn"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toTopOf="@id/notNowButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/notNowButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/purple_700"
-                android:text="@string/continue_btn"
+                android:text="@string/additionals_secondary_btn"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
