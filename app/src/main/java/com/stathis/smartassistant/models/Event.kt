@@ -7,6 +7,7 @@ data class Event(
     val date: String,
     val time: String,
     val transportationOption: TransportationOption? = null,
+    val parkingInfo: ParkingInfo? = null,
     val shop: CoffeeShop? = null,
     val coffee: Coffee? = null,
 ) : LocalModel {

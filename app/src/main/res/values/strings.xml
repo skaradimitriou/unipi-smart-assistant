@@ -72,10 +72,17 @@
 
     <!-- Additionals Screen -->
     <string name="additionals_header">Θα χρειαστείς καφέ;</string>
-    <string name="additionals_desc">Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet. </string>
+    <string name="additionals_desc">Μια μέρα χωρίς καφέ είναι μια μέρα χαμένη. Παράγγειλε τον αγαπημένο σου καφέ μέσα απο την εφαρμογή.</string>
     <string name="test">Θα χρειαστείς καφέ;</string>
     <string name="additionals_primary_btn">Επιλογή Καταστήματος</string>
     <string name="additionals_secondary_btn">Όχι τώρα</string>
+
+    <!-- Parking Screens -->
+    <string name="parking_promo_header">Parking εύκολα και γρήγορα</string>
+    <string name="parking_promo_desc">Τώρα μπορείς να βρεις γρήγορα και εύκολα την κοντινότερη θέση parking βάσει του προορισμού σου.</string>
+    <string name="parking_promo_search_btn">Αναζήτηση Θέσης Parking</string>
+    <string name="parking_slot_header">Η θέση σου είναι έτοιμη!</string>
+    <string name="parking_slot_dummy">D24</string>
 
     <!-- Shop Screen -->
     <string name="coffee_island">Coffee Island</string>
@@ -112,10 +119,6 @@
     <string name="coffee_order">Παραγγελία Καφέ</string>
     <string name="transport_type">Τρόπος Μετακίνησης</string>
     <string name="add_to_planner">Προσθήκη στο Planner μου</string>
-    <string name="parking_slot_header">Η θέση σου είναι έτοιμη!</string>
-    <string name="parking_slot_dummy">D24</string>
-    <string name="parking_promo_header">Parking εύκολα και γρήγορα</string>
-    <string name="parking_promo_search_btn">Αναζήτηση Θέσης Parking</string>
 
 
 </resources>

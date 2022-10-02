@@ -12,8 +12,7 @@ class CoffeeOrderAdapter(val callback: ItemCallback) :
     ListAdapter<LocalModel, CoffeeOrderViewHolder>(DiffUtilClass<LocalModel>()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CoffeeOrderViewHolder {
-        val view =
-            HolderCoffeeItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val view = HolderCoffeeItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return CoffeeOrderViewHolder(view, callback)
     }
 

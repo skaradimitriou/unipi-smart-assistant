@@ -36,11 +36,11 @@
                 android:layout_height="@dimen/dimen_100"
                 android:contentDescription="@{model.title}"
                 android:scaleType="centerCrop"
-                android:src="@mipmap/ic_launcher"
                 app:imageResource="@{model.image}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@mipmap/ic_launcher" />
 
             <TextView
                 android:id="@+id/holderTitleTxtView"
@@ -63,11 +63,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/dimen_m"
                 android:layout_marginTop="@dimen/dimen_s"
-                app:productPrice="@{model.price}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/holderCoffeeImgView"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/holderTitleTxtView"
+                app:productPrice="@{model.price}"
                 tools:text="Coffee" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

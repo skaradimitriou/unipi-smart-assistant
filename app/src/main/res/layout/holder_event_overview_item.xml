@@ -151,12 +151,71 @@
             tools:text="@string/transport_train" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/coffeeConstraint"
+            android:id="@+id/parkingConstraint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/dimen_m"
             android:visibility="@{model.hasAdditionals() ? View.VISIBLE : View.GONE}"
             app:layout_constraintTop_toBottomOf="@id/transportationTypeTxtView">
+
+            <View
+                android:id="@+id/parkingDividerView"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="@dimen/dimen_m"
+                android:background="@color/grey_bg"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/parkingTxtView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_s"
+                android:drawablePadding="@dimen/dimen_s"
+                android:gravity="start|center_vertical"
+                android:paddingVertical="@dimen/dimen_s"
+                android:text="Θέση Parking"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:drawableStartCompat="@drawable/ic_date_white"
+                app:drawableTint="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/parkingDividerView" />
+
+            <TextView
+                android:id="@+id/parkingSlotTxtView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingVertical="@dimen/dimen_xs"
+                android:text="@{model.parkingInfo.slot}"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@id/parkingTxtView"
+                app:layout_constraintStart_toStartOf="@id/parkingTxtView"
+                app:layout_constraintTop_toBottomOf="@id/parkingTxtView"
+                tools:text="D24" />
+
+            <TextView
+                android:id="@+id/parkingCompanyTxtView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingVertical="@dimen/dimen_xs"
+                android:text="@{model.parkingInfo.company}"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@id/parkingTxtView"
+                app:layout_constraintStart_toStartOf="@id/parkingTxtView"
+                app:layout_constraintTop_toBottomOf="@id/parkingSlotTxtView"
+                tools:text="Citizen Parking" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/coffeeConstraint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_m"
+            android:visibility="@{model.hasAdditionals() ? View.VISIBLE : View.GONE}"
+            app:layout_constraintTop_toBottomOf="@id/parkingConstraint">
 
             <View
                 android:id="@+id/additionalsDividerView"

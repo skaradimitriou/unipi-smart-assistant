@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:paddingTop="@dimen/dimen_s"
-            android:text="@string/additionals_desc"
+            android:text="@string/parking_promo_desc"
             android:textSize="16sp"
             app:layout_constraintTop_toBottomOf="@id/parkingHeaderTxtView" />
 

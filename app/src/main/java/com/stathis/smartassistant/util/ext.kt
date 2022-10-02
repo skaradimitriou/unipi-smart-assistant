@@ -76,14 +76,17 @@ fun MotionLayout.makeHomeTransition(view: View) {
             startId: Int,
             endId: Int,
             progress: Float
-        ) {}
+        ) {
+        }
 
         override fun onTransitionCompleted(motionLayout: MotionLayout?, currentId: Int) {
             motionLayout?.let {
                 if (motionLayout.currentState == R.id.start) {
-                    view.background = AppCompatResources.getDrawable(context, R.drawable.home_top_rounded_bg)
+                    view.background =
+                        AppCompatResources.getDrawable(context, R.drawable.home_top_rounded_bg)
                 } else {
-                    view.background = AppCompatResources.getDrawable(context, R.drawable.home_top_bg)
+                    view.background =
+                        AppCompatResources.getDrawable(context, R.drawable.home_top_bg)
                 }
             }
         }
@@ -93,7 +96,8 @@ fun MotionLayout.makeHomeTransition(view: View) {
             triggerId: Int,
             positive: Boolean,
             progress: Float
-        ) {}
+        ) {
+        }
     })
 }
 

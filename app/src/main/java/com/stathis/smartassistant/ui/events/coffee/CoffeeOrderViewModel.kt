@@ -9,26 +9,25 @@ import com.stathis.smartassistant.callbacks.ItemCallback
 import com.stathis.smartassistant.models.Coffee
 import com.stathis.smartassistant.ui.events.coffee.adapter.CoffeeOrderAdapter
 
-class CoffeeOrderViewModel(val app : Application) : BaseViewModel(app), ItemCallback {
+class CoffeeOrderViewModel(val app: Application) : BaseViewModel(app), ItemCallback {
 
     val adapter = CoffeeOrderAdapter(this)
-    private lateinit var callback : CoffeeItemCallback
+    private lateinit var callback: CoffeeItemCallback
 
 
     fun bindList(callback: CoffeeItemCallback) {
         this.callback = callback
-        
+
         val list = listOf(
-            Coffee(getString(R.string.freddo_espresso), R.drawable.coffee_island),
-            Coffee(getString(R.string.freddo_cappuccino), R.drawable.coffee_island),
-            Coffee(getString(R.string.espresso), R.drawable.coffee_island),
-            Coffee(getString(R.string.cappuccino), R.drawable.coffee_island),
-            Coffee(getString(R.string.latte), R.drawable.coffee_island),
-            Coffee(getString(R.string.nes), R.drawable.coffee_island),
-            Coffee(getString(R.string.flat_white), R.drawable.coffee_island),
-            Coffee(getString(R.string.frappe), R.drawable.coffee_island),
-            Coffee(getString(R.string.filtered_v60), R.drawable.coffee_island),
-            Coffee(getString(R.string.greek_coffee), R.drawable.coffee_island)
+            Coffee(getString(R.string.freddo_espresso), R.drawable.freddo_espresso),
+            Coffee(getString(R.string.freddo_cappuccino), R.drawable.freddo_cappuccino),
+            Coffee(getString(R.string.espresso), R.drawable.espresso),
+            Coffee(getString(R.string.cappuccino), R.drawable.cappuccino),
+            Coffee(getString(R.string.latte), R.drawable.latte),
+            Coffee(getString(R.string.nes), R.drawable.nescafe),
+            Coffee(getString(R.string.frappe), R.drawable.frappe),
+            Coffee(getString(R.string.filtered_v60), R.drawable.v60_coffee),
+            Coffee(getString(R.string.greek_coffee), R.drawable.greek_coffee)
         )
 
         adapter.submitList(list)
