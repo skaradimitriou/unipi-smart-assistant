@@ -6,7 +6,7 @@ import kotlin.random.Random
 data class Coffee(
     val title: String,
     val image: Int,
-    val sugar: SugarType = SugarType.SWEET,
+    var sugar: SugarType = SugarType.SWEET,
     val price: Double = Random.nextDouble(1.00, 2.20)
 ) : LocalModel {
     override fun equalsContent(obj: LocalModel): Boolean = when (obj) {
@@ -16,5 +16,5 @@ data class Coffee(
 }
 
 enum class SugarType {
-    NO_SUGAR, REGULAR, SWEET
+    SWEET, REGULAR, NO_SUGAR
 }

@@ -2,16 +2,22 @@ package com.stathis.smartassistant.util
 
 import android.app.Activity
 import android.text.format.DateFormat
+import android.view.LayoutInflater
+import android.widget.ArrayAdapter
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.MenuProvider
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
 import com.stathis.smartassistant.R
+import com.stathis.smartassistant.databinding.CoffeeSugarSelectionBsBinding
+import com.stathis.smartassistant.models.SugarType
+import timber.log.Timber
 import java.util.*
 
 fun Fragment.setScreenTitle(title: String) {
@@ -71,4 +77,29 @@ fun Fragment.showTimePicker(onTimeSelected: (String) -> Unit) {
         val hour = picker.hour
         onTimeSelected.invoke("$hour:$minute")
     }
+}
+
+fun Fragment.showSugarSelection(sugarType: (SugarType) -> Unit) {
+    val binding = CoffeeSugarSelectionBsBinding.inflate(LayoutInflater.from(requireContext()))
+    val dialog = BottomSheetDialog(requireContext())
+    dialog.setContentView(binding.root)
+
+    ArrayAdapter.createFromResource(
+        requireContext(),
+        R.array.sugar_types,
+        android.R.layout.simple_spinner_item
+    ).also { adapter ->
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.sugarSelectionSpinner.adapter = adapter
+    }
+
+    binding.submitButton.setOnClickListener {
+        when (binding.sugarSelectionSpinner.selectedItem.toString()) {
+            getString(R.string.coffee_no_sugar) -> sugarType.invoke(SugarType.NO_SUGAR)
+            getString(R.string.coffee_medium_sugar) -> sugarType.invoke(SugarType.REGULAR)
+            getString(R.string.coffee_sweet) -> sugarType.invoke(SugarType.SWEET)
+        }
+        dialog.dismiss()
+    }
+    dialog.show()
 }

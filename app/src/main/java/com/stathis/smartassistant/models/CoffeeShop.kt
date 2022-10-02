@@ -7,6 +7,7 @@ data class CoffeeShop(
     val shopTitle: String,
     val shopImg: Int,
     val distance: Int = Random.nextInt(200, 400),
+    val servingTime: Int = Random.nextInt(3, 15),
     val isOpen: Boolean? = true,
     var isBestOption: Boolean? = false
 ) : LocalModel {

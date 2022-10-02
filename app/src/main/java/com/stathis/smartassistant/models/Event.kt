@@ -1,6 +1,12 @@
 package com.stathis.smartassistant.models
 
+import android.annotation.SuppressLint
 import com.stathis.smartassistant.abstraction.LocalModel
+import timber.log.Timber
+import java.time.Duration
+import java.time.LocalDateTime
+import java.time.LocalTime
+import java.time.format.DateTimeFormatter
 
 data class Event(
     val title: String,
@@ -16,7 +22,26 @@ data class Event(
         else -> false
     }
 
+    fun hasParkingInfo(): Boolean = parkingInfo != null
+
     fun hasAdditionals(): Boolean {
         return shop != null && coffee != null
+    }
+
+    @SuppressLint("NewApi")
+    fun getTotalTime(): String {
+        val transportMinutes = transportationOption?.estimatedMinutes ?: 0
+        val servingTime = shop?.servingTime ?: 0
+        val totalTime = transportMinutes + servingTime
+
+        val time = LocalTime.MIN.plus(
+            Duration.ofMinutes(totalTime.toLong())
+        )
+
+        return when {
+            time.hour.toString() == "0" -> "${time.minute} λεπτά"
+            time.hour.toString() == "1" -> "${time.hour} ώρα και ${time.minute} λεπτά"
+            else -> "${time.hour} ώρες και ${time.minute} λεπτά"
+        }
     }
 }

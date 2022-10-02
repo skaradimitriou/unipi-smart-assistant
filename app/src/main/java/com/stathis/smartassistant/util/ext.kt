@@ -15,6 +15,7 @@ import androidx.core.text.bold
 import com.bumptech.glide.Glide
 import com.google.android.material.textfield.TextInputEditText
 import com.stathis.smartassistant.R
+import com.stathis.smartassistant.models.SugarType
 import java.util.*
 
 /**
@@ -130,4 +131,11 @@ fun EditText.checkIfItsValid(isValid: (Boolean) -> Unit) {
  * Helper fun to get colors from resources
  */
 
-fun Context.getActualColor(color : Int) : Int = ContextCompat.getColor(this, color)
+fun Context.getActualColor(color: Int): Int = ContextCompat.getColor(this, color)
+
+fun SugarType.toUiText(): String = when (name) {
+    SugarType.NO_SUGAR.name -> "Σκέτο"
+    SugarType.REGULAR.name -> "Μέτριο"
+    SugarType.SWEET.name -> "Γλυκό"
+    else -> ""
+}

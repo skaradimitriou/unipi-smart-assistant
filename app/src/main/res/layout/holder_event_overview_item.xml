@@ -150,13 +150,43 @@
             app:layout_constraintTop_toBottomOf="@id/transportTypeTxtView"
             tools:text="@string/transport_train" />
 
+        <TextView
+            android:id="@+id/transportTimeTxtView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_m"
+            android:layout_marginTop="@dimen/dimen_s"
+            android:drawablePadding="@dimen/dimen_s"
+            android:gravity="start|center_vertical"
+            android:paddingVertical="@dimen/dimen_s"
+            android:text="@string/total_moving_time"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:drawableStartCompat="@drawable/ic_date_white"
+            app:drawableTint="@color/black"
+            app:layout_constraintEnd_toStartOf="@id/timeDescTxtView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/transportationTypeTxtView" />
+
+        <TextView
+            android:id="@+id/transportationTimeTxtView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/dimen_xs"
+            android:text="@{model.totalTime}"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@id/dateDescTxtView"
+            app:layout_constraintStart_toStartOf="@id/dateDescTxtView"
+            app:layout_constraintTop_toBottomOf="@id/transportTimeTxtView"
+            tools:text="@string/transport_train" />
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/parkingConstraint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/dimen_m"
-            android:visibility="@{model.hasAdditionals() ? View.VISIBLE : View.GONE}"
-            app:layout_constraintTop_toBottomOf="@id/transportationTypeTxtView">
+            android:visibility="@{model.hasParkingInfo() ? View.VISIBLE : View.GONE}"
+            app:layout_constraintTop_toBottomOf="@id/transportationTimeTxtView">
 
             <View
                 android:id="@+id/parkingDividerView"
@@ -174,7 +204,7 @@
                 android:drawablePadding="@dimen/dimen_s"
                 android:gravity="start|center_vertical"
                 android:paddingVertical="@dimen/dimen_s"
-                android:text="Θέση Parking"
+                android:text="@string/parking_slot"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:drawableStartCompat="@drawable/ic_date_white"
@@ -270,7 +300,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/dimen_m"
-                android:text="@{model.coffee.title}"
+                app:coffeeTitle="@{model.coffee}"
                 app:layout_constraintStart_toEndOf="@id/shopImgView"
                 app:layout_constraintTop_toBottomOf="@id/shopTxtView"
                 tools:text="@string/coffee_lab" />

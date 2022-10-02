@@ -5,6 +5,8 @@ import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.stathis.smartassistant.R
+import com.stathis.smartassistant.models.Coffee
+import com.stathis.smartassistant.models.SugarType
 import com.stathis.smartassistant.models.TransportationOption
 
 /**
@@ -60,4 +62,9 @@ fun TextView.trafficLevel(transportationOption: TransportationOption) {
 @BindingAdapter("productPrice")
 fun TextView.productPrice(price: Double) {
     text = context.getString(R.string.coffee_price_euros, price)
+}
+
+@BindingAdapter("coffeeTitle")
+fun TextView.coffeeTitle(coffee: Coffee) {
+    text = context.getString(R.string.coffee_title_with_sugar, coffee.title, coffee.sugar.toUiText())
 }

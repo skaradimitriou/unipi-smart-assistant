@@ -105,6 +105,15 @@
     <string name="filtered_v60">Φίλτρου V60</string>
     <string name="greek_coffee">Ελληνικός</string>
     <string name="coffee_price_euros">%,.2f€</string>
+    <string name="coffee_no_sugar">Σκέτος</string>
+    <string name="coffee_medium_sugar">Μέτριος</string>
+    <string name="coffee_sweet">Γλυκός</string>
+    <string name="sugar_selection_header">Επίλεξε Ζάχαρη</string>
+    <string-array name="sugar_types">
+        <item>Σκέτος</item>
+        <item>Μέτριος</item>
+        <item>Γλυκός</item>
+    </string-array>
 
     <!-- Traffic Screen -->
     <string name="traffic_info">Κίνηση στους δρόμους</string>
@@ -112,15 +121,20 @@
     <string name="traffic_medium">Κανονική</string>
     <string name="traffic_high">Αυξημένη</string>
 
+    <!-- Overview Screen -->
+    <string name="coffee_order">Παραγγελία Καφέ</string>
+    <string name="coffee_title_with_sugar">%s %s</string>
+    <string name="transport_type">Τρόπος Μετακίνησης</string>
+    <string name="parking_slot">Θέση Parking</string>
+    <string name="total_moving_time">Συνολικός Χρόνος Μετακίνησης</string>
+    <string name="add_to_planner">Προσθήκη στο Planner μου</string>
 
     <!-- Result Screen -->
     <string name="event_success">Το event δημιουργήθηκε!</string>
     <string name="event_overview"><b>Τίτλος:</b> %s\n<b>Μετακίνηση:</b> %s\n</string>
     <string name="event_overview_title">Σύνοψη</string>
     <string name="event_overview_btn">Επιστροφή στο Ημερολόγιο</string>
-    <string name="coffee_order">Παραγγελία Καφέ</string>
-    <string name="transport_type">Τρόπος Μετακίνησης</string>
-    <string name="add_to_planner">Προσθήκη στο Planner μου</string>
+
 
 
 </resources>
