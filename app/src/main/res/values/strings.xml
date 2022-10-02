@@ -107,9 +107,11 @@
     <string name="coffee_price_euros">%,.2f€</string>
 
     <!-- Traffic Screen -->
-    <string name="dummy_address">Βυζαντίου 1 Ηλιούπολη</string>
-    <string name="transport_via">Μετακίνηση %s</string>
-    <string name="transport_estimated_time">Εκτιμώμενος Χρόνος Διαδομής: %d λεπτά</string>
+    <string name="traffic_info">Κίνηση στους δρόμους</string>
+    <string name="traffic_low">Χαμηλή</string>
+    <string name="traffic_medium">Κανονική</string>
+    <string name="traffic_high">Αυξημένη</string>
+
 
     <!-- Result Screen -->
     <string name="event_success">Το event δημιουργήθηκε!</string>

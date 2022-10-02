@@ -1,5 +1,6 @@
 package com.stathis.smartassistant.util
 
+import android.content.Context
 import android.text.Editable
 import android.text.SpannableStringBuilder
 import android.text.TextWatcher
@@ -9,6 +10,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.constraintlayout.motion.widget.MotionLayout
+import androidx.core.content.ContextCompat
 import androidx.core.text.bold
 import com.bumptech.glide.Glide
 import com.google.android.material.textfield.TextInputEditText
@@ -123,3 +125,9 @@ fun EditText.checkIfItsValid(isValid: (Boolean) -> Unit) {
         isValid.invoke(false)
     }
 }
+
+/**
+ * Helper fun to get colors from resources
+ */
+
+fun Context.getActualColor(color : Int) : Int = ContextCompat.getColor(this, color)

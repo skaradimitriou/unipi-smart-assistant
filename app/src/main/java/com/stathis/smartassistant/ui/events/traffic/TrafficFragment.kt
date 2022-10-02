@@ -1,33 +1,46 @@
 package com.stathis.smartassistant.ui.events.traffic
 
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.stathis.smartassistant.R
 import com.stathis.smartassistant.abstraction.BaseFragment
 import com.stathis.smartassistant.databinding.FragmentTrafficBinding
+import com.stathis.smartassistant.models.TransportationOption
 import com.stathis.smartassistant.ui.events.EventsViewModel
+import com.stathis.smartassistant.util.toUiModel
 
 class TrafficFragment : BaseFragment<FragmentTrafficBinding>(R.layout.fragment_traffic) {
 
     private val viewModel: EventsViewModel by activityViewModels()
 
     override fun init() {
+        binding.viewModel = viewModel
         viewModel.screenTitle.value = getString(R.string.events_traffic_title)
     }
 
     override fun startOps() {
-        val location = viewModel.eventLocation ?: ""
-        binding.addressTxtView.text = location
-
-        val transportationType = viewModel.transportationOption?.title
-        binding.transportTypeTxtView.text = getString(R.string.transport_via, transportationType)
+        //FIXME: Bind appropriate traffic photo on ui based on traffic
 
         binding.nextButton.setOnClickListener {
-            goToAdditionalsScreen()
+            val transportOption = viewModel.transportationOption.toUiModel()
+            decideNextScreen(transportOption)
         }
     }
 
-    override fun stopOps() {
-        //
+    override fun stopOps() {}
+
+    private fun decideNextScreen(option: TransportationOption) = when (option.title) {
+        getString(R.string.transport_car) -> goToParkingScreen()
+        else -> goToAdditionalsScreen()
+    }
+
+    /*
+     * Navigates to the parking screen via safeargs
+     */
+
+    private fun goToParkingScreen() {
+        val action = TrafficFragmentDirections.goToParkingPromoScreen()
+        findNavController().navigate(action)
     }
 
     /*
@@ -35,7 +48,7 @@ class TrafficFragment : BaseFragment<FragmentTrafficBinding>(R.layout.fragment_t
      */
 
     private fun goToAdditionalsScreen() {
-        //val action = TrafficFragmentDirections.goToAdditionalsScreen()
-        //findNavController().navigate(action)
+        val action = TrafficFragmentDirections.goToAdditionalsScreen()
+        findNavController().navigate(action)
     }
 }

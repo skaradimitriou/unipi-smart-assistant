@@ -17,4 +17,9 @@
     <color name="grey_dark">#363636</color>
     <color name="grey_light">#bbbbbb</color>
 
+    <!-- Traffic colors -->
+    <color name="traffic_green">#309143</color>
+    <color name="traffic_yellow">#e39802</color>
+    <color name="traffic_red">#b60a1c</color>
+
 </resources>

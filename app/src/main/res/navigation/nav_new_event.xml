@@ -30,17 +30,21 @@
     <fragment
         android:id="@+id/trafficFragment"
         android:name="com.stathis.smartassistant.ui.events.traffic.TrafficFragment"
-        android:label="TrafficFragment" />
+        android:label="TrafficFragment" >
+        <action
+            android:id="@+id/goToParkingPromoScreen"
+            app:destination="@id/parkingPromoFragment" />
+        <action
+            android:id="@+id/goToAdditionalsScreen"
+            app:destination="@id/additionalsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/transportFragment"
         android:name="com.stathis.smartassistant.ui.events.transport.TransportFragment"
         android:label="TransportFragment" >
         <action
-            android:id="@+id/goToAdditionalsScreen"
-            app:destination="@id/additionalsFragment" />
-        <action
-            android:id="@+id/goToParkingPromoScreen"
-            app:destination="@id/parkingPromoFragment" />
+            android:id="@+id/goToTrafficScreen"
+            app:destination="@id/trafficFragment" />
     </fragment>
     <fragment
         android:id="@+id/coffeeShopsFragment"
