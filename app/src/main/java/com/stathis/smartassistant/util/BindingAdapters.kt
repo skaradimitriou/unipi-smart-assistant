@@ -6,7 +6,7 @@ import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.stathis.smartassistant.R
 import com.stathis.smartassistant.models.Coffee
-import com.stathis.smartassistant.models.SugarType
+import com.stathis.smartassistant.models.Event
 import com.stathis.smartassistant.models.TransportationOption
 
 /**
@@ -65,6 +65,16 @@ fun TextView.productPrice(price: Double) {
 }
 
 @BindingAdapter("coffeeTitle")
-fun TextView.coffeeTitle(coffee: Coffee) {
-    text = context.getString(R.string.coffee_title_with_sugar, coffee.title, coffee.sugar.toUiText())
+fun TextView.coffeeTitle(coffee: Coffee?) {
+    text = context.getString(
+        R.string.coffee_title_with_sugar,
+        coffee?.title,
+        coffee?.sugar?.toUiText()
+    )
+}
+
+@BindingAdapter("startTime")
+fun TextView.startTime(event : Event) {
+    val startTime = event.getStartTime()
+    text = context.getString(R.string.moving_time_estimation, event.time, startTime)
 }

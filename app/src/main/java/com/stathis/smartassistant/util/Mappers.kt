@@ -9,7 +9,6 @@ import com.stathis.smartassistant.models.TransportationOption
 fun String?.toUiModel() = this ?: ""
 fun Int?.toUiModel() = this ?: 0
 
-
 fun TransportationOption?.toUiModel(): TransportationOption {
     return this ?: TransportationOption(
         this?.title.toUiModel(),

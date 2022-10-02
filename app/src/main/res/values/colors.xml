@@ -17,6 +17,9 @@
     <color name="grey_dark">#363636</color>
     <color name="grey_light">#bbbbbb</color>
 
+    <color name="unipi_blue">#222C54</color>
+    <color name="lighter_blue">#c6d2f6</color>
+
     <!-- Traffic colors -->
     <color name="traffic_green">#309143</color>
     <color name="traffic_yellow">#e39802</color>

@@ -134,7 +134,7 @@
     <string name="event_overview"><b>Τίτλος:</b> %s\n<b>Μετακίνηση:</b> %s\n</string>
     <string name="event_overview_title">Σύνοψη</string>
     <string name="event_overview_btn">Επιστροφή στο Ημερολόγιο</string>
-
+    <string name="moving_time_estimation">Για να βρίσκεσαι εκεί στις %s θα πρέπει να ξεκινήσεις στις %s</string>
 
 
 </resources>

@@ -2,11 +2,8 @@ package com.stathis.smartassistant.models
 
 import android.annotation.SuppressLint
 import com.stathis.smartassistant.abstraction.LocalModel
-import timber.log.Timber
 import java.time.Duration
-import java.time.LocalDateTime
 import java.time.LocalTime
-import java.time.format.DateTimeFormatter
 
 data class Event(
     val title: String,
@@ -43,5 +40,15 @@ data class Event(
             time.hour.toString() == "1" -> "${time.hour} ώρα και ${time.minute} λεπτά"
             else -> "${time.hour} ώρες και ${time.minute} λεπτά"
         }
+    }
+
+    @SuppressLint("NewApi")
+    fun getStartTime(): String {
+        val transportMinutes = transportationOption?.estimatedMinutes ?: 0
+        val servingTime = shop?.servingTime ?: 0
+        val totalTime = transportMinutes + servingTime
+
+        val finalTime = LocalTime.parse(time).minusMinutes(totalTime.toLong())
+        return finalTime.toString()
     }
 }

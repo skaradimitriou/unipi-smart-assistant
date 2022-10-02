@@ -15,7 +15,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/light_bg">
+        android:background="@color/grey_bg"
+        android:paddingBottom="@dimen/dimen_xl">
 
         <ImageView
             android:id="@+id/eventImgView"
@@ -238,7 +239,6 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/coffeeConstraint"
             android:layout_width="match_parent"
@@ -314,6 +314,27 @@
                 app:layout_constraintTop_toBottomOf="@id/coffeeTxtView"
                 app:productPrice="@{model.coffee.price}"
                 tools:text="@string/coffee_price_euros" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_m"
+            android:background="@color/lighter_blue"
+            android:padding="@dimen/dimen_m"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/coffeeConstraint">
+
+            <TextView
+                android:id="@+id/trafficHeaderTxtView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/unipi_blue"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:startTime="@{model}" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
