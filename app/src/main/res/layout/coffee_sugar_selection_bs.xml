@@ -10,7 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:paddingTop="@dimen/dimen_m"
         android:text="@string/sugar_selection_header"
         android:textSize="22sp"
         android:textStyle="bold"

@@ -8,6 +8,7 @@
     <dimen name="dimen_m">16dp</dimen>
     <dimen name="dimen_l">24dp</dimen>
     <dimen name="dimen_xl">32dp</dimen>
+    <dimen name="dimen_1.5xl">48dp</dimen>
     <dimen name="dimen_2xl">64dp</dimen>
     <dimen name="dimen_3xl">96dp</dimen>
     <dimen name="dimen_4xl">128dp</dimen>

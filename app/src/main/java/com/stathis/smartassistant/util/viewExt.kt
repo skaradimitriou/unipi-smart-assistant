@@ -16,8 +16,8 @@ import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
 import com.stathis.smartassistant.R
 import com.stathis.smartassistant.databinding.CoffeeSugarSelectionBsBinding
+import com.stathis.smartassistant.databinding.PaymentBottomsheetBinding
 import com.stathis.smartassistant.models.SugarType
-import timber.log.Timber
 import java.util.*
 
 fun Fragment.setScreenTitle(title: String) {
@@ -99,6 +99,18 @@ fun Fragment.showSugarSelection(sugarType: (SugarType) -> Unit) {
             getString(R.string.coffee_medium_sugar) -> sugarType.invoke(SugarType.REGULAR)
             getString(R.string.coffee_sweet) -> sugarType.invoke(SugarType.SWEET)
         }
+        dialog.dismiss()
+    }
+    dialog.show()
+}
+
+fun Fragment.showWalletDialog(onButtonClick: () -> Unit) {
+    val binding = PaymentBottomsheetBinding.inflate(LayoutInflater.from(requireContext()))
+    val dialog = BottomSheetDialog(requireContext())
+    dialog.setContentView(binding.root)
+
+    binding.payButton.setOnClickListener {
+        onButtonClick.invoke()
         dialog.dismiss()
     }
     dialog.show()

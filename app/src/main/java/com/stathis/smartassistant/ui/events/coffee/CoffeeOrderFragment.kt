@@ -1,20 +1,14 @@
 package com.stathis.smartassistant.ui.events.coffee
 
-import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.stathis.smartassistant.R
 import com.stathis.smartassistant.abstraction.BaseFragment
-import com.stathis.smartassistant.databinding.CoffeeSugarSelectionBsBinding
 import com.stathis.smartassistant.databinding.FragmentCoffeeOrderBinding
-import com.stathis.smartassistant.models.SugarType
 import com.stathis.smartassistant.ui.events.EventsViewModel
 import com.stathis.smartassistant.util.showSugarSelection
-import timber.log.Timber
+import com.stathis.smartassistant.util.showWalletDialog
 
 class CoffeeOrderFragment :
     BaseFragment<FragmentCoffeeOrderBinding>(R.layout.fragment_coffee_order) {
@@ -30,9 +24,15 @@ class CoffeeOrderFragment :
     override fun startOps() {
         viewModel.bindList { selectedCoffee ->
             sharedViewModel.selectedCoffee = selectedCoffee
+
+            //shows sugar selection dialog
             showSugarSelection { sugarType ->
                 sharedViewModel.selectedCoffee?.sugar = sugarType
-                goToOverviewScreen()
+
+                //shows demo e-wallet dialog & proceeds to overview screen on payment button click
+                showWalletDialog {
+                    goToOverviewScreen()
+                }
             }
         }
     }
