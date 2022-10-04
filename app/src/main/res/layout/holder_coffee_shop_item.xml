@@ -33,11 +33,11 @@
             <ImageView
                 android:id="@+id/holderOptionImgView"
                 android:layout_width="@dimen/dimen_3xl"
-                android:layout_height="@dimen/dimen_100"
+                android:layout_height="0dp"
                 android:contentDescription="@{model.shopTitle}"
                 android:scaleType="centerCrop"
-                app:imageResource="@{model.shopImg}"
                 android:src="@mipmap/ic_launcher"
+                app:imageResource="@{model.shopImg}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -69,7 +69,24 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/holderOptionImgView"
                 app:layout_constraintTop_toBottomOf="@id/holderOptionTitleTxtView"
-                app:locationRange="@{model.distance}" />
+                app:locationRange="@{model.distance}"
+                tools:text="@string/app_name" />
+
+            <TextView
+                android:id="@+id/holderServingTimeTxtView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/dimen_xs"
+                android:gravity="start|center_vertical"
+                android:paddingHorizontal="@dimen/dimen_m"
+                android:paddingVertical="@dimen/dimen_s"
+                app:drawableStartCompat="@drawable/ic_time_white"
+                app:drawableTint="@color/grey_light"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/holderOptionImgView"
+                app:layout_constraintTop_toBottomOf="@id/holderTimeTxtView"
+                app:servingTime="@{model.servingTime}"
+                tools:text="@string/app_name" />
 
             <TextView
                 android:id="@+id/holderFastestWayTxtView"
@@ -85,7 +102,7 @@
                 android:visibility="@{model.isBestOption() ? View.VISIBLE : View.GONE}"
                 app:layout_constraintEnd_toStartOf="@id/holderFastestWayView"
                 app:layout_constraintStart_toEndOf="@id/holderOptionImgView"
-                app:layout_constraintTop_toBottomOf="@id/holderTimeTxtView" />
+                app:layout_constraintTop_toBottomOf="@id/holderServingTimeTxtView" />
 
             <View
                 android:id="@+id/holderFastestWayView"

@@ -34,8 +34,8 @@
             android:id="@+id/titleTxtView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_m"
             android:gravity="center_horizontal"
-            android:padding="@dimen/dimen_m"
             android:text="@{model.title}"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -44,13 +44,39 @@
             app:layout_constraintTop_toBottomOf="@id/eventImgView"
             tools:text="@string/app_name" />
 
-        <View
-            android:id="@+id/titleDividerView"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/startTimeConstraint"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginHorizontal="@dimen/dimen_m"
-            android:background="@color/grey_bg"
-            app:layout_constraintTop_toBottomOf="@id/titleTxtView" />
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_m"
+            android:background="@drawable/round_corners_light_blue"
+            android:padding="@dimen/dimen_m"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titleTxtView">
+
+            <ImageView
+                android:id="@+id/infoIconImgView"
+                android:layout_width="@dimen/dimen_l"
+                android:layout_height="@dimen/dimen_l"
+                android:background="@drawable/ic_info_white"
+                android:backgroundTint="@color/unipi_blue"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/trafficHeaderTxtView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/dimen_s"
+                android:textColor="@color/unipi_blue"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/infoIconImgView"
+                app:layout_constraintTop_toTopOf="parent"
+                app:startTime="@{model}"
+                tools:text="@string/app_name" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <TextView
             android:id="@+id/dateDescTxtView"
@@ -68,7 +94,7 @@
             app:drawableTint="@color/black"
             app:layout_constraintEnd_toStartOf="@id/timeDescTxtView"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/titleDividerView" />
+            app:layout_constraintTop_toBottomOf="@id/startTimeConstraint" />
 
         <TextView
             android:id="@+id/eventDateTxtView"
@@ -98,7 +124,7 @@
             app:drawableTint="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/dateDescTxtView"
-            app:layout_constraintTop_toBottomOf="@id/titleDividerView" />
+            app:layout_constraintTop_toBottomOf="@id/startTimeConstraint" />
 
         <TextView
             android:id="@+id/eventTimeTxtView"
@@ -113,31 +139,23 @@
             app:layout_constraintTop_toBottomOf="@id/timeDescTxtView"
             tools:text="@string/dummy_time" />
 
-        <View
-            android:id="@+id/dateTimeDividerView"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginHorizontal="@dimen/dimen_m"
-            android:background="@color/grey_bg"
-            app:layout_constraintTop_toBottomOf="@id/eventTimeTxtView" />
-
         <TextView
             android:id="@+id/transportTypeTxtView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dimen_m"
-            android:layout_marginTop="@dimen/dimen_s"
+            android:layout_marginTop="@dimen/dimen_m"
             android:drawablePadding="@dimen/dimen_s"
             android:gravity="start|center_vertical"
             android:paddingVertical="@dimen/dimen_s"
             android:text="@string/transport_type"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:drawableStartCompat="@drawable/ic_date_white"
+            app:drawableStartCompat="@drawable/ic_transportation_white"
             app:drawableTint="@color/black"
             app:layout_constraintEnd_toStartOf="@id/timeDescTxtView"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/dateTimeDividerView" />
+            app:layout_constraintTop_toBottomOf="@id/eventTimeTxtView" />
 
         <TextView
             android:id="@+id/transportationTypeTxtView"
@@ -156,14 +174,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dimen_m"
-            android:layout_marginTop="@dimen/dimen_s"
+            android:layout_marginTop="@dimen/dimen_m"
             android:drawablePadding="@dimen/dimen_s"
             android:gravity="start|center_vertical"
             android:paddingVertical="@dimen/dimen_s"
             android:text="@string/total_moving_time"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:drawableStartCompat="@drawable/ic_date_white"
+            app:drawableStartCompat="@drawable/ic_time_white"
             app:drawableTint="@color/black"
             app:layout_constraintEnd_toStartOf="@id/timeDescTxtView"
             app:layout_constraintStart_toStartOf="parent"
@@ -189,29 +207,20 @@
             android:visibility="@{model.hasParkingInfo() ? View.VISIBLE : View.GONE}"
             app:layout_constraintTop_toBottomOf="@id/transportationTimeTxtView">
 
-            <View
-                android:id="@+id/parkingDividerView"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginHorizontal="@dimen/dimen_m"
-                android:background="@color/grey_bg"
-                app:layout_constraintTop_toTopOf="parent" />
-
             <TextView
                 android:id="@+id/parkingTxtView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dimen_s"
                 android:drawablePadding="@dimen/dimen_s"
                 android:gravity="start|center_vertical"
                 android:paddingVertical="@dimen/dimen_s"
                 android:text="@string/parking_slot"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:drawableStartCompat="@drawable/ic_date_white"
+                app:drawableStartCompat="@drawable/ic_parking"
                 app:drawableTint="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/parkingDividerView" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/parkingSlotTxtView"
@@ -247,35 +256,26 @@
             android:visibility="@{model.hasAdditionals() ? View.VISIBLE : View.GONE}"
             app:layout_constraintTop_toBottomOf="@id/parkingConstraint">
 
-            <View
-                android:id="@+id/additionalsDividerView"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginHorizontal="@dimen/dimen_m"
-                android:background="@color/grey_bg"
-                app:layout_constraintTop_toTopOf="parent" />
-
             <TextView
                 android:id="@+id/additionalsTxtView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/dimen_s"
                 android:drawablePadding="@dimen/dimen_s"
                 android:gravity="start|center_vertical"
                 android:paddingVertical="@dimen/dimen_s"
                 android:text="@string/coffee_order"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:drawableStartCompat="@drawable/ic_date_white"
+                app:drawableStartCompat="@drawable/ic_coffee"
                 app:drawableTint="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/additionalsDividerView" />
-
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/shopImgView"
                 android:layout_width="@dimen/dimen_2xl"
                 android:layout_height="@dimen/dimen_2xl"
+                android:layout_marginTop="@dimen/dimen_s"
                 android:contentDescription="@string/app_name"
                 android:scaleType="centerCrop"
                 app:imageResource="@{model.shop.shopImg}"
@@ -318,23 +318,56 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/paymentConstraint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/dimen_m"
-            android:background="@color/lighter_blue"
-            android:padding="@dimen/dimen_m"
-            app:layout_constraintStart_toStartOf="parent"
+            android:visibility="@{model.hasAdditionals() ? View.VISIBLE : View.GONE}"
             app:layout_constraintTop_toBottomOf="@id/coffeeConstraint">
 
             <TextView
-                android:id="@+id/trafficHeaderTxtView"
+                android:id="@+id/paymentsTxtView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/unipi_blue"
+                android:drawablePadding="@dimen/dimen_s"
+                android:gravity="start|center_vertical"
+                android:paddingVertical="@dimen/dimen_s"
+                android:text="@string/payment_details"
                 android:textSize="16sp"
+                android:textStyle="bold"
+                app:drawableStartCompat="@drawable/ic_payment"
+                app:drawableTint="@color/black"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:startTime="@{model}" />
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/paymentTypeImgView"
+                android:layout_width="@dimen/dimen_xl"
+                android:layout_height="@dimen/dimen_xl"
+                android:layout_marginTop="@dimen/dimen_m"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerInside"
+                android:src="@drawable/mastercard"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/paymentsTxtView" />
+
+            <TextView
+                android:id="@+id/paymentTypeTxtView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/dummy_card_no"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/paymentTypeImgView"
+                app:layout_constraintTop_toTopOf="@id/paymentTypeImgView" />
+
+            <TextView
+                android:id="@+id/paymentHolderTxtView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/dummy_card_holder"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/paymentTypeTxtView"
+                app:layout_constraintTop_toBottomOf="@id/paymentTypeImgView" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

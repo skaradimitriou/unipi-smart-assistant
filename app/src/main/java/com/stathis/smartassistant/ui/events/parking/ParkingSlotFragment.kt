@@ -1,7 +1,6 @@
 package com.stathis.smartassistant.ui.events.parking
 
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.stathis.smartassistant.R
 import com.stathis.smartassistant.abstraction.BaseFragment
@@ -15,7 +14,9 @@ class ParkingSlotFragment :
 
     val viewModel: EventsViewModel by activityViewModels()
 
-    override fun init() {}
+    override fun init() {
+        viewModel.screenTitle.value = getString(R.string.events_parking_slot_title)
+    }
 
     override fun startOps() {
         binding.continueButton.setOnClickListener {

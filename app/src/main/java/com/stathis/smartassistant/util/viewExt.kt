@@ -17,6 +17,7 @@ import com.google.android.material.timepicker.TimeFormat
 import com.stathis.smartassistant.R
 import com.stathis.smartassistant.databinding.CoffeeSugarSelectionBsBinding
 import com.stathis.smartassistant.databinding.PaymentBottomsheetBinding
+import com.stathis.smartassistant.models.Coffee
 import com.stathis.smartassistant.models.SugarType
 import java.util.*
 
@@ -79,10 +80,12 @@ fun Fragment.showTimePicker(onTimeSelected: (String) -> Unit) {
     }
 }
 
-fun Fragment.showSugarSelection(sugarType: (SugarType) -> Unit) {
+fun Fragment.showSugarSelection(selectedCoffee : Coffee, sugarType: (SugarType) -> Unit) {
     val binding = CoffeeSugarSelectionBsBinding.inflate(LayoutInflater.from(requireContext()))
-    val dialog = BottomSheetDialog(requireContext())
+    val dialog = BottomSheetDialog(requireContext(),R.style.AppBottomSheetDialogTheme)
     dialog.setContentView(binding.root)
+
+    binding.model = selectedCoffee
 
     ArrayAdapter.createFromResource(
         requireContext(),

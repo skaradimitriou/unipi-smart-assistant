@@ -25,7 +25,7 @@ class TransportViewModel(val app: Application) : BaseViewModel(app), ItemCallbac
             TransportationOption(getString(R.string.transport_bus), R.drawable.bus),
             TransportationOption(getString(R.string.transport_bike), R.drawable.bike),
             TransportationOption(getString(R.string.transport_walk), R.drawable.walk)
-        )
+        ).sortedBy { it.estimatedMinutes }
 
         list.map {
             val bestSolution = list.minByOrNull { it.estimatedMinutes }

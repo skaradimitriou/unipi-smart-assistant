@@ -12,7 +12,9 @@ class ParkingPromoFragment :
 
     private val sharedViewModel: EventsViewModel by activityViewModels()
 
-    override fun init() {}
+    override fun init() {
+        sharedViewModel.screenTitle.value = getString(R.string.events_parking_promo_title)
+    }
 
     override fun startOps() {
         binding.searchForParkingSlotButton.setOnClickListener {

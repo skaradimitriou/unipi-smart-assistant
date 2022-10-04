@@ -15,6 +15,7 @@ class OverviewFragment : BaseFragment<FragmentOverviewBinding>(R.layout.fragment
 
     override fun init() {
         binding.viewModel = viewModel
+        sharedViewModel.screenTitle.value = getString(R.string.events_overview_title)
     }
 
     override fun startOps() {

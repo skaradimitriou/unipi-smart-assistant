@@ -41,6 +41,11 @@ fun TextView.locationRange(distance: Int) {
     text = context.getString(R.string.shop_range, distance)
 }
 
+@BindingAdapter("servingTime")
+fun TextView.servingTime(servingTime: Int) {
+    text = context.getString(R.string.shop_serving_time, servingTime)
+}
+
 @BindingAdapter("trafficLevel")
 fun TextView.trafficLevel(transportationOption: TransportationOption) {
     text = when (transportationOption.estimatedMinutes) {
@@ -74,7 +79,7 @@ fun TextView.coffeeTitle(coffee: Coffee?) {
 }
 
 @BindingAdapter("startTime")
-fun TextView.startTime(event : Event) {
+fun TextView.startTime(event: Event) {
     val startTime = event.getStartTime()
     text = context.getString(R.string.moving_time_estimation, event.time, startTime)
 }

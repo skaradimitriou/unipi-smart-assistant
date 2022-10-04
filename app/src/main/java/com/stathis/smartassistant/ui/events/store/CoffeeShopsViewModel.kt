@@ -24,7 +24,7 @@ class CoffeeShopsViewModel(val app: Application) : BaseViewModel(app), ItemCallb
             CoffeeShop(getString(R.string.gregorys), R.drawable.gregorys),
             CoffeeShop(getString(R.string.mikel), R.drawable.mikel),
             CoffeeShop(getString(R.string.coffee_berry), R.drawable.coffee_berry)
-        )
+        ).sortedBy { it.distance }
 
         list.map {
             val bestSolution = list.minByOrNull { it.distance }

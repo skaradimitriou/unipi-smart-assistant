@@ -18,7 +18,7 @@ class CoffeeOrderFragment :
 
     override fun init() {
         binding.viewModel = viewModel
-        sharedViewModel.screenTitle.value = getString(R.string.events_shops_title)
+        sharedViewModel.screenTitle.value = getString(R.string.events_coffee_title)
     }
 
     override fun startOps() {
@@ -26,14 +26,14 @@ class CoffeeOrderFragment :
             sharedViewModel.selectedCoffee = selectedCoffee
 
             //shows sugar selection dialog
-            showSugarSelection { sugarType ->
+            showSugarSelection(selectedCoffee, sugarType = { sugarType ->
                 sharedViewModel.selectedCoffee?.sugar = sugarType
 
                 //shows demo e-wallet dialog & proceeds to overview screen on payment button click
                 showWalletDialog {
                     goToOverviewScreen()
                 }
-            }
+            })
         }
     }
 

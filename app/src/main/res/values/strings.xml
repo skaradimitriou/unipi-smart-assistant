@@ -47,7 +47,10 @@
     <string name="events_traffic_title">Νέο Γεγονός | Οδηγίες</string>
     <string name="events_additionals_title">Πρόσθετα</string>
     <string name="events_shops_title">Επιλογή Καταστήματος</string>
-    <string name="events_coffee_title">Επιλογή Καταστήματος</string>
+    <string name="events_coffee_title">Επιλογή Καφέ</string>
+    <string name="events_parking_promo_title">Αναζήτηση Θέσης Parking</string>
+    <string name="events_parking_slot_title">Θέση Parking</string>
+    <string name="events_overview_title">Σύνοψη</string>
     <string name="events_result_title">Νέο Γεγονός | Επιτυχία</string>
 
     <!-- Events Intro Screen -->
@@ -92,7 +95,8 @@
     <string name="gregorys">Γρηγόρης</string>
     <string name="mikel">Mikel</string>
     <string name="coffee_berry">Coffee Berry</string>
-    <string name="shop_range">%dm</string>
+    <string name="shop_range">%dm μακριά</string>
+    <string name="shop_serving_time">Αναμονή %d λεπτά</string>
 
     <!-- Coffee Order Screen -->
     <string name="freddo_espresso">Freddo Espresso</string>
@@ -130,15 +134,17 @@
     <string name="total_moving_time">Συνολικός Χρόνος Μετακίνησης</string>
     <string name="add_to_planner">Προσθήκη στο Planner μου</string>
 
+    <!-- Payment Info -->
+    <string name="dummy_card_no">**** **** **** 1234</string>
+    <string name="dummy_card_holder">T. TESTOPOULOS</string>
+    <string name="pay_with_e_wallet">Πληρωμή μέσω e-wallet</string>
+    <string name="payment_details">Στοιχεία Πληρωμής</string>
+
     <!-- Result Screen -->
     <string name="event_success">Το event δημιουργήθηκε!</string>
     <string name="event_overview"><b>Τίτλος:</b> %s\n<b>Μετακίνηση:</b> %s\n</string>
     <string name="event_overview_title">Σύνοψη</string>
     <string name="event_overview_btn">Επιστροφή στο Ημερολόγιο</string>
     <string name="moving_time_estimation">Για να βρίσκεσαι εκεί στις %s θα πρέπει να ξεκινήσεις στις %s</string>
-    <string name="dummy_card_no">**** **** **** 1234</string>
-    <string name="dummy_card_holder">T. TESTOPOULOS</string>
-    <string name="pay_with_e_wallet">Πληρωμή μέσω e-wallet</string>
-
 
 </resources>

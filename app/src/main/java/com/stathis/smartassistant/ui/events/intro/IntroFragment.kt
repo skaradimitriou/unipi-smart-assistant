@@ -54,6 +54,11 @@ class IntroFragment : BaseFragment<FragmentIntroBinding>(R.layout.fragment_intro
             val location = binding.eventLocationEditTxt.text.toString()
 
             if (title.isNotEmpty() && location.isNotEmpty()) {
+                viewModel.eventDate = binding.eventDateTxtView.text.toString()
+                viewModel.eventTime = binding.eventTimeTxtView.text.toString()
+                viewModel.eventTitle = title
+                viewModel.eventLocation = location
+
                 goToTransportScreen()
             } else {
                 binding.showSnackbar(getString(R.string.events_intro_error_msg))

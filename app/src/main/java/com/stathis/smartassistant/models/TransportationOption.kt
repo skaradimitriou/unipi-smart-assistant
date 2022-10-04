@@ -6,7 +6,7 @@ import kotlin.random.Random
 data class TransportationOption(
     val title: String,
     val image: Int,
-    val estimatedMinutes: Int = Random.nextInt(10, 59),
+    val estimatedMinutes: Int = Random.nextInt(15, 59),
     var isTheFasestWay: Boolean? = false
 ) : LocalModel {
     override fun equalsContent(obj: LocalModel): Boolean = when (obj) {
