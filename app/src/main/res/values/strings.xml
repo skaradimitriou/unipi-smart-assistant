@@ -53,8 +53,9 @@
     <!-- Events Intro Screen -->
     <string name="events_intro_desc">Προσθήκη Τίτλου</string>
     <string name="events_intro_label">Τίτλος</string>
-    <string name="events_error_msg">Ο τίτλος θα πρέπει να αποτελείται απο τουλάχιστον 3 χαρακτήρες</string>
+    <string name="events_error_msg">Ο τίτλος δεν μπορεί να είναι κενός</string>
     <string name="events_location_error_msg">Η τοποθεσία δεν μπορεί να είναι κενή</string>
+    <string name="events_intro_error_msg">Δεν είναι όλα τα απαραίτητα πεδία συμπληρωμένα</string>
     <string name="select_date">Επιλογή ημέρομηνίας</string>
     <string name="date">Ημερομηνία</string>
     <string name="time">Ώρα</string>

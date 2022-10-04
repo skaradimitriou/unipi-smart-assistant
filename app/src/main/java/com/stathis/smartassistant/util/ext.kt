@@ -5,7 +5,6 @@ import android.text.Editable
 import android.text.SpannableStringBuilder
 import android.text.TextWatcher
 import android.view.View
-import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
@@ -14,6 +13,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.text.bold
 import com.bumptech.glide.Glide
 import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 import com.stathis.smartassistant.R
 import com.stathis.smartassistant.models.SugarType
 import java.util.*
@@ -118,12 +118,11 @@ fun getDateAndTime(currentDate: (String) -> Unit, currentTime: (String) -> Unit)
     currentTime.invoke(String.format("%02d:%02d", hour, minute))
 }
 
-fun EditText.checkIfItsValid(isValid: (Boolean) -> Unit) {
-    if (this.text.isNotEmpty()) {
-        error = null
-        isValid.invoke(true)
+fun TextInputLayout.showErrorMessageIfEmpty(errorMessage: String) {
+    error = if (this.editText?.text.toString().isNotEmpty()) {
+        null
     } else {
-        isValid.invoke(false)
+        errorMessage
     }
 }
 

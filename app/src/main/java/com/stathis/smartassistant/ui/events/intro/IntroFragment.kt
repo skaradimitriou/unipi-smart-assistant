@@ -18,23 +18,21 @@ class IntroFragment : BaseFragment<FragmentIntroBinding>(R.layout.fragment_intro
     }
 
     override fun startOps() {
-        binding.ctaEnabled = false
-
         getDateAndTime(
             currentDate = { date -> binding.eventDateTxtView.text = date },
             currentTime = { time -> binding.eventTimeTxtView.text = time }
         )
 
         binding.eventDescriptionEditTxt.afterTextChanged { input ->
-            validateInput(input)
+            binding.eventDescInputField.showErrorMessageIfEmpty(
+                errorMessage = getString(R.string.events_error_msg)
+            )
         }
 
         binding.eventLocationEditTxt.afterTextChanged { input ->
-            binding.eventLocationEditTxt.checkIfItsValid { isValid ->
-                binding.ctaEnabled = isValid
-
-                if(!isValid) binding.eventLocationInputField.error = getString(R.string.events_location_error_msg)
-            }
+            binding.eventLocationInputField.showErrorMessageIfEmpty(
+                errorMessage = getString(R.string.events_location_error_msg)
+            )
         }
 
         binding.eventDateTxtView.setOnClickListener {
@@ -52,26 +50,18 @@ class IntroFragment : BaseFragment<FragmentIntroBinding>(R.layout.fragment_intro
         }
 
         binding.nextButton.setOnClickListener {
-            binding.ctaEnabled = false
-            viewModel.eventDate = binding.eventDateTxtView.text.toString()
-            viewModel.eventTime = binding.eventTimeTxtView.text.toString()
-            viewModel.eventLocation = binding.eventLocationEditTxt.text.toString()
-            goToTransportScreen()
+            val title = binding.eventDescriptionEditTxt.text.toString()
+            val location = binding.eventLocationEditTxt.text.toString()
+
+            if (title.isNotEmpty() && location.isNotEmpty()) {
+                goToTransportScreen()
+            } else {
+                binding.showSnackbar(getString(R.string.events_intro_error_msg))
+            }
         }
     }
 
     override fun stopOps() {}
-
-    private fun validateInput(input: String) {
-        if (input.isNotEmpty() && input.length >= 3) {
-            viewModel.eventTitle = input
-            binding.ctaEnabled = true
-            binding.eventDescInputField.error = null
-        } else {
-            binding.ctaEnabled = false
-            binding.eventDescInputField.error = getString(R.string.events_error_msg)
-        }
-    }
 
     /*
      * Navigates to the transport screen via safeargs
