@@ -50,12 +50,10 @@
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/returnToPlannerBtn"
+            style="@style/primaryButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/purple_700"
             android:text="@string/event_overview_btn"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

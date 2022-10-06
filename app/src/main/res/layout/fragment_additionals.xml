@@ -51,25 +51,21 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/pickStoreButton"
+                style="@style/primaryButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/dimen_s"
-                android:background="@color/purple_700"
                 android:text="@string/additionals_primary_btn"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
                 app:layout_constraintBottom_toTopOf="@id/notNowButton"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/notNowButton"
-                android:layout_width="match_parent"
+                style="@style/secondaryButton"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/purple_700"
                 android:text="@string/additionals_secondary_btn"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />

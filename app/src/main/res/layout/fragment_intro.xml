@@ -152,12 +152,10 @@
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/nextButton"
+                style="@style/primaryButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/purple_700"
                 android:text="@string/continue_btn"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>

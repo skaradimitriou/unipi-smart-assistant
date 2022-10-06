@@ -25,4 +25,12 @@
     <color name="traffic_yellow">#e39802</color>
     <color name="traffic_red">#b60a1c</color>
 
+    <!-- Color Palette -->
+    <color name="sky_blue">#587edf</color>
+    <color name="skin_color">#fce4dc</color>
+    <color name="navy_blue">#2c3477</color>
+    <color name="blueish_gray">#5c639c</color>
+    <color name="light_blueish_gray">#8f9ec8</color>
+    <color name="dark_blue">#24244b</color>
+
 </resources>
