@@ -1,5 +1,6 @@
 package com.stathis.smartassistant.util
 
+import android.animation.Animator
 import android.content.Context
 import android.text.Editable
 import android.text.SpannableStringBuilder
@@ -11,6 +12,7 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.core.content.ContextCompat
 import androidx.core.text.bold
+import com.airbnb.lottie.LottieAnimationView
 import com.bumptech.glide.Glide
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
@@ -137,4 +139,32 @@ fun SugarType.toUiText(): String = when (name) {
     SugarType.REGULAR.name -> "Μέτριο"
     SugarType.SWEET.name -> "Γλυκό"
     else -> ""
+}
+
+/**
+ * Helper funs to know when an animation has finished playing
+ */
+
+fun LottieAnimationView.onAnimationEnd(ended: () -> Unit) {
+    this.addAnimatorListener(object : Animator.AnimatorListener{
+        override fun onAnimationStart(p0: Animator?) {}
+        override fun onAnimationEnd(p0: Animator?) {
+            ended.invoke()
+        }
+        override fun onAnimationCancel(p0: Animator?) {}
+        override fun onAnimationRepeat(p0: Animator?) {}
+    })
+}
+
+/**
+ * Helper fun to play a custom animation and stop
+ */
+
+fun LottieAnimationView.playOnceAndStop(animation : Int, onEnd : () -> Unit) {
+    setAnimation(animation)
+    repeatCount = 0
+    playAnimation()
+    onAnimationEnd {
+        onEnd.invoke()
+    }
 }

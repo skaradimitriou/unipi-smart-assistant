@@ -133,6 +133,7 @@
     <string name="parking_slot">Θέση Parking</string>
     <string name="total_moving_time">Συνολικός Χρόνος Μετακίνησης</string>
     <string name="add_to_planner">Προσθήκη στο Planner μου</string>
+    <string name="moving_time_estimation">Για να βρίσκεσαι εκεί στις %s θα πρέπει να ξεκινήσεις στις %s</string>
 
     <!-- Payment Info -->
     <string name="dummy_card_no">**** **** **** 1234</string>
@@ -142,9 +143,7 @@
 
     <!-- Result Screen -->
     <string name="event_success">Το event δημιουργήθηκε!</string>
-    <string name="event_overview"><b>Τίτλος:</b> %s\n<b>Μετακίνηση:</b> %s\n</string>
-    <string name="event_overview_title">Σύνοψη</string>
+    <string name="event_result_desc">Το event που περιέγραψες προστέθηκε στον ψηφιακό σου βοηθό ημέρας. Είσαι έτοιμος!</string>
     <string name="event_overview_btn">Επιστροφή στο Ημερολόγιο</string>
-    <string name="moving_time_estimation">Για να βρίσκεσαι εκεί στις %s θα πρέπει να ξεκινήσεις στις %s</string>
 
 </resources>

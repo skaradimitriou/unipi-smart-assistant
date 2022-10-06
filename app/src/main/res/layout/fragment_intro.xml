@@ -21,13 +21,12 @@
 
                 <TextView
                     android:id="@+id/introDescTxtView"
+                    style="@style/text_18_bold"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
                     android:padding="@dimen/dimen_m"
                     android:text="@string/events_intro_desc"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 

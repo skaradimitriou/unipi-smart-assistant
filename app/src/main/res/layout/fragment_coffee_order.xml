@@ -5,9 +5,15 @@
 
     <data>
 
+        <import type="android.view.View" />
+
         <variable
             name="viewModel"
             type="com.stathis.smartassistant.ui.events.coffee.CoffeeOrderViewModel" />
+
+        <variable
+            name="verifyingPayment"
+            type="Boolean" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -26,11 +32,25 @@
             android:overScrollMode="never"
             android:paddingHorizontal="@dimen/dimen_s"
             android:paddingBottom="@dimen/dimen_2xl"
+            android:visibility="@{verifyingPayment ? View.GONE : View.VISIBLE}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:itemCount="5"
             tools:listitem="@layout/holder_coffee_item" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/paymentLottie"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dimen_180"
+            android:visibility="@{verifyingPayment ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/loading" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

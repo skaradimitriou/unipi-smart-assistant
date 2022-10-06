@@ -2,13 +2,17 @@ package com.stathis.smartassistant.ui.events.coffee
 
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.stathis.smartassistant.R
 import com.stathis.smartassistant.abstraction.BaseFragment
 import com.stathis.smartassistant.databinding.FragmentCoffeeOrderBinding
 import com.stathis.smartassistant.ui.events.EventsViewModel
+import com.stathis.smartassistant.util.playOnceAndStop
 import com.stathis.smartassistant.util.showSugarSelection
 import com.stathis.smartassistant.util.showWalletDialog
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class CoffeeOrderFragment :
     BaseFragment<FragmentCoffeeOrderBinding>(R.layout.fragment_coffee_order) {
@@ -31,7 +35,18 @@ class CoffeeOrderFragment :
 
                 //shows demo e-wallet dialog & proceeds to overview screen on payment button click
                 showWalletDialog {
-                    goToOverviewScreen()
+                    binding.verifyingPayment = true
+
+                    //creates dummy payment verification & success effect on UI
+                    lifecycleScope.launch {
+                        delay(3000)
+                        binding.paymentLottie.playOnceAndStop(
+                            animation = R.raw.payment_success,
+                            onEnd = {
+                                goToOverviewScreen()
+                                binding.verifyingPayment = false
+                            })
+                    }
                 }
             })
         }

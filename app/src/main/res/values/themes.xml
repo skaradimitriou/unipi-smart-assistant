@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Theme.SmartAssistant" parent="Theme.MaterialComponents.Light.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimary">@color/navy_blue</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
@@ -10,7 +10,7 @@
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/dark_blue</item>
         <!-- Customize your theme here. -->
         <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
     </style>
@@ -23,7 +23,15 @@
         <item name="android:background">@drawable/rounded_corners_top</item>
     </style>
 
-    <!-- Button Stylings -->
+    <!-- Text Styles -->
+
+    <style name="text_18_bold" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/dark_text_color</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Button Styles -->
 
     <style name="primaryButton" parent="Widget.AppCompat.Button">
         <item name="android:background">@drawable/rounded_button</item>
