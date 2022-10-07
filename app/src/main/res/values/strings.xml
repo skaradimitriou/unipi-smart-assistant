@@ -134,6 +134,7 @@
     <string name="total_moving_time">Συνολικός Χρόνος Μετακίνησης</string>
     <string name="add_to_planner">Προσθήκη στο Planner μου</string>
     <string name="moving_time_estimation">Για να βρίσκεσαι εκεί στις %s θα πρέπει να ξεκινήσεις στις %s</string>
+    <string name="save_event_error_msg">Υπήρξε κάποιο πρόβλημα με την αποθήκευση του event.</string>
 
     <!-- Payment Info -->
     <string name="dummy_card_no">**** **** **** 1234</string>

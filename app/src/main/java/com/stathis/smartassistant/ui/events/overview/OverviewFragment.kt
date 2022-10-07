@@ -7,6 +7,8 @@ import com.stathis.smartassistant.R
 import com.stathis.smartassistant.abstraction.BaseFragment
 import com.stathis.smartassistant.databinding.FragmentOverviewBinding
 import com.stathis.smartassistant.ui.events.EventsViewModel
+import com.stathis.smartassistant.util.showSnackbar
+import timber.log.Timber
 
 class OverviewFragment : BaseFragment<FragmentOverviewBinding>(R.layout.fragment_overview) {
 
@@ -23,7 +25,16 @@ class OverviewFragment : BaseFragment<FragmentOverviewBinding>(R.layout.fragment
         viewModel.bindModel(fullEventData)
 
         binding.continueBtn.setOnClickListener {
-            goToResultScreen()
+            sharedViewModel.saveEventToDatabase()
+        }
+
+        sharedViewModel.eventSaved.observe(viewLifecycleOwner) { savedSuccessfully ->
+            if (savedSuccessfully) {
+                goToResultScreen()
+            } else {
+                binding.showSnackbar(getString(R.string.save_event_error_msg))
+                Timber.e("Failed")
+            }
         }
     }
 

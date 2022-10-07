@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "580303671948",
+    "project_id": "unipi-smart-assistant",
+    "storage_bucket": "unipi-smart-assistant.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:580303671948:android:13c30f3358653ae6be61a9",
+        "android_client_info": {
+          "package_name": "com.stathis.smartassistant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "580303671948-0cjreerjjq86ffteeiclvvk8j5ntrgrl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB_VONXXzbet4RMvjRzivskCOhVECfcwok"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "580303671948-0cjreerjjq86ffteeiclvvk8j5ntrgrl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
