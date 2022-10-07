@@ -13,7 +13,6 @@ import com.stathis.smartassistant.ui.events.EventsActivity
 import com.stathis.smartassistant.util.addMenuProvider
 import com.stathis.smartassistant.util.setScreenTitle
 import com.stathis.smartassistant.util.showAlertDialog
-import com.stathis.smartassistant.util.showSnackbar
 
 class PlannerFragment : BaseFragment<FragmentPlannerBinding>(R.layout.fragment_planner),
     MenuProvider {
@@ -27,12 +26,16 @@ class PlannerFragment : BaseFragment<FragmentPlannerBinding>(R.layout.fragment_p
     }
 
     override fun startOps() {
+        viewModel.getUserEvents()
+        viewModel.observe(viewLifecycleOwner)
         viewModel.onEventTap { event ->
-            //
+            //handle item click
         }
     }
 
-    override fun stopOps() {}
+    override fun stopOps() {
+        viewModel.release(viewLifecycleOwner)
+    }
 
     override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
         menuInflater.inflate(R.menu.planner_menu, menu)

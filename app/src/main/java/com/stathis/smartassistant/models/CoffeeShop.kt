@@ -11,6 +11,8 @@ data class CoffeeShop(
     val isOpen: Boolean? = true,
     var isBestOption: Boolean? = false
 ) : LocalModel {
+    constructor() : this("", 0, 0, 0, true, false)
+
     override fun equalsContent(obj: LocalModel): Boolean = when (obj) {
         is CoffeeShop -> obj.shopTitle == shopTitle && obj.distance == distance && obj.isOpen == isOpen
         else -> false

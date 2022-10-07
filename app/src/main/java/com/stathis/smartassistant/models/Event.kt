@@ -14,6 +14,12 @@ data class Event(
     val shop: CoffeeShop? = null,
     val coffee: Coffee? = null,
 ) : LocalModel {
+    constructor() : this("", "","",
+        TransportationOption("", 0, 0, false),
+        ParkingInfo("", ""),
+        CoffeeShop("", 0, 0, 0, true, false),
+        Coffee("",0,SugarType.SWEET, 0.0)
+    )
     override fun equalsContent(obj: LocalModel): Boolean = when (obj) {
         is Event -> title == obj.title && transportationOption == obj.transportationOption
         else -> false
