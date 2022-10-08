@@ -1,13 +1,16 @@
 package com.stathis.smartassistant.util
 
+import android.text.SpannableStringBuilder
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.text.bold
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.stathis.smartassistant.R
 import com.stathis.smartassistant.models.Coffee
 import com.stathis.smartassistant.models.Event
 import com.stathis.smartassistant.models.TransportationOption
+
 
 /**
  * This file contains the binding adapters that are used across the app
@@ -82,4 +85,22 @@ fun TextView.coffeeTitle(coffee: Coffee?) {
 fun TextView.startTime(event: Event) {
     val startTime = event.getStartTime()
     text = context.getString(R.string.moving_time_estimation, event.time, startTime)
+}
+
+@BindingAdapter("capitalize")
+fun TextView.capitalize(string: String) {
+    text = string.replaceFirstChar(Char::titlecase)
+}
+
+@BindingAdapter("plannerDate")
+fun TextView.plannerDate(date: String) {
+    val day = date.getDay()
+    val month = date.getMonthName()
+
+    val spannableText = SpannableStringBuilder()
+        .bold { append(day) }
+        .append("\n")
+        .append(month)
+
+    text = spannableText
 }

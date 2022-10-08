@@ -36,9 +36,10 @@ class PlannerViewModel : ViewModel(), ItemCallback {
         }
     }
 
-    fun observe(owner: LifecycleOwner) {
+    fun observe(owner: LifecycleOwner, showEmptyScreen : (Boolean) -> Unit) {
         events.observe(owner) {
             adapter.submitList(it)
+            showEmptyScreen.invoke(it.isEmpty())
         }
     }
 

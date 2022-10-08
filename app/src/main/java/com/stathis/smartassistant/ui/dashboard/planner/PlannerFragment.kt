@@ -27,11 +27,15 @@ class PlannerFragment : BaseFragment<FragmentPlannerBinding>(R.layout.fragment_p
         setScreenTitle(getString(R.string.planner_title))
         addMenuProvider(this)
         binding.viewModel = viewModel
+        binding.emptyCalendar = false
     }
 
     override fun startOps() {
         viewModel.getUserEvents()
-        viewModel.observe(viewLifecycleOwner)
+        viewModel.observe(viewLifecycleOwner, showEmptyScreen = { isEmpty ->
+            binding.emptyCalendar = isEmpty
+        })
+
         viewModel.onEventTap { event ->
             goToEventInfoScreen(event)
         }

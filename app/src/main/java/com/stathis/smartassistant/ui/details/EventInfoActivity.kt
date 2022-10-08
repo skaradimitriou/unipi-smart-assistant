@@ -22,6 +22,7 @@ class EventInfoActivity : BaseActivity<ActivityEventInfoBinding>(R.layout.activi
         val event = intent.getStringExtra(EVENT)
         event?.let {
             val model = Gson().fromJson(it, Event::class.java)
+            supportActionBar?.title = model.title
             viewModel.bindModel(event = model)
         }
     }

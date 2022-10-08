@@ -146,5 +146,6 @@
     <string name="event_success">Το event δημιουργήθηκε!</string>
     <string name="event_result_desc">Το event που περιέγραψες προστέθηκε στον ψηφιακό σου βοηθό ημέρας. Είσαι έτοιμος!</string>
     <string name="event_overview_btn">Επιστροφή στο Ημερολόγιο</string>
+    <string name="planner_no_results_message">Δεν βρέθηκαν συμβάντα. Πρόσθεσε ένα νέο πατώντας το (+) πάνω δεξιά</string>
 
 </resources>

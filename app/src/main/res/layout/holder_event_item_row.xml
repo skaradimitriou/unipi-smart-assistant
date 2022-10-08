@@ -28,79 +28,98 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
+            <ImageView
+                android:id="@+id/eventImgView"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_100"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerCrop"
+                app:imageResource="@{model.transportationOption.image}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/eventsPointView"
+                android:layout_width="1dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/dimen_xl"
+                app:layout_constraintBottom_toBottomOf="@id/eventImgView"
+                app:layout_constraintStart_toStartOf="parent" />
+
             <TextView
-                android:id="@+id/holderEventTitleTxtView"
+                android:id="@+id/eventDateTxtView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounded_button"
+                android:backgroundTint="@color/grey_bg"
+                android:gravity="center_horizontal|center_vertical"
+                android:padding="@dimen/dimen_10"
+                app:layout_constraintBottom_toBottomOf="@id/eventsPointView"
+                app:layout_constraintEnd_toEndOf="@id/eventsPointView"
+                app:layout_constraintStart_toStartOf="@id/eventsPointView"
+                app:layout_constraintTop_toTopOf="@id/eventsPointView"
+                app:plannerDate="@{model.date}"
+                tools:text="08\nJun" />
+
+            <TextView
+                android:id="@+id/eventTitleTxtView"
+                style="@style/text_18_bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/purple_500"
-                android:gravity="center_horizontal"
-                android:padding="@dimen/dimen_s"
-                android:text="@{model.title}"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:textStyle="bold"
+                android:paddingStart="@dimen/dimen_m"
+                android:paddingTop="@dimen/dimen_s"
+                android:paddingBottom="@dimen/dimen_s"
+                app:capitalize="@{model.title}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:text="Event title" />
+                app:layout_constraintTop_toBottomOf="@id/eventDateTxtView"
+                tools:text="@string/events_intro_title" />
 
             <TextView
-                android:id="@+id/holderEventDateTxtView"
+                android:id="@+id/eventLocationTxtView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawablePadding="@dimen/dimen_s"
                 android:gravity="start|center_vertical"
                 android:paddingHorizontal="@dimen/dimen_m"
-                android:paddingVertical="@dimen/dimen_s"
+                android:paddingTop="@dimen/dimen_xs"
+                android:text="@{model.location}"
+                android:textColor="@color/description_grey"
+                app:drawableStartCompat="@drawable/ic_location"
+                app:drawableTint="@color/description_grey"
+                app:layout_constraintTop_toBottomOf="@id/eventTitleTxtView"
+                tools:text="@string/events_intro_location" />
+
+            <TextView
+                android:id="@+id/eventTransportTypeTxtView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/dimen_s"
+                android:gravity="start|center_vertical"
+                android:paddingHorizontal="@dimen/dimen_m"
+                android:paddingTop="@dimen/dimen_xs"
                 android:text="@{model.transportationOption.title}"
+                android:textColor="@color/description_grey"
                 app:drawableStartCompat="@drawable/ic_transportation_white"
-                app:drawableTint="@color/black"
-                app:layout_constraintTop_toBottomOf="@id/holderEventTitleTxtView"
+                app:drawableTint="@color/description_grey"
+                app:layout_constraintTop_toBottomOf="@id/eventLocationTxtView"
                 tools:text="@string/dummy_transport_type" />
 
-            <View
-                android:id="@+id/firstDividerView"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginHorizontal="@dimen/dimen_m"
-                android:background="@color/grey_light"
-                app:layout_constraintTop_toBottomOf="@id/holderEventDateTxtView" />
-
             <TextView
-                android:id="@+id/holderEventLocationTxtView"
+                android:id="@+id/eventTimeTxtView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:drawablePadding="@dimen/dimen_s"
                 android:gravity="start|center_vertical"
                 android:paddingHorizontal="@dimen/dimen_m"
-                android:paddingVertical="@dimen/dimen_s"
-                android:text="@{model.date}"
-                app:drawableStartCompat="@drawable/ic_date_white"
-                app:drawableTint="@color/black"
-                app:layout_constraintTop_toBottomOf="@id/firstDividerView"
-                tools:text="@string/dummy_date" />
-
-            <View
-                android:id="@+id/dividerView"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginHorizontal="@dimen/dimen_m"
-                android:background="@color/grey_light"
-                app:layout_constraintTop_toBottomOf="@id/holderEventLocationTxtView" />
-
-            <TextView
-                android:id="@+id/holderEventTimeTxtView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawablePadding="@dimen/dimen_s"
-                android:gravity="start|center_vertical"
-                android:paddingHorizontal="@dimen/dimen_m"
-                android:paddingVertical="@dimen/dimen_s"
+                android:paddingTop="@dimen/dimen_xs"
+                android:paddingBottom="@dimen/dimen_s"
                 android:text="@{model.time}"
+                android:textColor="@color/description_grey"
                 app:drawableStartCompat="@drawable/ic_time_white"
-                app:drawableTint="@color/black"
-                app:layout_constraintTop_toBottomOf="@id/dividerView"
-                tools:text="@string/dummy_time" />
+                app:drawableTint="@color/description_grey"
+                app:layout_constraintTop_toBottomOf="@id/eventTransportTypeTxtView"
+                tools:text="@string/dummy_transport_type" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

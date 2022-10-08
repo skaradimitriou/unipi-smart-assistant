@@ -5,7 +5,7 @@ data class EventResponse(
 ) {
     constructor() : this(
         Event(
-            "", "", "",
+            "", "", "", "",
             TransportationOption("", 0, 0, false),
             ParkingInfo("", ""),
             CoffeeShop("", 0, 0, 0, true, false),

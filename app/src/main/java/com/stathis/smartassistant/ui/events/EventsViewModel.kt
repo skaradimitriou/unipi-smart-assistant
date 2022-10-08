@@ -28,6 +28,7 @@ class EventsViewModel(val app: Application) : BaseViewModel(app) {
         title = eventTitle.toUiModel(),
         date = eventDate.toUiModel(),
         time = eventTime.toUiModel(),
+        location = eventLocation.toUiModel(),
         transportationOption = transportationOption.toUiModel(),
         parkingInfo = parkingData,
         shop = selectedShop,
