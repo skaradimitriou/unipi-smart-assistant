@@ -25,7 +25,15 @@ data class Event(
         else -> false
     }
 
-    fun hasParkingInfo(): Boolean = parkingInfo != null
+    fun hasParkingInfo(): Boolean {
+        var hasParking = false
+        parkingInfo?.let { model ->
+            hasParking = model.company.isNotEmpty() && model.slot.isNotEmpty()
+        } ?: kotlin.run {
+            hasParking = false
+        }
+        return hasParking
+    }
 
     fun hasAdditionals(): Boolean {
         return shop != null && coffee != null

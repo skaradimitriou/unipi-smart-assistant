@@ -6,10 +6,14 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.core.view.MenuProvider
 import androidx.fragment.app.viewModels
+import com.google.gson.Gson
 import com.stathis.smartassistant.R
 import com.stathis.smartassistant.abstraction.BaseFragment
 import com.stathis.smartassistant.databinding.FragmentPlannerBinding
+import com.stathis.smartassistant.models.Event
+import com.stathis.smartassistant.ui.details.EventInfoActivity
 import com.stathis.smartassistant.ui.events.EventsActivity
+import com.stathis.smartassistant.util.EVENT
 import com.stathis.smartassistant.util.addMenuProvider
 import com.stathis.smartassistant.util.setScreenTitle
 import com.stathis.smartassistant.util.showAlertDialog
@@ -29,8 +33,16 @@ class PlannerFragment : BaseFragment<FragmentPlannerBinding>(R.layout.fragment_p
         viewModel.getUserEvents()
         viewModel.observe(viewLifecycleOwner)
         viewModel.onEventTap { event ->
-            //handle item click
+            goToEventInfoScreen(event)
         }
+    }
+
+    private fun goToEventInfoScreen(event: Event) {
+        val json = Gson().toJson(event)
+        val intent = Intent(requireContext(), EventInfoActivity::class.java).apply {
+            putExtra(EVENT, json)
+        }
+        startActivity(intent)
     }
 
     override fun stopOps() {
