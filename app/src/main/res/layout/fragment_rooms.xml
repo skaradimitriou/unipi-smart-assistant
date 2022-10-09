@@ -17,82 +17,68 @@
         app:layoutDescription="@xml/fragment_rooms_xml_constraintlayout_scene"
         tools:context=".ui.dashboard.home.HomeFragment">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/userImgView"
-            loadImg="@{viewModel.userImg}"
-            android:layout_width="@dimen/dimen_2xl"
-            android:layout_height="@dimen/dimen_2xl"
-            android:layout_margin="@dimen/dimen_m"
-            android:scaleType="centerCrop"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@mipmap/ic_launcher" />
-
-        <TextView
-            android:id="@+id/userGreetingTxtView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dimen_m"
-            android:text="@string/greeting"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/userImgView"
-            app:layout_constraintTop_toTopOf="@id/userImgView" />
-
-        <TextView
-            android:id="@+id/userAddressTxtView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/dimen_m"
-            android:drawablePadding="@dimen/dimen_s"
-            android:text="@string/user_address"
-            app:drawableStartCompat="@drawable/ic_home_blue"
-            app:layout_constraintBottom_toBottomOf="@+id/userImgView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/userImgView"
-            app:layout_constraintTop_toBottomOf="@id/userGreetingTxtView" />
-
-        <View
-            android:id="@+id/homeRoundedBgView"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="@dimen/dimen_l"
-            android:background="@drawable/home_top_rounded_bg"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/userAddressTxtView" />
-
-        <TextView
-            android:id="@+id/roomsTitleTxtView"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/topConstraint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:paddingHorizontal="@dimen/dimen_m"
-            android:paddingTop="@dimen/dimen_m"
-            android:text="@string/user_directions"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/rounded_corners_bottom"
+            android:paddingBottom="@dimen/dimen_m"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/homeRoundedBgView" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/userImgCardView"
+                android:layout_width="@dimen/dimen_1.5xl"
+                android:layout_height="@dimen/dimen_1.5xl"
+                android:layout_margin="@dimen/dimen_m"
+                app:cardCornerRadius="@dimen/dimen_10"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/userImgView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/ic_launcher"
+                    tools:src="@mipmap/ic_launcher" />
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/userGreetingTxtView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_s"
+                android:text="@string/dummy_greeting"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/userImgCardView"
+                app:layout_constraintTop_toTopOf="@id/userImgCardView" />
+
+            <TextView
+                android:id="@+id/currentDateTxtView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dimen_s"
+                android:text="@string/dummy_full_date"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/userImgCardView"
+                app:layout_constraintTop_toBottomOf="@id/userGreetingTxtView" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/homeScreenRecycler"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
             android:adapter="@{viewModel.adapter}"
-            android:clipToPadding="false"
             android:orientation="vertical"
             android:overScrollMode="never"
-            android:paddingHorizontal="@dimen/dimen_m"
-            android:paddingBottom="@dimen/dimen_2xl"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/roomsTitleTxtView"
-            app:spanCount="2"
-            tools:listitem="@layout/holder_home_room_item" />
+            app:layout_constraintTop_toBottomOf="@id/topConstraint" />
 
     </androidx.constraintlayout.motion.widget.MotionLayout>
 </layout>

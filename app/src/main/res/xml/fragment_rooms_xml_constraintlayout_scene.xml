@@ -1,82 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+<MotionScene 
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:motion="http://schemas.android.com/apk/res-auto">
 
     <Transition
         motion:constraintSetEnd="@+id/end"
         motion:constraintSetStart="@id/start"
         motion:duration="1000">
+       <KeyFrameSet>
+           <KeyAttribute
+               motion:motionTarget="@+id/topConstraint"
+               motion:framePosition="100"
+               android:alpha="0.5" />
+           <KeyAttribute
+               motion:motionTarget="@+id/topConstraint"
+               motion:framePosition="35"
+               android:alpha="0.5" />
+       </KeyFrameSet>
         <OnSwipe motion:touchAnchorId="@+id/homeScreenRecycler" />
     </Transition>
 
     <ConstraintSet android:id="@+id/start">
-
-        <Constraint
-            android:id="@+id/homeRoundedBgView"
-            motion:layout_constraintBottom_toBottomOf="parent"
-            motion:layout_constraintEnd_toEndOf="parent"
-            motion:layout_constraintStart_toStartOf="parent"
-            motion:layout_constraintTop_toBottomOf="@id/userAddressTxtView"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginTop="@dimen/dimen_l"
-            android:background="@drawable/home_top_rounded_bg" />
     </ConstraintSet>
 
     <ConstraintSet android:id="@+id/end">
         <Constraint
-            android:id="@+id/userImgView"
-            android:layout_width="@dimen/dimen_2xl"
+            android:id="@+id/topConstraint"
+            android:layout_width="match_parent"
             android:layout_height="1dp"
-            motion:layout_constraintStart_toStartOf="parent"
-            motion:layout_constraintTop_toTopOf="parent" />
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent" />
         <Constraint
-            android:id="@+id/userImgView"
-            android:layout_width="@dimen/dimen_2xl"
+            android:id="@+id/topConstraint"
+            android:layout_width="match_parent"
             android:layout_height="1dp"
-            motion:layout_constraintStart_toStartOf="parent"
-            motion:layout_constraintTop_toTopOf="parent" />
-        <Constraint
-            android:id="@+id/userAddressTxtView"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            motion:layout_constraintBottom_toBottomOf="@+id/userImgView"
-            motion:layout_constraintEnd_toEndOf="parent"
-            motion:layout_constraintStart_toEndOf="@id/userImgView"
-            motion:layout_constraintTop_toBottomOf="@id/userGreetingTxtView" />
-        <Constraint
-            android:id="@+id/userAddressTxtView"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            motion:layout_constraintBottom_toBottomOf="@+id/userImgView"
-            motion:layout_constraintEnd_toEndOf="parent"
-            motion:layout_constraintStart_toEndOf="@id/userImgView"
-            motion:layout_constraintTop_toBottomOf="@id/userGreetingTxtView" />
-        <Constraint
-            android:id="@+id/userGreetingTxtView"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_marginStart="@dimen/dimen_m"
-            motion:layout_constraintEnd_toEndOf="parent"
-            motion:layout_constraintStart_toEndOf="@id/userImgView"
-            motion:layout_constraintTop_toTopOf="@id/userImgView" />
-        <Constraint
-            android:id="@+id/userGreetingTxtView"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_marginStart="@dimen/dimen_m"
-            motion:layout_constraintEnd_toEndOf="parent"
-            motion:layout_constraintStart_toEndOf="@id/userImgView"
-            motion:layout_constraintTop_toTopOf="@id/userImgView" />
-        <Constraint
-            android:id="@+id/homeRoundedBgView"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_marginTop="0dp"
-            motion:layout_constraintBottom_toBottomOf="parent"
-            motion:layout_constraintEnd_toEndOf="parent"
-            motion:layout_constraintStart_toStartOf="parent"
-            motion:layout_constraintTop_toBottomOf="@id/userAddressTxtView"
-            motion:transitionEasing="cubic(0.36,0.11,0.8,0.8)" />
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintStart_toStartOf="parent" />
     </ConstraintSet>
 </MotionScene>

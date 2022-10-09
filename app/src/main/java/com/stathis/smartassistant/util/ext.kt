@@ -5,11 +5,8 @@ import android.content.Context
 import android.text.Editable
 import android.text.SpannableStringBuilder
 import android.text.TextWatcher
-import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.content.res.AppCompatResources
-import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.core.content.ContextCompat
 import androidx.core.text.bold
 import com.airbnb.lottie.LottieAnimationView
@@ -39,16 +36,21 @@ fun ImageView.loadImage(url: String? = null) {
 }
 
 /**
- * Helper fun to simplify the static user greeting of the application
+ * Helper fun to get current time and construct appropriate user greeting in home screen
  */
 
 fun TextView.setUserGreeting() {
-    val greeting = SpannableStringBuilder()
-        .append("Καλησπέρα")
+    val greeting = when (getCurrentTime().toInt()) {
+        in 4..11 -> "Καλημέρα"
+        else -> "Καλησπέρα"
+    }
+
+    val fullText = SpannableStringBuilder()
+        .append(greeting)
         .append(" ")
         .bold { append("Γιάννη") }
 
-    text = greeting
+    text = fullText
 }
 
 
@@ -70,39 +72,6 @@ fun TextInputEditText.onTextChanged(input: (String) -> Unit) {
             input.invoke(p0.toString())
 
         override fun afterTextChanged(editable: Editable?) {}
-    })
-}
-
-fun MotionLayout.makeHomeTransition(view: View) {
-    setTransitionListener(object : MotionLayout.TransitionListener {
-        override fun onTransitionStarted(motionLayout: MotionLayout?, startId: Int, endId: Int) {}
-        override fun onTransitionChange(
-            motionLayout: MotionLayout?,
-            startId: Int,
-            endId: Int,
-            progress: Float
-        ) {
-        }
-
-        override fun onTransitionCompleted(motionLayout: MotionLayout?, currentId: Int) {
-            motionLayout?.let {
-                if (motionLayout.currentState == R.id.start) {
-                    view.background =
-                        AppCompatResources.getDrawable(context, R.drawable.home_top_rounded_bg)
-                } else {
-                    view.background =
-                        AppCompatResources.getDrawable(context, R.drawable.home_top_bg)
-                }
-            }
-        }
-
-        override fun onTransitionTrigger(
-            motionLayout: MotionLayout?,
-            triggerId: Int,
-            positive: Boolean,
-            progress: Float
-        ) {
-        }
     })
 }
 
@@ -146,11 +115,12 @@ fun SugarType.toUiText(): String = when (name) {
  */
 
 fun LottieAnimationView.onAnimationEnd(ended: () -> Unit) {
-    this.addAnimatorListener(object : Animator.AnimatorListener{
+    this.addAnimatorListener(object : Animator.AnimatorListener {
         override fun onAnimationStart(p0: Animator?) {}
         override fun onAnimationEnd(p0: Animator?) {
             ended.invoke()
         }
+
         override fun onAnimationCancel(p0: Animator?) {}
         override fun onAnimationRepeat(p0: Animator?) {}
     })
@@ -160,7 +130,7 @@ fun LottieAnimationView.onAnimationEnd(ended: () -> Unit) {
  * Helper fun to play a custom animation and stop
  */
 
-fun LottieAnimationView.playOnceAndStop(animation : Int, onEnd : () -> Unit) {
+fun LottieAnimationView.playOnceAndStop(animation: Int, onEnd: () -> Unit) {
     setAnimation(animation)
     repeatCount = 0
     playAnimation()

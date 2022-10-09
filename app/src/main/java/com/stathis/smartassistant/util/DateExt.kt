@@ -24,3 +24,23 @@ fun String.getMonthName(): String {
     return outputFormat.format(test)
 }
 
+/**
+ * Helper fun to get the full date in the format of: Κυριακή, 9 Οκτωβρίου 2022
+ */
+
+@SuppressLint("SimpleDateFormat")
+fun getCurrentFullDate(): String {
+    val date = Date()
+    val outputFormat = SimpleDateFormat("EEEE, d MMMM yyyy", Locale("el", "GR"))
+    return outputFormat.format(date)
+}
+
+/**
+ * Helper fun to get the current time in the format of: 22:50
+ */
+
+fun getCurrentTime(): String {
+    val date = Date()
+    val outputFormat = SimpleDateFormat("HH", Locale("el", "GR"))
+    return outputFormat.format(date)
+}

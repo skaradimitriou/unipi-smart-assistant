@@ -13,10 +13,8 @@
     <string name="profile_title">Προφίλ</string>
 
     <!-- Home Screen -->
-    <string name="greeting">Καλησπέρα Γιάννη</string>
-    <string name="username">Γιάννης</string>
-    <string name="user_address">Μπουμπουλίνας 1, Χαλάνδρι</string>
-    <string name="user_directions"><b>Κάνε tap στο κάθε δωμάτιο</b> για να πλοηγηθείς</string>
+    <string name="dummy_greeting">Καλησπέρα Γιάννη</string>
+    <string name="dummy_full_date">Κυριακή, 9 Οκτωβρίου 2022</string>
 
     <string name="living_room">Σαλόνι</string>
     <string name="kitchen">Κουζίνα</string>
