@@ -1,5 +1,6 @@
 package com.stathis.smartassistant.ui.wardrobe.intro
 
+import androidx.navigation.fragment.findNavController
 import com.stathis.smartassistant.R
 import com.stathis.smartassistant.abstraction.BaseFragment
 import com.stathis.smartassistant.databinding.FragmentWardrobeIntroBinding
@@ -13,7 +14,9 @@ class WardrobeIntroFragment : BaseFragment<FragmentWardrobeIntroBinding>(R.layou
     }
 
     override fun startOps() {
-
+        binding.nextButton.setOnClickListener {
+            findNavController().navigate(R.id.shoesFragment)
+        }
     }
 
     override fun stopOps() {

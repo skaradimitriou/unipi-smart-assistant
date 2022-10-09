@@ -9,6 +9,7 @@ import com.stathis.smartassistant.models.Event
 
 class PlannerViewHolder(val binding: ViewDataBinding, val callback: ItemCallback) :
     BaseViewHolder(binding) {
+
     override fun present(data: LocalModel) {
         when (data) {
             is Event -> {

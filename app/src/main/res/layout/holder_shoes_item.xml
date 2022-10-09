@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="model"
+            type="com.stathis.smartassistant.models.wardrobe.Shoes" />
+
+        <variable
+            name="callback"
+            type="com.stathis.smartassistant.callbacks.ItemCallback" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_s"
+        android:layout_marginTop="@dimen/dimen_10"
+        android:layout_marginEnd="@dimen/dimen_xs"
+        android:onClick="@{(view) -> callback.onItemTap(view)}"
+        android:tag="@{model}"
+        app:cardCornerRadius="@dimen/dimen_10">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/holderOptionImgView"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_100"
+                android:contentDescription="@{model.title}"
+                android:scaleType="fitCenter"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:loadImg="@{model.imageUrl}"
+                tools:src="@drawable/smart_locker" />
+
+            <TextView
+                android:id="@+id/holderOptionTitleTxtView"
+                style="@style/text_16_bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dimen_m"
+                android:text="@{model.title}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/holderOptionImgView"
+                tools:text="Adidas Stan Smith Blue" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
