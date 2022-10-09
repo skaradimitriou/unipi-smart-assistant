@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartAssistant">
         <activity
+            android:name=".ui.wardrobe.WardrobeActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.details.EventInfoActivity"
             android:exported="false" />
         <activity

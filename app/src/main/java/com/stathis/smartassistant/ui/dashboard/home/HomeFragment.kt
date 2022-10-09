@@ -1,5 +1,6 @@
 package com.stathis.smartassistant.ui.dashboard.home
 
+import android.content.Intent
 import androidx.fragment.app.viewModels
 import com.stathis.smartassistant.R
 import com.stathis.smartassistant.abstraction.BaseFragment
@@ -7,6 +8,8 @@ import com.stathis.smartassistant.callbacks.HomeScreenCallback
 import com.stathis.smartassistant.databinding.FragmentRoomsBinding
 import com.stathis.smartassistant.models.RoomPromo
 import com.stathis.smartassistant.models.SmartLockerPromo
+import com.stathis.smartassistant.ui.rooms.RoomsActivity
+import com.stathis.smartassistant.ui.wardrobe.WardrobeActivity
 import com.stathis.smartassistant.util.*
 
 
@@ -29,7 +32,7 @@ class HomeFragment : BaseFragment<FragmentRoomsBinding>(R.layout.fragment_rooms)
             }
 
             override fun onSmartLockerClick(promo: SmartLockerPromo) {
-                binding.showSnackbar("Η έξυπνη παπουτσοθήκη δεν έχει υλοποιηθεί ακόμα")
+                goToSmartWardrobeScreen()
             }
         })
 
@@ -48,4 +51,22 @@ class HomeFragment : BaseFragment<FragmentRoomsBinding>(R.layout.fragment_rooms)
 //        }
 //        startActivity(action)
 //    }
+
+    /*
+     * Starts the Room Activity in the flow.
+     */
+
+    private fun goToRoomsScreen() {
+        val intent = Intent(requireContext(), RoomsActivity::class.java)
+        startActivity(intent)
+    }
+
+    /*
+     * Starts the SmartWardrobe activity in the flow
+     */
+
+    private fun goToSmartWardrobeScreen() {
+        val intent = Intent(requireContext(), WardrobeActivity::class.java)
+        startActivity(intent)
+    }
 }
