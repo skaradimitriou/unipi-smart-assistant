@@ -37,6 +37,18 @@ fun Fragment.showAlertDialog(message: String) {
         }.create().show()
 }
 
+fun Fragment.showYesNoDialog(message: String, onButtonClick: () -> Unit) {
+    AlertDialog.Builder(requireActivity())
+        .setMessage(message)
+        .setPositiveButton(R.string.yes) { dialog, id ->
+            onButtonClick.invoke()
+        }
+        .setNegativeButton(R.string.no) { dialog, id ->
+            dialog.dismiss()
+        }
+        .create().show()
+}
+
 fun Activity.showAlertDialog(message: String) {
     AlertDialog.Builder(this)
         .setMessage(message)
@@ -80,9 +92,9 @@ fun Fragment.showTimePicker(onTimeSelected: (String) -> Unit) {
     }
 }
 
-fun Fragment.showSugarSelection(selectedCoffee : Coffee, sugarType: (SugarType) -> Unit) {
+fun Fragment.showSugarSelection(selectedCoffee: Coffee, sugarType: (SugarType) -> Unit) {
     val binding = CoffeeSugarSelectionBsBinding.inflate(LayoutInflater.from(requireContext()))
-    val dialog = BottomSheetDialog(requireContext(),R.style.AppBottomSheetDialogTheme)
+    val dialog = BottomSheetDialog(requireContext(), R.style.AppBottomSheetDialogTheme)
     dialog.setContentView(binding.root)
 
     binding.model = selectedCoffee

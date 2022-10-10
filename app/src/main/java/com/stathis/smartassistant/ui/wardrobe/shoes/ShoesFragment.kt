@@ -11,6 +11,7 @@ import com.stathis.smartassistant.models.wardrobe.AddShoePromo
 import com.stathis.smartassistant.models.wardrobe.Shoes
 import com.stathis.smartassistant.ui.wardrobe.WardrobeViewModel
 import com.stathis.smartassistant.util.setScreenTitle
+import com.stathis.smartassistant.util.showYesNoDialog
 
 class ShoesFragment : BaseFragment<FragmentShoesBinding>(R.layout.fragment_shoes) {
 
@@ -24,12 +25,29 @@ class ShoesFragment : BaseFragment<FragmentShoesBinding>(R.layout.fragment_shoes
 
     override fun startOps() {
         viewModel.observe(viewLifecycleOwner, object : ShoesCallback {
-            override fun onShoesTap(shoes: Shoes) = goToNewShoesScreen()
+            override fun onShoesTap(shoes: Shoes) {
+                sharedViewModel.event?.let {
+                    showYesNoDialog(
+                        message = getString(R.string.add_shoes_to_event),
+                        onButtonClick = {
+                            viewModel.updateShoesOnEvent(it, shoes)
+                        })
+                }
+            }
+
             override fun onAddItemTap(promo: AddShoePromo) = goToEshopScreen()
         })
 
         sharedViewModel.category?.let { category ->
             viewModel.getShoes(category.name)
+        }
+
+        viewModel.shoesAddedToEvent.observe(viewLifecycleOwner) { addedSuccessfully ->
+            if (addedSuccessfully) {
+                goToResultScreen()
+            } else {
+                //FIXME: Display error on screen
+            }
         }
     }
 
@@ -38,11 +56,12 @@ class ShoesFragment : BaseFragment<FragmentShoesBinding>(R.layout.fragment_shoes
     }
 
     /*
-     * Navigates to the eshop screen via safeargs
+     * Navigates to the result screen via safeargs
      */
 
-    private fun goToNewShoesScreen() {
-        //FIXME: Add new shoes screen
+    private fun goToResultScreen() {
+        val action = ShoesFragmentDirections.goToResultScreen()
+        findNavController().navigate(action)
     }
 
     /*

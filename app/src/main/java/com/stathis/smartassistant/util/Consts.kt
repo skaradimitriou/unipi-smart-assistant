@@ -7,5 +7,6 @@ const val SELECT_DATE_TAG = "SELECT_DATES"
 const val SELECT_TIME_TAG = "SELECT_TIME"
 
 const val EVENT = "EVENT"
+const val EVENTS = "events"
 const val SHOES = "shoes"
 const val ESHOPS = "eshops"

@@ -2,6 +2,8 @@ package com.stathis.smartassistant.models
 
 import android.annotation.SuppressLint
 import com.stathis.smartassistant.abstraction.LocalModel
+import com.stathis.smartassistant.models.wardrobe.ShoeCategory
+import com.stathis.smartassistant.models.wardrobe.Shoes
 import java.time.Duration
 import java.time.LocalTime
 
@@ -14,13 +16,17 @@ data class Event(
     val parkingInfo: ParkingInfo? = null,
     val shop: CoffeeShop? = null,
     val coffee: Coffee? = null,
+    val shoes: Shoes? = null
 ) : LocalModel {
-    constructor() : this("", "","", "",
+    constructor() : this(
+        "", "", "", "",
         TransportationOption("", 0, 0, false),
         ParkingInfo("", ""),
         CoffeeShop("", 0, 0, 0, true, false),
-        Coffee("",0,SugarType.SWEET, 0.0)
+        Coffee("", 0, SugarType.SWEET, 0.0),
+        Shoes("", "", 0, ShoeCategory.EVERYDAY)
     )
+
     override fun equalsContent(obj: LocalModel): Boolean = when (obj) {
         is Event -> title == obj.title && transportationOption == obj.transportationOption
         else -> false

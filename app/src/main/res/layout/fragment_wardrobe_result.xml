@@ -1,12 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="event"
+            type="com.stathis.smartassistant.models.Event" />
+    </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/light_bg"
+        android:padding="@dimen/dimen_l"
         tools:context=".ui.wardrobe.result.WardrobeResultFragment">
 
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/successImgView"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dimen_180"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_rawRes="@raw/planner_success" />
+
+        <TextView
+            android:id="@+id/successHeaderTxtView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:paddingTop="@dimen/dimen_m"
+            android:text="@string/result_event_updated"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/successImgView" />
+
+        <TextView
+            android:id="@+id/successDescTxtView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:paddingTop="@dimen/dimen_s"
+            android:text="@string/event_result_desc"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@id/successHeaderTxtView" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/returnToPlannerBtn"
+            style="@style/primaryButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/event_overview_btn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

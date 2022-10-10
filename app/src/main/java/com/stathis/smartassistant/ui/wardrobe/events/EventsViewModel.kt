@@ -1,4 +1,4 @@
-package com.stathis.smartassistant.ui.dashboard.planner
+package com.stathis.smartassistant.ui.wardrobe.events
 
 import android.view.View
 import androidx.lifecycle.LifecycleOwner
@@ -10,9 +10,10 @@ import com.stathis.smartassistant.callbacks.EventsCallback
 import com.stathis.smartassistant.callbacks.ItemCallback
 import com.stathis.smartassistant.models.Event
 import com.stathis.smartassistant.ui.dashboard.planner.adapter.PlannerAdapter
+import com.stathis.smartassistant.util.EVENTS
 import timber.log.Timber
 
-class PlannerViewModel : ViewModel(), ItemCallback {
+class EventsViewModel : ViewModel(), ItemCallback {
 
     val adapter = PlannerAdapter(this)
     val firestore by lazy { FirebaseFirestore.getInstance() }
@@ -20,7 +21,7 @@ class PlannerViewModel : ViewModel(), ItemCallback {
     val events = MutableLiveData<List<Event>>()
 
     fun getUserEvents() {
-        firestore.collection("events").get().addOnSuccessListener { docs ->
+        firestore.collection(EVENTS).get().addOnSuccessListener { docs ->
             val list = mutableListOf<Event>()
             for (document in docs) {
                 Timber.d("${document.id} => ${document.data}")

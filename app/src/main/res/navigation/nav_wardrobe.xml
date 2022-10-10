@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_wardrobe"
-    app:startDestination="@id/wardrobeIntroFragment">
+    app:startDestination="@id/eventsFragment">
 
     <fragment
         android:id="@+id/wardrobeIntroFragment"
@@ -22,6 +22,9 @@
         <action
             android:id="@+id/goToEshopsScreen"
             app:destination="@id/eshopsFragment" />
+        <action
+            android:id="@+id/goToResultScreen"
+            app:destination="@id/wardrobeResultFragment" />
     </fragment>
     <fragment
         android:id="@+id/eshopsFragment"
@@ -46,4 +49,13 @@
         android:name="com.stathis.smartassistant.ui.wardrobe.result.WardrobeResultFragment"
         android:label="fragment_wardrobe_result"
         tools:layout="@layout/fragment_wardrobe_result" />
+    <fragment
+        android:id="@+id/eventsFragment"
+        android:name="com.stathis.smartassistant.ui.wardrobe.events.EventsFragment"
+        android:label="EventsFragment"
+        tools:layout="@layout/fragment_events">
+        <action
+            android:id="@+id/goToCategoryScreen"
+            app:destination="@id/wardrobeIntroFragment" />
+    </fragment>
 </navigation>

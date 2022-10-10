@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.stathis.smartassistant.ui.wardrobe.events.EventsViewModel" />
+
+        <variable
+            name="emptyCalendar"
+            type="Boolean" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/grey_bg">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/plannerRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:adapter="@{viewModel.adapter}"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:overScrollMode="never"
+            android:paddingBottom="@dimen/dimen_2xl"
+            android:visibility="@{emptyCalendar? View.GONE : View.VISIBLE}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/holder_event_item_row" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="@dimen/dimen_l"
+            android:visibility="@{emptyCalendar ? View.VISIBLE : View.GONE}"
+            tools:visibility="gone">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/emptyResultsLottie"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dimen_180"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/no_results" />
+
+            <TextView
+                android:id="@+id/pickStoreDescTxtView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingTop="@dimen/dimen_s"
+                android:text="@string/planner_no_results_message"
+                app:layout_constraintTop_toBottomOf="@id/emptyResultsLottie" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

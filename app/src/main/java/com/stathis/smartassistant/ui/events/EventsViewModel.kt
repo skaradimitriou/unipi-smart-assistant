@@ -7,7 +7,6 @@ import com.stathis.smartassistant.abstraction.BaseViewModel
 import com.stathis.smartassistant.models.*
 import com.stathis.smartassistant.util.toUiModel
 import timber.log.Timber
-import java.util.*
 
 class EventsViewModel(val app: Application) : BaseViewModel(app) {
 
@@ -38,16 +37,13 @@ class EventsViewModel(val app: Application) : BaseViewModel(app) {
     fun saveEventToDatabase() {
         val event = getEvent()
         val documentReference = firestore.collection("events").document(event.title)
-        val data: HashMap<String, Event> = hashMapOf(
-            "event" to event
-        )
 
-        documentReference.set(data).addOnSuccessListener {
+        documentReference.set(event).addOnSuccessListener {
             Timber.tag("Firebase").d("$event added successfully")
             eventSaved.value = true
         }
 
-        documentReference.set(data).addOnFailureListener {
+        documentReference.set(event).addOnFailureListener {
             Timber.tag("Firebase").d("$event failed to be added")
             eventSaved.value = false
         }
