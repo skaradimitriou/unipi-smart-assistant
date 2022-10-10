@@ -37,6 +37,11 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="text_16" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/dark_text_color</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
     <!-- Button Styles -->
 
     <style name="primaryButton" parent="Widget.AppCompat.Button">

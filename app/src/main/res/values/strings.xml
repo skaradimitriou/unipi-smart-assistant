@@ -153,6 +153,11 @@
 
     <!-- Choose Shoes Screen -->
     <string name="wardrobe_choose_shoes">Επιλογή παπουτσιών</string>
+    <string name="add_shoe_purchase">Αγόρασε ενα νέο ζευγάρι παπούτσια</string>
+
+    <!-- Eshops Screen -->
+    <string name="wardrobe_eshops_title">Επιλογή E-shop</string>
+    <string name="dummy_eshop_title">Intersport</string>
 
 
 </resources>

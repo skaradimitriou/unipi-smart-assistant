@@ -30,8 +30,8 @@ class WardrobeIntroFragment :
 
     override fun stopOps() {}
 
-/*
-     * Navigates to the transport screen via safeargs
+    /*
+     * Navigates to the shoes screen via safeargs
      */
 
     private fun goToShoesScreen() {

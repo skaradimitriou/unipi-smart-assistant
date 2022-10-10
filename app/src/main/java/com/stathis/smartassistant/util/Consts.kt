@@ -8,3 +8,4 @@ const val SELECT_TIME_TAG = "SELECT_TIME"
 
 const val EVENT = "EVENT"
 const val SHOES = "shoes"
+const val ESHOPS = "eshops"
