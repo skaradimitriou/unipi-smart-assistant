@@ -148,7 +148,11 @@
 
     <!--Wardrobe Screens -->
 
+    <!-- Wardrobe Intro Screen -->
+    <string name="wardrobe_intro_title">Επιλογή Κατηγορίας</string>
+
     <!-- Choose Shoes Screen -->
     <string name="wardrobe_choose_shoes">Επιλογή παπουτσιών</string>
+
 
 </resources>

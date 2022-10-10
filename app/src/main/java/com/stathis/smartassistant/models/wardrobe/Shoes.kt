@@ -8,7 +8,7 @@ data class Shoes(
     val size: Int,
     val category: ShoeCategory
 ) : LocalModel {
-    constructor() : this("", "", 0, ShoeCategory.Everyday)
+    constructor() : this("", "", 0, ShoeCategory.EVERYDAY)
 
     override fun equalsContent(obj: LocalModel): Boolean = when (obj) {
         is Shoes -> title == obj.title && category == obj.category
@@ -17,5 +17,5 @@ data class Shoes(
 }
 
 enum class ShoeCategory {
-    Everyday, Sports, Special
+    EVERYDAY, SPORTS, SPECIAL
 }

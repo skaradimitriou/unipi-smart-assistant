@@ -15,6 +15,8 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.stathis.smartassistant.R
 import com.stathis.smartassistant.models.SugarType
+import com.stathis.smartassistant.models.wardrobe.ShoeCategory
+import com.stathis.smartassistant.models.wardrobe.WardrobeCategory
 import java.util.*
 
 /**
@@ -137,4 +139,15 @@ fun LottieAnimationView.playOnceAndStop(animation: Int, onEnd: () -> Unit) {
     onAnimationEnd {
         onEnd.invoke()
     }
+}
+
+/**
+ * Helper fun to display UI text from ShoeCategory enum
+ */
+
+fun ShoeCategory.toUiText() : String = when (name) {
+    ShoeCategory.EVERYDAY.name -> "Καθημερινά"
+    ShoeCategory.SPORTS.name -> "Αθλητικά"
+    ShoeCategory.SPECIAL.name -> "Επίσημα"
+    else -> "Άλλο είδος"
 }

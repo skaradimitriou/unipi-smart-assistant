@@ -24,8 +24,8 @@ class ShoesViewModel : ViewModel(), ItemCallback {
     val shoesList = MutableLiveData<List<Shoes>>()
     private lateinit var callback: ShoesCallback
 
-    fun getShoes() {
-        firestore.collection(SHOES).get().addOnSuccessListener { docs ->
+    fun getShoes(categoryName : String) {
+        firestore.collection(SHOES).whereEqualTo("category", categoryName).get().addOnSuccessListener { docs ->
             val list = mutableListOf<Shoes>()
             for (document in docs) {
                 Timber.d("${document.id} => ${document.data}")
