@@ -20,11 +20,11 @@
         android:label="fragment_shoes"
         tools:layout="@layout/fragment_shoes">
         <action
-            android:id="@+id/goToEshopsScreen"
-            app:destination="@id/eshopsFragment" />
-        <action
             android:id="@+id/goToResultScreen"
             app:destination="@id/wardrobeResultFragment" />
+        <action
+            android:id="@+id/goToPurchaseShoesScreen"
+            app:destination="@id/purchaseShoesFragment" />
     </fragment>
     <fragment
         android:id="@+id/eshopsFragment"
@@ -57,5 +57,17 @@
         <action
             android:id="@+id/goToCategoryScreen"
             app:destination="@id/wardrobeIntroFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/purchaseShoesFragment"
+        android:name="com.stathis.smartassistant.ui.wardrobe.purchase.PurchaseShoesFragment"
+        android:label="PurchaseShoesFragment"
+        tools:layout="@layout/fragment_purchase_shoes">
+        <action
+            android:id="@+id/goToEshopsScreen"
+            app:destination="@id/eshopsFragment" />
+        <argument
+            android:name="categoryType"
+            app:argType="string" />
     </fragment>
 </navigation>

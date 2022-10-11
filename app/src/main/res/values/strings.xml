@@ -159,6 +159,9 @@
     <string name="add_shoe_purchase">Αγόρασε ενα νέο ζευγάρι παπούτσια</string>
     <string name="add_shoes_to_event">Θα ήθελες να συσχετίσεις τα παπούτσια με το event;</string>
 
+    <!-- Purchase Shoes Screen -->
+    <string name="purchase_shoes_title">Αγορά νέου ζευγαριού</string>
+
     <!-- Eshops Screen -->
     <string name="wardrobe_eshops_title">Επιλογή E-shop</string>
     <string name="dummy_eshop_title">Intersport</string>
@@ -166,6 +169,7 @@
     <!-- Wardrobe Result Screen -->
     <string name="success">Επιτυχία</string>
     <string name="result_event_updated">Το event ανανεώθηκε</string>
+
 
 
 </resources>

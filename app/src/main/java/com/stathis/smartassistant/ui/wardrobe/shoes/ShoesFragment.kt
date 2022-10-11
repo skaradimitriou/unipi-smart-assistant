@@ -35,7 +35,10 @@ class ShoesFragment : BaseFragment<FragmentShoesBinding>(R.layout.fragment_shoes
                 }
             }
 
-            override fun onAddItemTap(promo: AddShoePromo) = goToEshopScreen()
+            override fun onAddItemTap(promo: AddShoePromo) {
+                val category = sharedViewModel.category?.name ?: ""
+                goToPurchaseShoesScreen(category)
+            }
         })
 
         sharedViewModel.category?.let { category ->
@@ -65,11 +68,11 @@ class ShoesFragment : BaseFragment<FragmentShoesBinding>(R.layout.fragment_shoes
     }
 
     /*
-     * Navigates to the eshop screen via safeargs
+     * Navigates to the purchase shoes screen via safeargs
      */
 
-    private fun goToEshopScreen() {
-        val action = ShoesFragmentDirections.goToEshopsScreen()
+    private fun goToPurchaseShoesScreen(categoryType: String) {
+        val action = ShoesFragmentDirections.goToPurchaseShoesScreen(categoryType)
         findNavController().navigate(action)
     }
 }
