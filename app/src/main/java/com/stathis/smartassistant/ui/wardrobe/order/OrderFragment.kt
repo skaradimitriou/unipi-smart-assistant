@@ -36,7 +36,7 @@ class OrderFragment : BaseFragment<FragmentOrderBinding>(R.layout.fragment_order
      */
 
     private fun goToOrderResultScreen() {
-        val action = OrderFragmentDirections.goToResultScreen()
+        val action = OrderFragmentDirections.goToOrderResultScreen()
         findNavController().navigate(action)
     }
 }

@@ -173,10 +173,15 @@
     <string name="eshop_title">Ηλεκτρονικό Κατάστημα</string>
     <string name="rating_text">%,.1f/5</string>
 
+    <!-- Eshop Order Result Screen -->
+    <string name="order_result_screen_title">Ολοκλήρωση Παραγγελίας</string>
+    <string name="return_to_dashboard">Επιστροφή στην αρχική</string>
+    <string name="order_result_title">Η παραγγελία σου στάλθηκε</string>
+    <string name="order_result_description">Το ηλεκτρονικό κατάστημα έχει παραλάβει την παραγγελία σου και θα ενημερωθείς για την εξέλιξη της μέσω e-mail</string>
+
     <!-- Wardrobe Result Screen -->
     <string name="success">Επιτυχία</string>
     <string name="result_event_updated">Το event ανανεώθηκε</string>
-
 
 
 </resources>

@@ -41,8 +41,8 @@
         android:label="fragment_order"
         tools:layout="@layout/fragment_order">
         <action
-            android:id="@+id/goToResultScreen"
-            app:destination="@id/wardrobeResultFragment" />
+            android:id="@+id/goToOrderResultScreen"
+            app:destination="@id/orderResultFragment" />
     </fragment>
     <fragment
         android:id="@+id/wardrobeResultFragment"
@@ -70,4 +70,8 @@
             android:name="categoryType"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/orderResultFragment"
+        android:name="com.stathis.smartassistant.ui.events.result.OrderResultFragment"
+        android:label="OrderResultFragment" />
 </navigation>
