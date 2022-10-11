@@ -166,6 +166,13 @@
     <string name="wardrobe_eshops_title">Επιλογή E-shop</string>
     <string name="dummy_eshop_title">Intersport</string>
 
+    <!-- Order Overview Screen -->
+    <string name="order_screen_title">Σύνοψη Παραγγελίας</string>
+    <string name="address_info">Στοιχεία Αποστολής</string>
+    <string name="product_description">Περιγραφή Προιόντος</string>
+    <string name="eshop_title">Ηλεκτρονικό Κατάστημα</string>
+    <string name="rating_text">%,.1f/5</string>
+
     <!-- Wardrobe Result Screen -->
     <string name="success">Επιτυχία</string>
     <string name="result_event_updated">Το event ανανεώθηκε</string>

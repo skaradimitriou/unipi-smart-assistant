@@ -1,14 +1,250 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.wardrobe.order.OrderFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <data>
+
+        <variable
+            name="addressInfo"
+            type="com.stathis.smartassistant.models.wardrobe.AddressInfo" />
+
+        <variable
+            name="shoes"
+            type="com.stathis.smartassistant.models.wardrobe.ShoesToBuy" />
+
+        <variable
+            name="eshop"
+            type="com.stathis.smartassistant.models.wardrobe.Eshop" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="@color/grey_bg"
+        android:padding="@dimen/dimen_m"
+        tools:context=".ui.wardrobe.order.OrderFragment">
 
-</FrameLayout>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:clipToPadding="false"
+            android:overScrollMode="never"
+            android:paddingBottom="@dimen/dimen_xl"
+            android:scrollbars="none"
+            app:layout_constraintBottom_toTopOf="@id/bottomConstraint"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/addressCardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="@dimen/dimen_10"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/dimen_m">
+
+                        <TextView
+                            android:id="@+id/addressHeaderTxtView"
+                            style="@style/text_16_bold"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="@dimen/dimen_s"
+                            android:gravity="start|center_vertical"
+                            android:paddingVertical="@dimen/dimen_s"
+                            android:text="@string/address_info"
+                            app:drawableStartCompat="@drawable/ic_home_white"
+                            app:drawableTint="@color/black"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/fullNameTxtView"
+                            style="@style/text_16"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingVertical="@dimen/dimen_xs"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/addressHeaderTxtView"
+                            app:setFullName="@{addressInfo}"
+                            tools:text="@tools:sample/full_names" />
+
+                        <TextView
+                            android:id="@+id/userAddressTxtView"
+                            style="@style/text_16"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingVertical="@dimen/dimen_xs"
+                            android:text="@{addressInfo.address}"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/fullNameTxtView"
+                            tools:text="@string/app_name" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/productCardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_s"
+                    app:cardCornerRadius="@dimen/dimen_10"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/addressCardView">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/dimen_m">
+
+                        <TextView
+                            android:id="@+id/productHeaderTxtView"
+                            style="@style/text_16_bold"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="@dimen/dimen_s"
+                            android:gravity="start|center_vertical"
+                            android:paddingVertical="@dimen/dimen_s"
+                            android:text="@string/product_description"
+                            app:drawableStartCompat="@drawable/ic_shopping_cart"
+                            app:drawableTint="@color/black"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/productImgView"
+                            android:layout_width="@dimen/dimen_2xl"
+                            android:layout_height="@dimen/dimen_2xl"
+                            android:layout_marginTop="@dimen/dimen_s"
+                            android:scaleType="centerCrop"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/productHeaderTxtView"
+                            app:loadImg="@{shoes.imageUrl}"
+                            tools:src="@drawable/vans" />
+
+                        <TextView
+                            android:id="@+id/productNameTxtView"
+                            style="@style/text_16"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:paddingVertical="@dimen/dimen_xs"
+                            android:paddingStart="@dimen/dimen_s"
+                            android:text="@{shoes.title}"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/productImgView"
+                            app:layout_constraintTop_toTopOf="@id/productImgView"
+                            tools:text="@string/app_name" />
+
+                        <TextView
+                            android:id="@+id/productPriceTxtView"
+                            style="@style/text_16"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:paddingVertical="@dimen/dimen_xs"
+                            android:paddingStart="@dimen/dimen_s"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/productImgView"
+                            app:layout_constraintTop_toBottomOf="@id/productNameTxtView"
+                            app:productPrice="@{shoes.price}"
+                            tools:text="@string/coffee_price_euros" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/eshopCardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dimen_s"
+                    app:cardCornerRadius="@dimen/dimen_10"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/productCardView">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/dimen_m">
+
+                        <TextView
+                            android:id="@+id/eshopHeaderTxtView"
+                            style="@style/text_16_bold"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawablePadding="@dimen/dimen_s"
+                            android:gravity="start|center_vertical"
+                            android:paddingVertical="@dimen/dimen_s"
+                            android:text="@string/eshop_title"
+                            app:drawableStartCompat="@drawable/ic_store"
+                            app:drawableTint="@color/black"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/eshopImgView"
+                            android:layout_width="@dimen/dimen_2xl"
+                            android:layout_height="@dimen/dimen_2xl"
+                            android:layout_marginTop="@dimen/dimen_s"
+                            android:scaleType="centerInside"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/eshopHeaderTxtView"
+                            app:loadImg="@{eshop.imageUrl}"
+                            tools:src="@drawable/bus" />
+
+                        <TextView
+                            android:id="@+id/eshopNameTxtView"
+                            style="@style/text_16"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:paddingVertical="@dimen/dimen_xs"
+                            android:paddingStart="@dimen/dimen_s"
+                            android:text="@{eshop.title}"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/eshopImgView"
+                            app:layout_constraintTop_toTopOf="@id/eshopImgView"
+                            tools:text="@string/app_name" />
+
+                        <TextView
+                            android:id="@+id/eshopRatingTxtView"
+                            style="@style/text_16"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:paddingVertical="@dimen/dimen_xs"
+                            android:paddingStart="@dimen/dimen_s"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/eshopImgView"
+                            app:layout_constraintTop_toBottomOf="@id/eshopNameTxtView"
+                            app:rating="@{eshop.rating}"
+                            tools:text="@string/rating_text" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/bottomConstraint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/nextButton"
+                style="@style/primaryButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/continue_btn"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

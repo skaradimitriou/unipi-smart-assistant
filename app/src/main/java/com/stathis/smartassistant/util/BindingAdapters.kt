@@ -10,6 +10,7 @@ import com.stathis.smartassistant.R
 import com.stathis.smartassistant.models.Coffee
 import com.stathis.smartassistant.models.Event
 import com.stathis.smartassistant.models.TransportationOption
+import com.stathis.smartassistant.models.wardrobe.AddressInfo
 
 
 /**
@@ -103,4 +104,14 @@ fun TextView.plannerDate(date: String) {
         .append(month)
 
     text = spannableText
+}
+
+@BindingAdapter("setFullName")
+fun TextView.setFullName(data : AddressInfo) {
+    text = data.firstName + " " + data.lastName
+}
+
+@BindingAdapter("rating")
+fun TextView.rating(rating: Double) {
+    text = context.getString(R.string.rating_text, rating)
 }
