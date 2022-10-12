@@ -20,6 +20,7 @@ Model - View - ViewModel (MVVM)
 
 ### Libraries
 
+[Firebase Firestore](https://firebase.google.com/products/firestore?gclid=Cj0KCQjwy5maBhDdARIsAMxrkw3C2WbNmkoCQ33ntSijJvIBF2EpReTFVALIWQg6sL0cHaDDpD-NLAwaAndTEALw_wcB&gclsrc=aw.ds) For mock requests/ nosql database
 [Gson](https://github.com/google/gson) for serialization/deserialization</br>
 [Glide](https://github.com/bumptech/glide) to load images <br/> 
 [Shimmer Loading](https://facebook.github.io/shimmer-android/) to implement loading effect <br/>
