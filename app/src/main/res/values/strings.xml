@@ -183,5 +183,8 @@
     <string name="success">Επιτυχία</string>
     <string name="result_event_updated">Το event ανανεώθηκε</string>
 
+    <!-- Rooms Intro Screen -->
+    <string name="room_into_title">Επιλογή Δωματίου</string>
+
 
 </resources>
