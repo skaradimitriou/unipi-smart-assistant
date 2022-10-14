@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_rooms"
+    app:startDestination="@id/roomsIntroFragment">
+
+    <fragment
+        android:id="@+id/roomsIntroFragment"
+        android:name="com.stathis.smartassistant.ui.rooms.intro.RoomsIntroFragment"
+        android:label="RoomsIntroFragment">
+        <action
+            android:id="@+id/goToRoomUtilsScreen"
+            app:destination="@id/roomUtilsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/roomUtilsFragment"
+        android:name="com.stathis.smartassistant.ui.rooms.utils.RoomUtilsFragment"
+        android:label="RoomUtilsFragment">
+        <action
+            android:id="@+id/goToLightsManagementScreen"
+            app:destination="@id/lightsManagementFragment" />
+        <action
+            android:id="@+id/goToTemperatureScreen"
+            app:destination="@id/temperatureFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/lightsManagementFragment"
+        android:name="com.stathis.smartassistant.ui.rooms.lights.LightsManagementFragment"
+        android:label="LightsManagementFragment" />
+    <fragment
+        android:id="@+id/temperatureFragment"
+        android:name="com.stathis.smartassistant.ui.rooms.temperature.TemperatureFragment"
+        android:label="TemperatureFragment" />
+</navigation>

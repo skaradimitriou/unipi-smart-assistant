@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartAssistant">
         <activity
+            android:name=".ui.rooms.RoomsActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.wardrobe.WardrobeActivity"
             android:exported="false" />
         <activity
@@ -19,9 +22,6 @@
             android:exported="false" />
         <activity
             android:name=".ui.events.EventsActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.rooms.RoomsActivity"
             android:exported="false" />
         <activity
             android:name=".ui.onboarding.MainActivity"
