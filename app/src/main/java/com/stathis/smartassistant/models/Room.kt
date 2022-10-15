@@ -9,7 +9,7 @@ data class Room(
     val title: String,
     val image: String,
     val sequence: Int,
-    val utils: List<RoomUtil>
+    var utils: List<RoomUtil>
 ) : LocalModel, Parcelable {
     override fun equalsContent(obj: LocalModel): Boolean = when (obj) {
         is Room -> title == obj.title
@@ -20,7 +20,7 @@ data class Room(
 @Parcelize
 data class RoomUtil(
     val title: String,
-    val enabled: Boolean
+    var enabled: Boolean
 ) : Parcelable, LocalModel {
     override fun equalsContent(obj: LocalModel): Boolean = when (obj) {
         is RoomUtil -> title == obj.title

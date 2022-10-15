@@ -16,7 +16,6 @@ import com.google.android.material.textfield.TextInputLayout
 import com.stathis.smartassistant.R
 import com.stathis.smartassistant.models.SugarType
 import com.stathis.smartassistant.models.wardrobe.ShoeCategory
-import com.stathis.smartassistant.models.wardrobe.WardrobeCategory
 import java.util.*
 
 /**
@@ -145,9 +144,19 @@ fun LottieAnimationView.playOnceAndStop(animation: Int, onEnd: () -> Unit) {
  * Helper fun to display UI text from ShoeCategory enum
  */
 
-fun ShoeCategory.toUiText() : String = when (name) {
+fun ShoeCategory.toUiText(): String = when (name) {
     ShoeCategory.EVERYDAY.name -> "Καθημερινά"
     ShoeCategory.SPORTS.name -> "Αθλητικά"
     ShoeCategory.SPECIAL.name -> "Επίσημα"
     else -> "Άλλο είδος"
+}
+
+/**
+ * Helper fun to display change in light state according to enabled value
+ */
+
+fun ImageView.setLightState(enabled: Boolean) = if (enabled) {
+    setImageResource(R.drawable.light_on)
+} else {
+    setImageResource(R.drawable.lights_off)
 }

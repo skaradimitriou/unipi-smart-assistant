@@ -186,6 +186,10 @@
     <!-- Rooms Intro Screen -->
     <string name="room_into_title">Επιλογή Δωματίου</string>
     <string name="room_util_title">Επιλογή Ενέργειας</string>
+    <string name="lights_management_title">Ενεργοποίηση Φωτισμού</string>
+    <string name="lights_on_msg">Τα φώτα άναψαν!</string>
+    <string name="lights_out_msg">Τα φώτα έσβησαν!</string>
+    <string name="issue_occured">Παρουσιάστηκε κάποιο πρόβλημα</string>
 
 
 </resources>
