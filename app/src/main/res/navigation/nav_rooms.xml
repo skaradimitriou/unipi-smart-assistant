@@ -22,6 +22,9 @@
         <action
             android:id="@+id/goToTemperatureScreen"
             app:destination="@id/temperatureFragment" />
+        <argument
+            android:name="room"
+            app:argType="com.stathis.smartassistant.models.Room" />
     </fragment>
     <fragment
         android:id="@+id/lightsManagementFragment"

@@ -185,6 +185,7 @@
 
     <!-- Rooms Intro Screen -->
     <string name="room_into_title">Επιλογή Δωματίου</string>
+    <string name="room_util_title">Επιλογή Ενέργειας</string>
 
 
 </resources>
