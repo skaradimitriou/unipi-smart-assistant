@@ -30,7 +30,6 @@
 
             <ImageView
                 android:id="@+id/holderOptionImgView"
-                imageResource="@{model.image}"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dimen_100"
                 android:contentDescription="@{model.title}"
@@ -39,12 +38,13 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:loadImg="@{model.image}"
                 tools:src="@mipmap/ic_launcher" />
 
             <View
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:background="@color/opacity_60_tint"
+                android:background="@color/opacity_70_tint"
                 app:layout_constraintBottom_toBottomOf="@id/holderOptionImgView"
                 app:layout_constraintEnd_toEndOf="@id/holderOptionImgView"
                 app:layout_constraintStart_toStartOf="@id/holderOptionImgView"

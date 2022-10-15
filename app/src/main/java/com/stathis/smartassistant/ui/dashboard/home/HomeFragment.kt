@@ -8,8 +8,12 @@ import com.stathis.smartassistant.callbacks.HomeScreenCallback
 import com.stathis.smartassistant.databinding.FragmentRoomsBinding
 import com.stathis.smartassistant.models.RoomPromo
 import com.stathis.smartassistant.models.SmartLockerPromo
+import com.stathis.smartassistant.ui.rooms.RoomsActivity
 import com.stathis.smartassistant.ui.wardrobe.WardrobeActivity
-import com.stathis.smartassistant.util.*
+import com.stathis.smartassistant.util.getCurrentFullDate
+import com.stathis.smartassistant.util.loadImage
+import com.stathis.smartassistant.util.setScreenTitle
+import com.stathis.smartassistant.util.setUserGreeting
 
 
 class HomeFragment : BaseFragment<FragmentRoomsBinding>(R.layout.fragment_rooms) {
@@ -27,7 +31,7 @@ class HomeFragment : BaseFragment<FragmentRoomsBinding>(R.layout.fragment_rooms)
 
         viewModel.getData(object : HomeScreenCallback {
             override fun onRoomsPromoClick(promo: RoomPromo) {
-                binding.showSnackbar("Τα δωμάτια δεν έχουν υλοποιηθεί ακόμα")
+                startRoomsActivity()
             }
 
             override fun onSmartLockerClick(promo: SmartLockerPromo) {
@@ -38,6 +42,15 @@ class HomeFragment : BaseFragment<FragmentRoomsBinding>(R.layout.fragment_rooms)
         viewModel.userImg.observe(viewLifecycleOwner) { imgUrl ->
             binding.userImgView.loadImage(imgUrl)
         }
+    }
+
+    /*
+     * Starts the Rooms flow of the app
+     */
+
+    private fun startRoomsActivity() {
+        val intent = Intent(requireContext(), RoomsActivity::class.java)
+        startActivity(intent)
     }
 
     override fun stopOps() {}

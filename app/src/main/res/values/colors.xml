@@ -11,7 +11,7 @@
     <!-- App's colors -->
     <color name="light_blue">#CFEEFF</color>
     <color name="light_bg">#fefefe</color>
-    <color name="opacity_60_tint">#60000000</color>
+    <color name="opacity_70_tint">#70000000</color>
 
     <color name="grey_bg">#F0F0F0</color>
     <color name="grey_dark">#363636</color>

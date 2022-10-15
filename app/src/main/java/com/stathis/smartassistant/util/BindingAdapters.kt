@@ -29,7 +29,7 @@ fun ImageView.imageResource(imageResource: Int? = null) {
 @BindingAdapter("loadImg")
 fun ImageView.loadImg(url: String? = null) {
     url?.let {
-        Glide.with(this.context).load(url).into(this)
+        Glide.with(this.context).load(url).placeholder(R.mipmap.ic_launcher).into(this)
     } ?: kotlin.run {
         setImageResource(R.mipmap.ic_launcher)
     }

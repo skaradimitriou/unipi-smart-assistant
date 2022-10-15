@@ -1,13 +1,14 @@
-package com.stathis.smartassistant.ui.dashboard.home.adapter
+package com.stathis.smartassistant.ui.rooms.intro.adapter
 
 import androidx.databinding.ViewDataBinding
+import com.stathis.smartassistant.BR
 import com.stathis.smartassistant.abstraction.BaseViewHolder
 import com.stathis.smartassistant.abstraction.LocalModel
-import com.stathis.smartassistant.models.Room
-import com.stathis.smartassistant.BR
 import com.stathis.smartassistant.callbacks.ItemCallback
+import com.stathis.smartassistant.models.Room
 
-class HomeScreenViewHolder(val binding: ViewDataBinding, val callback: ItemCallback) : BaseViewHolder(binding) {
+class RoomsViewHolder(val binding: ViewDataBinding, val callback: ItemCallback) :
+    BaseViewHolder(binding) {
 
     override fun present(data: LocalModel) {
         when (data) {
