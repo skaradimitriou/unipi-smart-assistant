@@ -20,7 +20,8 @@ data class Room(
 @Parcelize
 data class RoomUtil(
     val title: String,
-    var enabled: Boolean
+    var enabled: Boolean,
+    var heatLevel: Int? = null
 ) : Parcelable, LocalModel {
     override fun equalsContent(obj: LocalModel): Boolean = when (obj) {
         is RoomUtil -> title == obj.title

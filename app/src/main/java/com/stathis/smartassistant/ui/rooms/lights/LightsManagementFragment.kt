@@ -6,15 +6,16 @@ import com.stathis.smartassistant.R
 import com.stathis.smartassistant.abstraction.BaseFragment
 import com.stathis.smartassistant.databinding.FragmentLightsManagementBinding
 import com.stathis.smartassistant.util.setLightState
+import com.stathis.smartassistant.util.setScreenTitle
 import com.stathis.smartassistant.util.showSnackbar
 
-class LightsManagementFragment :
-    BaseFragment<FragmentLightsManagementBinding>(R.layout.fragment_lights_management) {
+class LightsManagementFragment : BaseFragment<FragmentLightsManagementBinding>(R.layout.fragment_lights_management) {
 
     private val viewModel: LightsManagementViewModel by viewModels()
     private val args: LightsManagementFragmentArgs by navArgs()
 
     override fun init() {
+        setScreenTitle(getString(R.string.lights_screen_title))
         binding.lightsActiveToggle.isChecked = args.util.enabled
         viewModel.enabled = args.util.enabled
         binding.lightBulbImgView.setLightState(args.util.enabled)

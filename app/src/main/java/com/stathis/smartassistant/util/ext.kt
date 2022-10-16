@@ -160,3 +160,17 @@ fun ImageView.setLightState(enabled: Boolean) = if (enabled) {
 } else {
     setImageResource(R.drawable.lights_off)
 }
+
+/**
+ * Helper fun to display change in temperature state according to enabled value
+ */
+
+fun TextView.setTemperatureState(enabled: Boolean) = if (enabled) {
+    text = context.getString(R.string.active)
+} else {
+    text = context.getString(R.string.not_active)
+}
+
+fun TextView.setTemperatureInCelcius(temperature: Int) {
+    text = context.getString(R.string.temperature_celcius, temperature)
+}

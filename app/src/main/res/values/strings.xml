@@ -186,10 +186,23 @@
     <!-- Rooms Intro Screen -->
     <string name="room_into_title">Επιλογή Δωματίου</string>
     <string name="room_util_title">Επιλογή Ενέργειας</string>
+
+    <!-- Lights Management Screen -->
+    <string name="lights_screen_title">Φωτισμός</string>
     <string name="lights_management_title">Ενεργοποίηση Φωτισμού</string>
     <string name="lights_on_msg">Τα φώτα άναψαν!</string>
     <string name="lights_out_msg">Τα φώτα έσβησαν!</string>
     <string name="issue_occured">Παρουσιάστηκε κάποιο πρόβλημα</string>
 
+    <!-- Temperature Screen -->
+    <string name="temperature_screen_title">Θερμοκρασία</string>
+    <string name="max_heat_reached">Δεν μπορεί να πάει πιο πάνω η θερμοκρασία</string>
+    <string name="min_heat_reached">Δεν μπορεί να πάει πιο κάτω η θερμοκρασία</string>
+    <string name="dummy_temperature">21°C</string>
+    <string name="active">Ενεργοποιημένο</string>
+    <string name="not_active">Απενεργοποιημένο</string>
+    <string name="temperature_celcius">%d°C</string>
+    <string name="activate_aircondition_msg">Ενεργοποίησε το aircondition πρώτα</string>
+    
 
 </resources>

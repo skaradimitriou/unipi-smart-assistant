@@ -34,17 +34,26 @@ class RoomUtilsFragment : BaseFragment<FragmentRoomUtilsBinding>(R.layout.fragme
     }
 
     private fun decideNextAction(util: RoomUtil) = when (util.title) {
-        "Φωτισμός" -> goToLightManagementScreen(util)
+        getString(R.string.lights_screen_title) -> goToLightManagementScreen(util)
+        getString(R.string.temperature_screen_title) -> goToTemperatureScreen(util)
         else -> binding.showSnackbar("Δεν εχει υλοποιηθεί ακόμα")
     }
 
     /*
-     * Navigates to the room utils screen via safeargs
+     * Navigates to the light management screen via safeargs
      */
 
     private fun goToLightManagementScreen(util: RoomUtil) {
-        val action =
-            RoomUtilsFragmentDirections.goToLightsManagementScreen(util = util, room = args.room)
+        val action = RoomUtilsFragmentDirections.goToLightsManagementScreen(util, args.room)
+        findNavController().navigate(action)
+    }
+
+    /*
+     * Navigates to the temperature screen via safeargs
+     */
+
+    private fun goToTemperatureScreen(util: RoomUtil) {
+        val action = RoomUtilsFragmentDirections.goToTemperatureScreen(util, args.room)
         findNavController().navigate(action)
     }
 }

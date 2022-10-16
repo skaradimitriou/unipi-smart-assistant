@@ -40,5 +40,12 @@
     <fragment
         android:id="@+id/temperatureFragment"
         android:name="com.stathis.smartassistant.ui.rooms.temperature.TemperatureFragment"
-        android:label="TemperatureFragment" />
+        android:label="TemperatureFragment" >
+        <argument
+            android:name="util"
+            app:argType="com.stathis.smartassistant.models.RoomUtil" />
+        <argument
+            android:name="room"
+            app:argType="com.stathis.smartassistant.models.Room" />
+    </fragment>
 </navigation>
