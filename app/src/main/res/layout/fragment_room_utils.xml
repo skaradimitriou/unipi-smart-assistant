@@ -23,8 +23,9 @@
             android:clipToPadding="false"
             android:orientation="vertical"
             android:paddingBottom="@dimen/dimen_xl"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/holder_home_room_item" />
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="2"
+            tools:listitem="@layout/holder_room_util_item" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

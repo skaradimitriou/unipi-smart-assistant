@@ -1,6 +1,7 @@
 package com.stathis.smartassistant.util
 
 import android.text.SpannableStringBuilder
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.text.bold
@@ -9,6 +10,7 @@ import com.bumptech.glide.Glide
 import com.stathis.smartassistant.R
 import com.stathis.smartassistant.models.Coffee
 import com.stathis.smartassistant.models.Event
+import com.stathis.smartassistant.models.RoomUtil
 import com.stathis.smartassistant.models.TransportationOption
 import com.stathis.smartassistant.models.wardrobe.AddressInfo
 
@@ -107,11 +109,33 @@ fun TextView.plannerDate(date: String) {
 }
 
 @BindingAdapter("setFullName")
-fun TextView.setFullName(data : AddressInfo) {
+fun TextView.setFullName(data: AddressInfo) {
     text = data.firstName + " " + data.lastName
 }
 
 @BindingAdapter("rating")
 fun TextView.rating(rating: Double) {
     text = context.getString(R.string.rating_text, rating)
+}
+
+@BindingAdapter("roomUtil")
+fun ImageView.roomUtil(util: RoomUtil) {
+    val image = when (util.title) {
+        context.getString(R.string.lights_screen_title) -> R.drawable.ic_light
+        context.getString(R.string.temperature_screen_title) -> R.drawable.ic_air
+        context.getString(R.string.tv_screen_title) -> R.drawable.ic_tv
+        else -> R.drawable.ic_add_item
+    }
+    setImageResource(image)
+}
+
+@BindingAdapter("roomUtilEnabled")
+fun View.roomUtilEnabled(util: RoomUtil) {
+    if (util.enabled) {
+        val color = context.getActualColor(R.color.sky_blue)
+        setBackgroundColor(color)
+    } else {
+        val color = context.getActualColor(R.color.description_grey)
+        setBackgroundColor(color)
+    }
 }

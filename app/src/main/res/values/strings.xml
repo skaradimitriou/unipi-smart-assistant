@@ -203,6 +203,8 @@
     <string name="not_active">Απενεργοποιημένο</string>
     <string name="temperature_celcius">%d°C</string>
     <string name="activate_aircondition_msg">Ενεργοποίησε το aircondition πρώτα</string>
-    
+
+    <!-- TV Screen -->
+    <string name="tv_screen_title">Τηλεόραση</string>
 
 </resources>
