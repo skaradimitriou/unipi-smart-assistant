@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.stathis.smartassistant.models.pets.Pet" />
+
+        <variable
+            name="callback"
+            type="com.stathis.smartassistant.callbacks.ItemCallback" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="@dimen/dimen_150"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_s"
+        android:onClick="@{(view) -> callback.onItemTap(view)}"
+        android:tag="@{model}"
+        app:cardCornerRadius="@dimen/dimen_10">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/roomUtilImgView"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_3xl"
+                android:scaleType="centerCrop"
+                app:imageResource="@{model.image}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/holderRoomTitleTxtView"
+                style="@style/text_18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:padding="@dimen/dimen_10"
+                android:text="@{model.nickname}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/roomUtilImgView"
+                tools:text="Makis" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

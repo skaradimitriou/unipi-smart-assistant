@@ -12,4 +12,8 @@
         android:id="@+id/nav_planner"
         android:name="com.stathis.smartassistant.ui.dashboard.planner.PlannerFragment"
         android:label="PlannerFragment" />
+    <fragment
+        android:id="@+id/nav_pets"
+        android:name="com.stathis.smartassistant.ui.dashboard.pets.PetsFragment"
+        android:label="PetsFragment" />
 </navigation>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.stathis.smartassistant.models.pets.MyPetsPromo" />
+
+        <variable
+            name="adapter"
+            type="com.stathis.smartassistant.ui.dashboard.pets.adapter.PetLandingChildAdapter" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dimen_10">
+
+        <TextView
+            android:id="@+id/promoTitleTxtView"
+            style="@style/text_18_bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dimen_10"
+            android:text="@{model.title}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet." />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/promoRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:adapter="@{adapter}"
+            android:clipToPadding="false"
+            android:orientation="horizontal"
+            android:overScrollMode="never"
+            android:paddingBottom="@dimen/dimen_2xl"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/promoTitleTxtView"
+            tools:listitem="@layout/holder_pet_item" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
