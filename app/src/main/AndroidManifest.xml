@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartAssistant">
         <activity
+            android:name=".ui.petdetails.PetDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.feed.FeedingActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.rooms.RoomsActivity"
             android:exported="false" />
         <activity
