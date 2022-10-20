@@ -4,9 +4,10 @@ import com.stathis.smartassistant.abstraction.LocalModel
 
 data class Pet(
     val nickname: String,
-    val image : Int,
+    val image: Int,
     val type: PetCategory,
-    val color: PetColor
+    val color: PetColor,
+    val utils: List<PetUtil>? = null
 ) : LocalModel {
     override fun equalsContent(obj: LocalModel): Boolean = when (obj) {
         is Pet -> nickname == obj.nickname && type == obj.type && color == obj.color
@@ -28,6 +29,16 @@ data class MyPetsPromo(
 ) : LocalModel {
     override fun equalsContent(obj: LocalModel): Boolean = when (obj) {
         is MyPetsPromo -> title == obj.title && petList == obj.petList
+        else -> false
+    }
+}
+
+data class PetUtil(
+    val title: String,
+    val progress: Int
+) : LocalModel {
+    override fun equalsContent(obj: LocalModel): Boolean = when (obj) {
+        is PetUtil -> title == obj.title && progress == obj.progress
         else -> false
     }
 }

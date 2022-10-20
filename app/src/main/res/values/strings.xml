@@ -206,5 +206,8 @@
 
     <!-- TV Screen -->
     <string name="tv_screen_title">Τηλεόραση</string>
+    <string name="pet_details_screen_title">Πληροφορίες Κατοικιδίου</string>
+    <string name="dummy_pet_title">Makis</string>
+    <string name="dummy_pet_type">CAT</string>
 
 </resources>
