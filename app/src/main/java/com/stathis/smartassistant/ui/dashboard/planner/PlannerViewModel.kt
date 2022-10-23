@@ -4,13 +4,17 @@ import android.view.View
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.gson.Gson
 import com.stathis.smartassistant.callbacks.EventsCallback
 import com.stathis.smartassistant.callbacks.ItemCallback
 import com.stathis.smartassistant.models.Event
 import com.stathis.smartassistant.ui.dashboard.planner.adapter.PlannerAdapter
-import timber.log.Timber
+import com.stathis.smartassistant.util.EVENTS
+import com.stathis.smartassistant.util.toListOf
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
 
 class PlannerViewModel : ViewModel(), ItemCallback {
 
@@ -20,19 +24,15 @@ class PlannerViewModel : ViewModel(), ItemCallback {
     val events = MutableLiveData<List<Event>>()
 
     fun getUserEvents() {
-        firestore.collection("events").get().addOnSuccessListener { docs ->
-            val list = mutableListOf<Event>()
-            for (document in docs) {
-                Timber.d("${document.id} => ${document.data}")
-                val json = Gson().toJson(document.data)
-                val data = Gson().fromJson(json, Event::class.java)
-                list.add(data)
-            }
-            events.value = list
-        }.addOnFailureListener {
-            Timber.d("Error getting documents - $it")
-            events.value = listOf()
+        viewModelScope.launch(Dispatchers.IO) {
+            getEventsFromDb()
         }
+    }
+
+    private suspend fun getEventsFromDb() {
+        val document = firestore.collection(EVENTS).get().await()
+        val list = document.toListOf<Event>()
+        events.postValue(list)
     }
 
     fun observe(owner: LifecycleOwner, showEmptyScreen: (Boolean) -> Unit) {

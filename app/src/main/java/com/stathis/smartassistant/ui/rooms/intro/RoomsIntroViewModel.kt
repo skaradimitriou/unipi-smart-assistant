@@ -4,14 +4,17 @@ import android.view.View
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.gson.Gson
 import com.stathis.smartassistant.callbacks.ItemCallback
 import com.stathis.smartassistant.callbacks.rooms.RoomsCallback
 import com.stathis.smartassistant.models.Room
 import com.stathis.smartassistant.ui.rooms.intro.adapter.RoomsAdapter
 import com.stathis.smartassistant.util.ROOMS
-import timber.log.Timber
+import com.stathis.smartassistant.util.toListOf
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
 
 class RoomsIntroViewModel : ViewModel(), ItemCallback {
 
@@ -21,18 +24,15 @@ class RoomsIntroViewModel : ViewModel(), ItemCallback {
     private lateinit var callback: RoomsCallback
 
     fun getRooms() {
-        firestore.collection(ROOMS).get().addOnSuccessListener { docs ->
-            val list = mutableListOf<Room>()
-            for (document in docs) {
-                val json = Gson().toJson(document.data)
-                val data = Gson().fromJson(json, Room::class.java)
-                list.add(data)
-            }
-            rooms.value = list.sortedBy { it.sequence }
-        }.addOnFailureListener {
-            Timber.d("Error getting documents - $it")
-            rooms.value = listOf()
+        viewModelScope.launch(Dispatchers.IO) {
+            getRoomsFromDb()
         }
+    }
+
+    private suspend fun getRoomsFromDb() {
+        val documents = firestore.collection(ROOMS).get().await()
+        val list = documents.toListOf<Room>()
+        rooms.postValue(list)
     }
 
     fun observe(owner: LifecycleOwner, callback: RoomsCallback) {

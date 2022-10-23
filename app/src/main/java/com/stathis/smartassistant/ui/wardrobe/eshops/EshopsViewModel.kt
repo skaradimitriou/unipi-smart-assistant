@@ -4,14 +4,17 @@ import android.view.View
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.gson.Gson
 import com.stathis.smartassistant.callbacks.ItemCallback
 import com.stathis.smartassistant.callbacks.wardrobe.EshopsCallback
 import com.stathis.smartassistant.models.wardrobe.Eshop
 import com.stathis.smartassistant.ui.wardrobe.eshops.adapter.EshopsAdapter
 import com.stathis.smartassistant.util.ESHOPS
-import timber.log.Timber
+import com.stathis.smartassistant.util.toListOf
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
 
 class EshopsViewModel : ViewModel(), ItemCallback {
 
@@ -25,20 +28,15 @@ class EshopsViewModel : ViewModel(), ItemCallback {
     }
 
     fun getEshops() {
-        firestore.collection(ESHOPS).get()
-            .addOnSuccessListener { docs ->
-                val list = mutableListOf<Eshop>()
-                for (document in docs) {
-                    Timber.d("${document.id} => ${document.data}")
-                    val json = Gson().toJson(document.data)
-                    val data = Gson().fromJson(json, Eshop::class.java)
-                    list.add(data)
-                }
-                eshops.value = list
-            }.addOnFailureListener {
-                Timber.d("Error getting documents - $it")
-                eshops.value = listOf()
-            }
+        viewModelScope.launch(Dispatchers.IO) {
+            getEshopsFromDb()
+        }
+    }
+
+    private suspend fun getEshopsFromDb() {
+        val document = firestore.collection(ESHOPS).get().await()
+        val list = document.toListOf<Eshop>()
+        eshops.postValue(list)
     }
 
     fun observe(owner: LifecycleOwner, callback: EshopsCallback) {

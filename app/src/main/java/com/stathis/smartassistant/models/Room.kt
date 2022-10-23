@@ -11,6 +11,8 @@ data class Room(
     val sequence: Int,
     var utils: List<RoomUtil>
 ) : LocalModel, Parcelable {
+    constructor() : this("", "", 0, listOf())
+
     override fun equalsContent(obj: LocalModel): Boolean = when (obj) {
         is Room -> title == obj.title
         else -> false
@@ -23,6 +25,8 @@ data class RoomUtil(
     var enabled: Boolean,
     var heatLevel: Int? = null
 ) : Parcelable, LocalModel {
+    constructor() : this("", false, 0)
+
     override fun equalsContent(obj: LocalModel): Boolean = when (obj) {
         is RoomUtil -> title == obj.title
         else -> false

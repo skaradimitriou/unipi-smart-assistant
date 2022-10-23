@@ -4,8 +4,8 @@ import android.view.View
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.gson.Gson
 import com.stathis.smartassistant.abstraction.LocalModel
 import com.stathis.smartassistant.callbacks.ItemCallback
 import com.stathis.smartassistant.callbacks.wardrobe.ShoesCallback
@@ -15,6 +15,10 @@ import com.stathis.smartassistant.models.wardrobe.Shoes
 import com.stathis.smartassistant.ui.wardrobe.shoes.adapter.ShoesAdapter
 import com.stathis.smartassistant.util.EVENTS
 import com.stathis.smartassistant.util.SHOES
+import com.stathis.smartassistant.util.toListOf
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
 import timber.log.Timber
 
 class ShoesViewModel : ViewModel(), ItemCallback {
@@ -26,21 +30,21 @@ class ShoesViewModel : ViewModel(), ItemCallback {
     private lateinit var callback: ShoesCallback
 
     fun getShoes(categoryName: String) {
-        firestore.collection(SHOES).whereEqualTo("category", categoryName).get()
-            .addOnSuccessListener { docs ->
-                val list = mutableListOf<LocalModel>()
-                for (document in docs) {
-                    Timber.d("${document.id} => ${document.data}")
-                    val json = Gson().toJson(document.data)
-                    val data = Gson().fromJson(json, Shoes::class.java)
-                    list.add(data)
-                }
-                list.add(AddShoePromo())
-                shoesList.value = list
-            }.addOnFailureListener {
-                Timber.d("Error getting documents - $it")
-                shoesList.value = listOf()
-            }
+        viewModelScope.launch(Dispatchers.IO) {
+            getShoesFromDb(categoryName)
+        }
+    }
+
+    private suspend fun getShoesFromDb(categoryName: String) {
+        val document = firestore.collection(SHOES)
+            .whereEqualTo("category", categoryName)
+            .get().await()
+
+        val shoeList = document.toListOf<Shoes>()
+        val list = mutableListOf<LocalModel>()
+        list.addAll(shoeList)
+        list.add(AddShoePromo())
+        shoesList.postValue(list)
     }
 
     fun observe(owner: LifecycleOwner, callback: ShoesCallback) {
