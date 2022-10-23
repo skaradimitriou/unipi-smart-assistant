@@ -3,6 +3,10 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <!-- App Details -->
+    <string name="smarty">Smarty</string>
+    <string name="drawer_description">Ο ψηφιακός σου βοηθός</string>
+
     <!-- Bottom Navigation -->
     <string name="nav_home">Αρχική</string>
     <string name="nav_planner">Πλάνο</string>
@@ -11,6 +15,10 @@
     <string name="home_title">Αρχική</string>
     <string name="planner_title">Το Πλάνο μου</string>
     <string name="profile_title">Προφίλ</string>
+
+    <!-- Drawer options -->
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 
     <!-- Home Screen -->
     <string name="dummy_greeting">Καλησπέρα Γιάννη</string>
@@ -206,8 +214,16 @@
 
     <!-- TV Screen -->
     <string name="tv_screen_title">Τηλεόραση</string>
+
+    <!-- Pets -->
     <string name="pet_details_screen_title">Πληροφορίες Κατοικιδίου</string>
     <string name="dummy_pet_title">Makis</string>
     <string name="dummy_pet_type">CAT</string>
+
+    <!-- FAQ & Drawer -->
+    <string name="faq_screen_title">Συχνές Ερωτήσεις</string>
+    <string name="new_event">Νέο συμβάν</string>
+    <string name="smart_wardrobe">Έξυπνη Παπουτσοθήκη</string>
+    <string name="rooms">Δωμάτια</string>
 
 </resources>

@@ -1,6 +1,8 @@
 package com.stathis.smartassistant.util
 
 import android.app.Activity
+import android.content.Context
+import android.content.Intent
 import android.text.format.DateFormat
 import android.view.LayoutInflater
 import android.widget.ArrayAdapter
@@ -20,6 +22,7 @@ import com.stathis.smartassistant.databinding.PaymentBottomsheetBinding
 import com.stathis.smartassistant.models.Coffee
 import com.stathis.smartassistant.models.SugarType
 import java.util.*
+import kotlin.reflect.KClass
 
 fun Fragment.setScreenTitle(title: String) {
     requireActivity().title = title

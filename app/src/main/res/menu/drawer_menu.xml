@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_rooms"
+        android:icon="@drawable/ic_home_white"
+        android:title="@string/rooms" />
+
+    <item
+        android:id="@+id/nav_smart_wardrobe"
+        android:icon="@drawable/ic_home_white"
+        android:title="@string/smart_wardrobe" />
+
+    <item
+        android:id="@+id/nav_new_event"
+        android:icon="@drawable/ic_home_white"
+        android:title="@string/new_event" />
+
+    <item
+        android:id="@+id/nav_faq"
+        android:icon="@drawable/ic_home_white"
+        android:title="@string/faq_screen_title" />
+
+</menu>

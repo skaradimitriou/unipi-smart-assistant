@@ -67,5 +67,12 @@
         <item name="android:textColor">@color/navy_blue</item>
     </style>
 
+    <!-- Cards -->
+    <style name="faqCardStyle" parent="Widget.MaterialComponents.CardView">
+        <item name="cardCornerRadius">@dimen/dimen_s</item>
+        <item name="android:layout_marginBottom">@dimen/dimen_10</item>
+        <item name="android:layout_marginStart">@dimen/dimen_10</item>
+        <item name="android:layout_marginEnd">@dimen/dimen_10</item>
+    </style>
 
 </resources>

@@ -1,0 +1,40 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/unipi_blue"
+    android:padding="@dimen/dimen_m">
+
+    <ImageView
+        android:id="@+id/nav_header_user_img"
+        android:layout_width="@dimen/dimen_2xl"
+        android:layout_height="@dimen/dimen_2xl"
+        android:contentDescription="@string/app_name"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_launcher_round"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/nav_header_user_full_name"
+        style="@style/text_16_bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/dimen_m"
+        android:text="@string/smarty"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nav_header_user_img" />
+
+    <TextView
+        android:id="@+id/nav_header_user_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/dimen_xs"
+        android:text="@string/drawer_description"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nav_header_user_full_name" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
