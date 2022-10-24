@@ -215,6 +215,12 @@
     <!-- TV Screen -->
     <string name="tv_screen_title">Τηλεόραση</string>
 
+    <!-- Room Utils -->
+    <string name="oven">Φούρνος</string>
+    <string name="fridge">Ψυγείο</string>
+    <string name="coffee_machine">Καφετιέρα</string>
+    <string name="music">Μουσική</string>
+
     <!-- Pets -->
     <string name="pet_details_screen_title">Πληροφορίες Κατοικιδίου</string>
     <string name="dummy_pet_title">Makis</string>
@@ -225,5 +231,8 @@
     <string name="new_event">Νέο συμβάν</string>
     <string name="smart_wardrobe">Έξυπνη Παπουτσοθήκη</string>
     <string name="rooms">Δωμάτια</string>
+    <string name="no_active_devices">Καμία ενεργή συσκευή</string>
+    <string name="one_active_device">1 ενεργή συσκευή</string>
+    <string name="many_active_device">%d ενεργές συσκευές</string>
 
 </resources>

@@ -8,10 +8,7 @@ import androidx.core.text.bold
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.stathis.smartassistant.R
-import com.stathis.smartassistant.models.Coffee
-import com.stathis.smartassistant.models.Event
-import com.stathis.smartassistant.models.RoomUtil
-import com.stathis.smartassistant.models.TransportationOption
+import com.stathis.smartassistant.models.*
 import com.stathis.smartassistant.models.wardrobe.AddressInfo
 
 
@@ -124,6 +121,10 @@ fun ImageView.roomUtil(util: RoomUtil) {
         context.getString(R.string.lights_screen_title) -> R.drawable.ic_light
         context.getString(R.string.temperature_screen_title) -> R.drawable.ic_air
         context.getString(R.string.tv_screen_title) -> R.drawable.ic_tv
+        context.getString(R.string.oven) -> R.drawable.ic_oven
+        context.getString(R.string.fridge) -> R.drawable.ic_fridge
+        context.getString(R.string.coffee_machine) -> R.drawable.ic_coffee_machine
+        context.getString(R.string.music) -> R.drawable.ic_music
         else -> R.drawable.ic_add_item
     }
     setImageResource(image)
@@ -137,5 +138,15 @@ fun View.roomUtilEnabled(util: RoomUtil) {
     } else {
         val color = context.getActualColor(R.color.description_grey)
         setBackgroundColor(color)
+    }
+}
+
+@BindingAdapter("enabledDevices")
+fun TextView.enabledDevices(room: Room) {
+    val enabledDevices = room.utils.count { it.enabled }
+    text = when (enabledDevices) {
+        0 -> context.getString(R.string.no_active_devices)
+        1 -> context.getString(R.string.one_active_device)
+        else -> context.getString(R.string.many_active_device, enabledDevices)
     }
 }
