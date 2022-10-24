@@ -1,10 +1,6 @@
 package com.stathis.smartassistant.ui.dashboard.planner
 
 import android.content.Intent
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
-import androidx.core.view.MenuProvider
 import androidx.fragment.app.viewModels
 import com.google.gson.Gson
 import com.stathis.smartassistant.R
@@ -14,18 +10,14 @@ import com.stathis.smartassistant.models.Event
 import com.stathis.smartassistant.ui.details.EventInfoActivity
 import com.stathis.smartassistant.ui.events.EventsActivity
 import com.stathis.smartassistant.util.EVENT
-import com.stathis.smartassistant.util.addMenuProvider
 import com.stathis.smartassistant.util.setScreenTitle
-import com.stathis.smartassistant.util.showAlertDialog
 
-class PlannerFragment : BaseFragment<FragmentPlannerBinding>(R.layout.fragment_planner),
-    MenuProvider {
+class PlannerFragment : BaseFragment<FragmentPlannerBinding>(R.layout.fragment_planner) {
 
     private val viewModel: PlannerViewModel by viewModels()
 
     override fun init() {
         setScreenTitle(getString(R.string.planner_title))
-        addMenuProvider(this)
         binding.viewModel = viewModel
         binding.emptyCalendar = false
     }
@@ -39,6 +31,11 @@ class PlannerFragment : BaseFragment<FragmentPlannerBinding>(R.layout.fragment_p
         viewModel.onEventTap { event ->
             goToEventInfoScreen(event)
         }
+
+        binding.newEventFabBtn.setOnClickListener {
+            val intent = Intent(requireContext(), EventsActivity::class.java)
+            startActivityForResult(intent, 100)
+        }
     }
 
     private fun goToEventInfoScreen(event: Event) {
@@ -51,20 +48,5 @@ class PlannerFragment : BaseFragment<FragmentPlannerBinding>(R.layout.fragment_p
 
     override fun stopOps() {
         viewModel.release(viewLifecycleOwner)
-    }
-
-    override fun onCreateMenu(menu: Menu, menuInflater: MenuInflater) {
-        menuInflater.inflate(R.menu.planner_menu, menu)
-    }
-
-    override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-        when (menuItem.itemId) {
-            R.id.infoItem -> showAlertDialog(getString(R.string.planner_info))
-            R.id.addItem -> {
-                val intent = Intent(requireContext(), EventsActivity::class.java)
-                startActivityForResult(intent, 100)
-            }
-        }
-        return false
     }
 }

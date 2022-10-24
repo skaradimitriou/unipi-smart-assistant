@@ -20,7 +20,7 @@
             android:id="@+id/faqRecycler"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/dimen_s"
+            android:paddingTop="@dimen/dimen_s"
             android:adapter="@{viewModel.adapter}"
             android:clipToPadding="false"
             android:orientation="vertical"

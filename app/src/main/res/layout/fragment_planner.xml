@@ -30,7 +30,7 @@
             android:clipToPadding="false"
             android:orientation="vertical"
             android:overScrollMode="never"
-            android:paddingBottom="@dimen/dimen_2xl"
+            android:paddingBottom="@dimen/dimen_3xl"
             android:visibility="@{emptyCalendar? View.GONE : View.VISIBLE}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -65,6 +65,18 @@
                 app:layout_constraintTop_toBottomOf="@id/emptyResultsLottie" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/newEventFabBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="@dimen/dimen_m"
+            android:backgroundTint="@color/navy_blue"
+            android:src="@drawable/ic_add"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:tint="@android:color/white" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

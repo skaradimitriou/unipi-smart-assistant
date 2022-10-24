@@ -33,7 +33,7 @@ class FaqViewModel : ViewModel(), ItemCallback {
 
     private suspend fun getFaqsFromDb() {
         val documents = firestore.collection(FAQ).get().await()
-        val list = documents.toListOf<Faq>()
+        val list = documents.toListOf<Faq>().sortedBy { it.seq }
         faqs.postValue(list)
     }
 

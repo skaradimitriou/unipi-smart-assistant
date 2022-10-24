@@ -32,7 +32,7 @@ fun ImageView.loadImage(url: String? = null) {
     url?.let {
         Glide.with(this.context).load(url).into(this)
     } ?: kotlin.run {
-        this.setImageResource(R.mipmap.ic_launcher)
+        this.setImageResource(R.mipmap.smarty_logo)
     }
 }
 

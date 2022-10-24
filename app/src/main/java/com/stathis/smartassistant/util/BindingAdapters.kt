@@ -24,16 +24,16 @@ fun ImageView.imageResource(imageResource: Int? = null) {
     imageResource?.let {
         this.setImageResource(imageResource)
     } ?: kotlin.run {
-        this.setImageResource(R.mipmap.ic_launcher)
+        this.setImageResource(R.mipmap.smarty_logo)
     }
 }
 
 @BindingAdapter("loadImg")
 fun ImageView.loadImg(url: String? = null) {
     url?.let {
-        Glide.with(this.context).load(url).placeholder(R.mipmap.ic_launcher).into(this)
+        Glide.with(this.context).load(url).placeholder(R.mipmap.smarty_logo).into(this)
     } ?: kotlin.run {
-        setImageResource(R.mipmap.ic_launcher)
+        setImageResource(R.mipmap.smarty_logo)
     }
 }
 

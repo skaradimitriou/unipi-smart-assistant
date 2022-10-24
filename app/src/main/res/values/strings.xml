@@ -48,7 +48,7 @@
     <string name="dummy_transport_type">Μετακίνηση με αυτοκίνητο</string>
     <string name="dummy_date">19/09/2022</string>
     <string name="dummy_time">09:00</string>
-    <string name="planner_no_results_message">Δεν βρέθηκαν συμβάντα. Πρόσθεσε ένα νέο πατώντας το (+) πάνω δεξιά</string>
+    <string name="planner_no_results_message">Δεν βρέθηκαν συμβάντα. Πρόσθεσε ένα νέο πατώντας το (+) κάτω δεξιά</string>
 
     <!-- Events Screens -->
     <string name="events_intro_title">Νέο Γεγονός | Περιγραφή</string>
