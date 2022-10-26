@@ -235,4 +235,9 @@
     <string name="one_active_device">1 ενεργή συσκευή</string>
     <string name="many_active_device">%d ενεργές συσκευές</string>
 
+    <!-- Energy Consumption Screen -->
+    <string name="energy_management_title">Ενεργειακή Κατανάλωση</string>
+    <string name="energy_list_header">Ανάλυση κατανάλωσης ανα μήνα</string>
+    <string name="energy_consumption_kwh">%d kWh</string>
+
 </resources>

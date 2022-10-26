@@ -11,6 +11,7 @@ import com.google.android.material.navigation.NavigationView
 import com.stathis.smartassistant.R
 import com.stathis.smartassistant.abstraction.BaseActivity
 import com.stathis.smartassistant.databinding.ActivityDashboardBinding
+import com.stathis.smartassistant.ui.energy.EnergyConsumptionActivity
 import com.stathis.smartassistant.ui.events.EventsActivity
 import com.stathis.smartassistant.ui.faq.FaqActivity
 import com.stathis.smartassistant.ui.rooms.RoomsActivity
@@ -53,6 +54,7 @@ class DashboardActivity : BaseActivity<ActivityDashboardBinding>(R.layout.activi
             R.id.nav_rooms -> goToRoomsScreen()
             R.id.nav_smart_wardrobe -> goToSmartWardrobeScreen()
             R.id.nav_new_event -> goToNewEventScreen()
+            R.id.nav_energy -> goToEnergyConsumptionScreen()
             R.id.nav_faq -> goToFaqScreen()
         }
         binding.drawerLayout.closeDrawer(GravityCompat.START)
@@ -86,8 +88,21 @@ class DashboardActivity : BaseActivity<ActivityDashboardBinding>(R.layout.activi
         startActivity(intent)
     }
 
+    /*
+     * Starts the Events activity in the flow
+     */
+
     private fun goToNewEventScreen() {
         val intent = Intent(this, EventsActivity::class.java)
+        startActivityForResult(intent, 100)
+    }
+
+    /*
+     * Starts the Energy Consumption activity in the flow
+     */
+
+    private fun goToEnergyConsumptionScreen() {
+        val intent = Intent(this, EnergyConsumptionActivity::class.java)
         startActivityForResult(intent, 100)
     }
 }

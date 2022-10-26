@@ -171,3 +171,8 @@ fun View.homeUtilEnabled(util: GeneralUtil) {
         setBackgroundColor(color)
     }
 }
+
+@BindingAdapter("energyConsumption")
+fun TextView.energyConsumption(model : EnergyModel) {
+    text =  context.getString(R.string.energy_consumption_kwh, model.value)
+}

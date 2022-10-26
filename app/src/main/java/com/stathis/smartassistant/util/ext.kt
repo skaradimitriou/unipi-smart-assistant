@@ -2,6 +2,7 @@ package com.stathis.smartassistant.util
 
 import android.animation.Animator
 import android.content.Context
+import android.graphics.Color
 import android.text.Editable
 import android.text.SpannableStringBuilder
 import android.text.TextWatcher
@@ -11,9 +12,15 @@ import androidx.core.content.ContextCompat
 import androidx.core.text.bold
 import com.airbnb.lottie.LottieAnimationView
 import com.bumptech.glide.Glide
+import com.github.mikephil.charting.charts.BarChart
+import com.github.mikephil.charting.data.BarData
+import com.github.mikephil.charting.data.BarDataSet
+import com.github.mikephil.charting.data.BarEntry
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.stathis.smartassistant.R
+import com.stathis.smartassistant.models.EnergyModel
 import com.stathis.smartassistant.models.SugarType
 import com.stathis.smartassistant.models.wardrobe.ShoeCategory
 import java.util.*
@@ -173,4 +180,37 @@ fun TextView.setTemperatureState(enabled: Boolean) = if (enabled) {
 
 fun TextView.setTemperatureInCelcius(temperature: Int) {
     text = context.getString(R.string.temperature_celcius, temperature)
+}
+
+/**
+ * Helper fun to create Smarty's energy chart
+ */
+
+fun BarChart.setupChart(list: List<BarEntry>) {
+    val dataset = BarDataSet(list, "kWh")
+    dataset.colors = listOf(R.color.navy_blue)
+    dataset.valueTextColor = Color.BLACK
+    dataset.setDrawValues(false)
+
+    val barData = BarData(dataset)
+
+    data = barData
+    axisRight.setDrawLabels(false)
+    legend.isEnabled = false
+    animateY(1000)
+    description.isEnabled = false
+    axisRight.setDrawGridLines(false)
+    axisLeft.setDrawGridLines(false)
+    xAxis.setDrawGridLines(false)
+    setPinchZoom(false)
+}
+
+/**
+ * Helper fun to add custom labels to the Smarty's chart.
+ * Takes only the first 3 chars of each provided string
+ */
+
+fun BarChart.toChartLabels(data : List<EnergyModel>) {
+    val labels = data.map { it.month.take(3) }
+    xAxis.valueFormatter = IndexAxisValueFormatter(labels)
 }

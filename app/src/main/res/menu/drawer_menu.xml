@@ -17,6 +17,11 @@
         android:title="@string/new_event" />
 
     <item
+        android:id="@+id/nav_energy"
+        android:icon="@drawable/ic_energy"
+        android:title="@string/energy_management_title" />
+
+    <item
         android:id="@+id/nav_faq"
         android:icon="@drawable/ic_faq"
         android:title="@string/faq_screen_title" />
