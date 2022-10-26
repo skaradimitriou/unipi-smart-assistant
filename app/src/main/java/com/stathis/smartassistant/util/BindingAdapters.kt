@@ -10,7 +10,6 @@ import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.stathis.smartassistant.R
 import com.stathis.smartassistant.models.*
-import com.stathis.smartassistant.models.rooms.GeneralUtil
 import com.stathis.smartassistant.models.wardrobe.AddressInfo
 
 
@@ -161,18 +160,7 @@ fun TextView.enabledDevices(room: Room) {
     }
 }
 
-@BindingAdapter("homeUtilEnabled")
-fun View.homeUtilEnabled(util: GeneralUtil) {
-    if (util.enabled) {
-        val color = context.getActualColor(R.color.sky_blue)
-        setBackgroundColor(color)
-    } else {
-        val color = context.getActualColor(R.color.white)
-        setBackgroundColor(color)
-    }
-}
-
 @BindingAdapter("energyConsumption")
-fun TextView.energyConsumption(model : EnergyModel) {
-    text =  context.getString(R.string.energy_consumption_kwh, model.value)
+fun TextView.energyConsumption(model: EnergyModel) {
+    text = context.getString(R.string.energy_consumption_kwh, model.value)
 }
