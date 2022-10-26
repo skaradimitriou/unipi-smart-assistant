@@ -6,7 +6,8 @@ import com.stathis.smartassistant.databinding.FragmentWardrobeResultBinding
 import com.stathis.smartassistant.util.setScreenTitle
 
 
-class WardrobeResultFragment : BaseFragment<FragmentWardrobeResultBinding>(R.layout.fragment_wardrobe_result) {
+class WardrobeResultFragment :
+    BaseFragment<FragmentWardrobeResultBinding>(R.layout.fragment_wardrobe_result) {
 
     override fun init() {
         setScreenTitle(getString(R.string.success))

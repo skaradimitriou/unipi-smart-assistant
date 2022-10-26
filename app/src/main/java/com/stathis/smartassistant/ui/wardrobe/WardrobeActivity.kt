@@ -15,10 +15,18 @@ class WardrobeActivity : BaseActivity<ActivityWardrobeBinding>(R.layout.activity
 
     override fun init() {
         navController = findNavController(R.id.wardrobe_nav_host_fragment)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
-    override fun startOps() {}
+    override fun startOps() {
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if (destination.id == R.id.wardrobeResultFragment || destination.id == R.id.orderResultFragment) {
+                //disable action bar back button
+                supportActionBar?.setDisplayHomeAsUpEnabled(false)
+            } else {
+                supportActionBar?.setDisplayHomeAsUpEnabled(true)
+            }
+        }
+    }
 
     override fun stopOps() {}
 
