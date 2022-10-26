@@ -8,6 +8,7 @@ import com.stathis.smartassistant.callbacks.HomeScreenCallback
 import com.stathis.smartassistant.databinding.FragmentRoomsBinding
 import com.stathis.smartassistant.models.RoomPromo
 import com.stathis.smartassistant.models.SmartLockerPromo
+import com.stathis.smartassistant.models.rooms.GeneralUtil
 import com.stathis.smartassistant.ui.rooms.RoomsActivity
 import com.stathis.smartassistant.ui.wardrobe.WardrobeActivity
 import com.stathis.smartassistant.util.getCurrentFullDate
@@ -29,13 +30,20 @@ class HomeFragment : BaseFragment<FragmentRoomsBinding>(R.layout.fragment_rooms)
         binding.userGreetingTxtView.setUserGreeting()
         binding.currentDateTxtView.text = getCurrentFullDate()
 
-        viewModel.getData(object : HomeScreenCallback {
+        viewModel.observe(viewLifecycleOwner)
+        viewModel.getHomeUtils()
+
+        viewModel.addListener(object : HomeScreenCallback {
             override fun onRoomsPromoClick(promo: RoomPromo) {
                 startRoomsActivity()
             }
 
             override fun onSmartLockerClick(promo: SmartLockerPromo) {
                 goToSmartWardrobeScreen()
+            }
+
+            override fun onHomeUtilClick(util: GeneralUtil) {
+                viewModel.updateEnabledState(util)
             }
         })
 
@@ -53,7 +61,9 @@ class HomeFragment : BaseFragment<FragmentRoomsBinding>(R.layout.fragment_rooms)
         startActivity(intent)
     }
 
-    override fun stopOps() {}
+    override fun stopOps() {
+        viewModel.release(viewLifecycleOwner)
+    }
 
     /*
      * Starts the SmartWardrobe activity in the flow

@@ -1,5 +1,6 @@
 package com.stathis.smartassistant.util
 
+import android.content.res.ColorStateList
 import android.text.SpannableStringBuilder
 import android.view.View
 import android.widget.ImageView
@@ -9,6 +10,7 @@ import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.stathis.smartassistant.R
 import com.stathis.smartassistant.models.*
+import com.stathis.smartassistant.models.rooms.GeneralUtil
 import com.stathis.smartassistant.models.wardrobe.AddressInfo
 
 
@@ -127,7 +129,15 @@ fun ImageView.roomUtil(util: RoomUtil) {
         context.getString(R.string.music) -> R.drawable.ic_music
         else -> R.drawable.ic_add_item
     }
-    setImageResource(image)
+
+    setBackgroundResource(image)
+
+    //sets the backgroundTint of the util according to enabled value
+    backgroundTintList = if (util.enabled) {
+        ColorStateList.valueOf(context.getActualColor(R.color.white))
+    } else {
+        ColorStateList.valueOf(context.getActualColor(R.color.navy_blue))
+    }
 }
 
 @BindingAdapter("roomUtilEnabled")
@@ -136,7 +146,7 @@ fun View.roomUtilEnabled(util: RoomUtil) {
         val color = context.getActualColor(R.color.sky_blue)
         setBackgroundColor(color)
     } else {
-        val color = context.getActualColor(R.color.description_grey)
+        val color = context.getActualColor(R.color.white)
         setBackgroundColor(color)
     }
 }
@@ -148,5 +158,16 @@ fun TextView.enabledDevices(room: Room) {
         0 -> context.getString(R.string.no_active_devices)
         1 -> context.getString(R.string.one_active_device)
         else -> context.getString(R.string.many_active_device, enabledDevices)
+    }
+}
+
+@BindingAdapter("homeUtilEnabled")
+fun View.homeUtilEnabled(util: GeneralUtil) {
+    if (util.enabled) {
+        val color = context.getActualColor(R.color.sky_blue)
+        setBackgroundColor(color)
+    } else {
+        val color = context.getActualColor(R.color.white)
+        setBackgroundColor(color)
     }
 }
