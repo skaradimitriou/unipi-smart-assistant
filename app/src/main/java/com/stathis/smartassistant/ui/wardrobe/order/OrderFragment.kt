@@ -12,7 +12,6 @@ import com.stathis.smartassistant.util.setScreenTitle
 
 class OrderFragment : BaseFragment<FragmentOrderBinding>(R.layout.fragment_order) {
 
-    private val viewModel: OrderViewModel by viewModels()
     private val sharedViewModel: WardrobeViewModel by activityViewModels()
 
     override fun init() {
@@ -25,6 +24,7 @@ class OrderFragment : BaseFragment<FragmentOrderBinding>(R.layout.fragment_order
         binding.eshop = sharedViewModel.eshop
 
         binding.nextButton.setOnClickListener {
+            addOrderNotification()
             goToOrderResultScreen()
         }
     }
@@ -38,5 +38,12 @@ class OrderFragment : BaseFragment<FragmentOrderBinding>(R.layout.fragment_order
     private fun goToOrderResultScreen() {
         val action = OrderFragmentDirections.goToOrderResultScreen()
         findNavController().navigate(action)
+    }
+
+    private fun addOrderNotification() {
+        sharedViewModel.saveShoeOrder(
+            shoeName = sharedViewModel.purchaseShoes?.title ?: "",
+            eshopName = sharedViewModel.eshop?.title ?: ""
+        )
     }
 }

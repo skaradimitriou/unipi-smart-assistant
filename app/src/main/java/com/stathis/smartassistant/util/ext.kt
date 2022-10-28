@@ -22,6 +22,7 @@ import com.google.android.material.textfield.TextInputLayout
 import com.stathis.smartassistant.R
 import com.stathis.smartassistant.models.EnergyModel
 import com.stathis.smartassistant.models.Notification
+import com.stathis.smartassistant.models.NotificationType
 import com.stathis.smartassistant.models.SugarType
 import com.stathis.smartassistant.models.wardrobe.ShoeCategory
 import java.util.*
@@ -220,9 +221,10 @@ fun BarChart.toChartLabels(data: List<EnergyModel>) {
  * Helper fun to create a single notification in a simple way
  */
 
-fun createNotification(title: String, description: String): Notification = Notification(
+fun createNotification(title: String, description: String, category : NotificationType): Notification = Notification(
     title = title,
     description = description,
+    category = category,
     date = Date(),
     hasBeenRead = false
 )

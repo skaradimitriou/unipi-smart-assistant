@@ -156,6 +156,7 @@
     <string name="event_success">Το event δημιουργήθηκε!</string>
     <string name="event_result_desc">Το event που περιέγραψες προστέθηκε στον ψηφιακό σου βοηθό ημέρας. Είσαι έτοιμος!</string>
     <string name="event_overview_btn">Επιστροφή στο Ημερολόγιο</string>
+    <string name="event_notification_desc">Προσθέσατε ένα νέο event με όνομα %s στις %s</string>
 
     <!--Wardrobe Screens -->
     <string name="wardrobe_events_title">Τα συμβάντα μου</string>
@@ -191,6 +192,8 @@
     <!-- Wardrobe Result Screen -->
     <string name="success">Επιτυχία</string>
     <string name="result_event_updated">Το event ανανεώθηκε</string>
+    <string name="wardrobe_notification_desc">Συσχετίσατε το παπούτσι %s με το event %s</string>
+    <string name="wardrobe_order_notification_desc">Παραγγείλατε ένα νέο ζευγάρι παπούτσια %s απο το eshop %s</string>
 
     <!-- Rooms Intro Screen -->
     <string name="room_into_title">Επιλογή Δωματίου</string>

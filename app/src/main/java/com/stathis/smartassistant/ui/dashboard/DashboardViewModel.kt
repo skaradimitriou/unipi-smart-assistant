@@ -23,6 +23,7 @@ class DashboardViewModel : ViewModel() {
     var job: Job? = null
     val notifications = MutableLiveData<List<Notification>>()
     val unreadNotifications = MutableLiveData<Int>()
+    val readNotifications = MutableLiveData<Boolean>()
     val adapter = NotificationsAdapter()
 
     /**
@@ -55,6 +56,11 @@ class DashboardViewModel : ViewModel() {
         notifications.observe(owner) { list ->
             adapter.submitList(list)
         }
+    }
+
+    fun readAllNotifications() {
+        val notifications = notifications.value
+        notifications?.forEach { it.hasBeenRead = true }
     }
 
     override fun onCleared() {

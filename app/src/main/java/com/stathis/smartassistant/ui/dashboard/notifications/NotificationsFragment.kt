@@ -21,6 +21,11 @@ class NotificationsFragment :
         //FIXME: Figure out a way to read-unread notifications in this screen
 
         viewModel.observe(viewLifecycleOwner)
+        viewModel.notifications.observe(viewLifecycleOwner) {
+            binding.notificationsRecycler.scrollToPosition(0)
+            viewModel.readAllNotifications()
+            viewModel.readNotifications.value = true
+        }
     }
 
     override fun stopOps() {}

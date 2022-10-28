@@ -53,6 +53,12 @@ class DashboardActivity : BaseActivity<ActivityDashboardBinding>(R.layout.activi
                 else -> binding.bottomNavigationMenu.setUnreadNotificationsBadge(number = unreadNotifications)
             }
         }
+
+        viewModel.readNotifications.observe(this) { readAll ->
+            if (readAll) {
+                binding.bottomNavigationMenu.clearNotificationsBadge()
+            }
+        }
     }
 
     override fun stopOps() {
