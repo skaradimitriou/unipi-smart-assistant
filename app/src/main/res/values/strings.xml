@@ -11,6 +11,7 @@
     <string name="nav_home">Αρχική</string>
     <string name="nav_planner">Πλάνο</string>
     <string name="nav_pets">Κατοικίδια</string>
+    <string name="nav_notifications">Ειδοποιήσεις</string>
 
     <string name="home_title">Αρχική</string>
     <string name="planner_title">Το Πλάνο μου</string>

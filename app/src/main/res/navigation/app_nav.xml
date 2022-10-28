@@ -16,4 +16,8 @@
         android:id="@+id/nav_pets"
         android:name="com.stathis.smartassistant.ui.dashboard.pets.PetsFragment"
         android:label="PetsFragment" />
+    <fragment
+        android:id="@+id/nav_notifications"
+        android:name="com.stathis.smartassistant.ui.dashboard.notifications.NotificationsFragment"
+        android:label="NotificationsFragment" />
 </navigation>

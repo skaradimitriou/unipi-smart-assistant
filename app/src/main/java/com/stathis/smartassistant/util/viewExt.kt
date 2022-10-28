@@ -1,8 +1,6 @@
 package com.stathis.smartassistant.util
 
 import android.app.Activity
-import android.content.Context
-import android.content.Intent
 import android.text.format.DateFormat
 import android.view.LayoutInflater
 import android.widget.ArrayAdapter
@@ -11,6 +9,7 @@ import androidx.core.view.MenuProvider
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.snackbar.Snackbar
@@ -22,7 +21,6 @@ import com.stathis.smartassistant.databinding.PaymentBottomsheetBinding
 import com.stathis.smartassistant.models.Coffee
 import com.stathis.smartassistant.models.SugarType
 import java.util.*
-import kotlin.reflect.KClass
 
 fun Fragment.setScreenTitle(title: String) {
     requireActivity().title = title
@@ -132,4 +130,23 @@ fun Fragment.showWalletDialog(onButtonClick: () -> Unit) {
         dialog.dismiss()
     }
     dialog.show()
+}
+
+/**
+ * Helper fun to set a badge in notifications nav item in order to display the unread notifications number.
+ */
+
+fun BottomNavigationView.setUnreadNotificationsBadge(number: Int) {
+    getOrCreateBadge(R.id.nav_notifications).apply {
+        isVisible = true
+        this.number = number
+    }
+}
+
+/**
+ * Helper fun to clear the badge number from notifications in dashboard screen.
+ */
+
+fun BottomNavigationView.clearNotificationsBadge() {
+    getOrCreateBadge(R.id.nav_notifications).isVisible = false
 }

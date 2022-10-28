@@ -21,6 +21,7 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.stathis.smartassistant.R
 import com.stathis.smartassistant.models.EnergyModel
+import com.stathis.smartassistant.models.Notification
 import com.stathis.smartassistant.models.SugarType
 import com.stathis.smartassistant.models.wardrobe.ShoeCategory
 import java.util.*
@@ -210,7 +211,18 @@ fun BarChart.setupChart(list: List<BarEntry>) {
  * Takes only the first 3 chars of each provided string
  */
 
-fun BarChart.toChartLabels(data : List<EnergyModel>) {
+fun BarChart.toChartLabels(data: List<EnergyModel>) {
     val labels = data.map { it.month.take(3) }
     xAxis.valueFormatter = IndexAxisValueFormatter(labels)
 }
+
+/**
+ * Helper fun to create a single notification in a simple way
+ */
+
+fun createNotification(title: String, description: String): Notification = Notification(
+    title = title,
+    description = description,
+    date = Date(),
+    hasBeenRead = false
+)

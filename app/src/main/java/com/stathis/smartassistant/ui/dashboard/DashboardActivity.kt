@@ -2,6 +2,7 @@ package com.stathis.smartassistant.ui.dashboard
 
 import android.content.Intent
 import android.view.MenuItem
+import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.navigation.NavController
@@ -16,13 +17,15 @@ import com.stathis.smartassistant.ui.events.EventsActivity
 import com.stathis.smartassistant.ui.faq.FaqActivity
 import com.stathis.smartassistant.ui.rooms.RoomsActivity
 import com.stathis.smartassistant.ui.wardrobe.WardrobeActivity
-import timber.log.Timber
+import com.stathis.smartassistant.util.clearNotificationsBadge
+import com.stathis.smartassistant.util.setUnreadNotificationsBadge
 
 class DashboardActivity : BaseActivity<ActivityDashboardBinding>(R.layout.activity_dashboard),
     NavigationView.OnNavigationItemSelectedListener {
 
     private lateinit var navController: NavController
     private lateinit var toggle: ActionBarDrawerToggle
+    private val viewModel: DashboardViewModel by viewModels()
 
     override fun init() {
         navController = findNavController(R.id.nav_host_fragment)
@@ -37,9 +40,25 @@ class DashboardActivity : BaseActivity<ActivityDashboardBinding>(R.layout.activi
 
     override fun startOps() {
         binding.drawerMenu.setNavigationItemSelectedListener(this)
+
+        viewModel.getNotifications()
+        viewModel.unreadNotifications.observe(this) { unreadNotifications ->
+            /*
+             * Sets the number of the unread notifications as a badge in the
+             * BottomNavigationMenu notifications icon or clears the badge if all has been read.
+             */
+
+            when (unreadNotifications) {
+                0 -> binding.bottomNavigationMenu.clearNotificationsBadge()
+                else -> binding.bottomNavigationMenu.setUnreadNotificationsBadge(number = unreadNotifications)
+            }
+        }
     }
 
-    override fun stopOps() {}
+    override fun stopOps() {
+        viewModel.notifications.removeObservers(this)
+        viewModel.unreadNotifications.removeObservers(this)
+    }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (binding.drawerLayout.isOpen) {
