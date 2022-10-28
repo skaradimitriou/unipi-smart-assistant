@@ -220,6 +220,8 @@
     <string name="fridge">Ψυγείο</string>
     <string name="coffee_machine">Καφετιέρα</string>
     <string name="music">Μουσική</string>
+    <string name="water_plants">Πότισμα Φυτών</string>
+    <string name="garage_door">Πόρτα Γκαράζ</string>
 
     <!-- Pets -->
     <string name="pet_details_screen_title">Πληροφορίες Κατοικιδίου</string>

@@ -126,6 +126,8 @@ fun ImageView.roomUtil(util: RoomUtil) {
         context.getString(R.string.fridge) -> R.drawable.ic_fridge
         context.getString(R.string.coffee_machine) -> R.drawable.ic_coffee_machine
         context.getString(R.string.music) -> R.drawable.ic_music
+        context.getString(R.string.water_plants) -> R.drawable.ic_water
+        context.getString(R.string.garage_door) -> R.drawable.ic_garage
         else -> R.drawable.ic_add_item
     }
 
