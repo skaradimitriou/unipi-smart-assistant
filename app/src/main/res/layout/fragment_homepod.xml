@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="songInProgress"
+            type="Boolean" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/grey_bg"
+        android:padding="@dimen/dimen_m">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/homepodToggleCard"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_100"
+            app:cardCornerRadius="@dimen/dimen_m"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/dimen_m">
+
+                <TextView
+                    android:id="@+id/homepodHeaderTxtView"
+                    style="@style/text_18_bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/homepod_toggle_title"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/homepodActiveToggle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/homepodHeaderTxtView" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/homepodImgView"
+            android:layout_width="@dimen/dimen_200"
+            android:layout_height="@dimen/dimen_200"
+            android:layout_marginTop="@dimen/dimen_m"
+            android:scaleType="centerInside"
+            android:src="@drawable/homepod"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/volumeImgView" />
+
+        <ImageView
+            android:id="@+id/volumeImgView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_l"
+            android:background="@drawable/ic_volume"
+            android:backgroundTint="@color/navy_blue"
+            android:scaleType="centerInside"
+            app:layout_constraintEnd_toEndOf="@id/volumeFrame"
+            app:layout_constraintStart_toStartOf="@id/volumeFrame"
+            app:layout_constraintTop_toBottomOf="@id/homepodToggleCard" />
+
+        <FrameLayout
+            android:id="@+id/volumeFrame"
+            android:layout_width="@dimen/dimen_xl"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@id/homepodImgView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/homepodImgView">
+
+            <com.google.android.material.slider.Slider
+                android:id="@+id/volumeSlider"
+                android:layout_width="@dimen/dimen_200"
+                android:layout_height="@dimen/dimen_xl"
+                android:layout_gravity="center"
+                android:rotation="270"
+                android:stepSize="10"
+                android:value="10"
+                android:valueFrom="0"
+                android:valueTo="100" />
+
+        </FrameLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/songPlayingCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_xl"
+            android:visibility="@{songInProgress ? View.VISIBLE : View.GONE}"
+            app:cardCornerRadius="@dimen/dimen_m"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/music_gradient_bg"
+                android:padding="@dimen/dimen_m">
+
+                <TextView
+                    android:id="@+id/playingNowTxtView"
+                    style="@style/text_18_bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/playing_now"
+                    android:textColor="@color/white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/playingSongTxtView"
+                    style="@style/text_18"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:alpha="0.8"
+                    android:paddingTop="@dimen/dimen_s"
+                    android:text="@string/dummy_song_band"
+                    android:textColor="@color/white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/playingNowTxtView" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

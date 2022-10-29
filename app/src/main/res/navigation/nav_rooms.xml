@@ -25,6 +25,9 @@
         <argument
             android:name="room"
             app:argType="com.stathis.smartassistant.models.Room" />
+        <action
+            android:id="@+id/goToHomepodScreen"
+            app:destination="@id/homepodFragment" />
     </fragment>
     <fragment
         android:id="@+id/lightsManagementFragment"
@@ -41,6 +44,24 @@
         android:id="@+id/temperatureFragment"
         android:name="com.stathis.smartassistant.ui.rooms.temperature.TemperatureFragment"
         android:label="TemperatureFragment" >
+        <argument
+            android:name="util"
+            app:argType="com.stathis.smartassistant.models.RoomUtil" />
+        <argument
+            android:name="room"
+            app:argType="com.stathis.smartassistant.models.Room" />
+    </fragment>
+    <fragment
+        android:id="@+id/musicFragment"
+        android:name="com.stathis.smartassistant.ui.rooms.music.MusicFragment"
+        android:label="MusicFragment" />
+    <fragment
+        android:id="@+id/homepodFragment"
+        android:name="com.stathis.smartassistant.ui.rooms.homepod.HomepodFragment"
+        android:label="HomepodFragment" >
+        <action
+            android:id="@+id/goToMusicScreen"
+            app:destination="@id/musicFragment" />
         <argument
             android:name="util"
             app:argType="com.stathis.smartassistant.models.RoomUtil" />

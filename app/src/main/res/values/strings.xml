@@ -245,5 +245,15 @@
     <string name="energy_management_title">Ενεργειακή Κατανάλωση</string>
     <string name="energy_list_header">Ανάλυση κατανάλωσης ανα μήνα</string>
     <string name="energy_consumption_kwh">%d kWh</string>
+    <string name="song_title">Thunderstruck</string>
+    <string name="song_band">AC/DC</string>
+    <string name="song_start_time">00:25</string>
+    <string name="song_end_time">03:25</string>
+    <string name="homepod_on">Το Homepod ενεργοποιήθηκε</string>
+    <string name="homepod_off">To Homepod απενεργοποιήθηκε</string>
+    <string name="homepod_screen_title">Homepod</string>
+    <string name="homepod_toggle_title">Ενεργοποίηση Homepod</string>
+    <string name="playing_now">Παίζει τώρα</string>
+    <string name="dummy_song_band">Thunderstruck - AC/DC</string>
 
 </resources>

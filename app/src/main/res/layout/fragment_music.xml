@@ -1,12 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/music_gradient_bg"
+        android:padding="@dimen/dimen_m"
         tools:context=".ui.rooms.music.MusicFragment">
 
+        <TextView
+            android:id="@+id/songTitleTxtView"
+            style="@style/text_22_bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/song_title"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
+        <TextView
+            android:id="@+id/songBandTxtView"
+            style="@style/text_18"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="0.7"
+            android:gravity="center_horizontal"
+            android:text="@string/song_band"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/songTitleTxtView" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginVertical="@dimen/dimen_m"
+            app:cardCornerRadius="@dimen/dimen_10"
+            app:layout_constraintBottom_toTopOf="@+id/musicConstraint"
+            app:layout_constraintEnd_toEndOf="@id/musicConstraint"
+            app:layout_constraintStart_toStartOf="@id/musicConstraint"
+            app:layout_constraintTop_toBottomOf="@id/songBandTxtView">
+
+            <ImageView
+                android:id="@+id/songImgView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/car" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/musicConstraint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dimen_m"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/songProgressBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dimen_xl"
+                android:progress="50"
+                app:indicatorColor="@color/white"
+                app:layout_constraintTop_toTopOf="parent"
+                app:trackColor="@color/description_grey" />
+
+            <TextView
+                android:id="@+id/songElapsedTxtView"
+                style="@style/text_16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_s"
+                android:text="@string/song_start_time"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toTopOf="@id/songProgressBar"
+                app:layout_constraintStart_toStartOf="@id/songProgressBar" />
+
+            <TextView
+                android:id="@+id/songTotalTxtView"
+                style="@style/text_16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_s"
+                android:alpha="0.6"
+                android:text="@string/song_end_time"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toTopOf="@id/songProgressBar"
+                app:layout_constraintEnd_toEndOf="@id/songProgressBar" />
+
+            <ImageView
+                android:id="@+id/fastRewindButton"
+                android:layout_width="@dimen/dimen_xl"
+                android:layout_height="@dimen/dimen_xl"
+                android:layout_marginEnd="@dimen/dimen_xl"
+                android:alpha="0.8"
+                android:src="@drawable/ic_fast_rewind"
+                app:layout_constraintBottom_toBottomOf="@id/playButton"
+                app:layout_constraintEnd_toStartOf="@id/playButton"
+                app:layout_constraintTop_toTopOf="@id/playButton" />
+
+            <ImageView
+                android:id="@+id/playButton"
+                android:layout_width="@dimen/dimen_2xl"
+                android:layout_height="@dimen/dimen_2xl"
+                android:layout_marginTop="@dimen/dimen_xl"
+                android:src="@drawable/ic_play"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/songProgressBar" />
+
+            <ImageView
+                android:id="@+id/fastForwardButton"
+                android:layout_width="@dimen/dimen_xl"
+                android:layout_height="@dimen/dimen_xl"
+                android:layout_marginStart="@dimen/dimen_xl"
+                android:alpha="0.8"
+                android:src="@drawable/ic_fast_forward"
+                app:layout_constraintBottom_toBottomOf="@id/playButton"
+                app:layout_constraintStart_toEndOf="@id/playButton"
+                app:layout_constraintTop_toTopOf="@id/playButton" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
