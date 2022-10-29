@@ -10,6 +10,7 @@ import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.stathis.smartassistant.R
 import com.stathis.smartassistant.models.*
+import com.stathis.smartassistant.models.rooms.FridgeDetail
 import com.stathis.smartassistant.models.wardrobe.AddressInfo
 
 
@@ -165,4 +166,9 @@ fun TextView.enabledDevices(room: Room) {
 @BindingAdapter("energyConsumption")
 fun TextView.energyConsumption(model: EnergyModel) {
     text = context.getString(R.string.energy_consumption_kwh, model.value)
+}
+
+@BindingAdapter("setQuantity")
+fun TextView.setQuantity(model: FridgeDetail) {
+    text = context.getString(R.string.fridge_item_quantity, model.quantity)
 }

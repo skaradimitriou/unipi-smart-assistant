@@ -245,6 +245,8 @@
     <string name="energy_management_title">Ενεργειακή Κατανάλωση</string>
     <string name="energy_list_header">Ανάλυση κατανάλωσης ανα μήνα</string>
     <string name="energy_consumption_kwh">%d kWh</string>
+
+    <!--Music -->
     <string name="song_title">Thunderstruck</string>
     <string name="song_band">AC/DC</string>
     <string name="song_start_time">00:25</string>
@@ -255,5 +257,11 @@
     <string name="homepod_toggle_title">Ενεργοποίηση Homepod</string>
     <string name="playing_now">Παίζει τώρα</string>
     <string name="dummy_song_band">Thunderstruck - AC/DC</string>
+
+    <!-- Fridge -->
+    <string name="fridge_notification_title">To ψυγείο είναι πάντα ενεργοποιημένο</string>
+    <string name="fridge_cta">Προβολή περιεχομένου ψυγείου</string>
+    <string name="fridge_details_title">Περιεχόμενο Ψυγείου</string>
+    <string name="fridge_item_quantity">Ποσότητα: %d</string>
 
 </resources>

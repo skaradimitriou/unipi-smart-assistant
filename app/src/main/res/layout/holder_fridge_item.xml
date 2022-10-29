@@ -5,15 +5,9 @@
 
     <data>
 
-        <import type="android.view.View" />
-
         <variable
             name="model"
-            type="com.stathis.smartassistant.models.Coffee" />
-
-        <variable
-            name="callback"
-            type="com.stathis.smartassistant.callbacks.ItemCallback" />
+            type="com.stathis.smartassistant.models.rooms.FridgeDetail" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -22,7 +16,6 @@
         android:layout_marginStart="@dimen/dimen_s"
         android:layout_marginTop="@dimen/dimen_10"
         android:layout_marginEnd="@dimen/dimen_xs"
-        android:onClick="@{(view) -> callback.onItemTap(view)}"
         android:tag="@{model}"
         app:cardCornerRadius="@dimen/dimen_10">
 
@@ -31,44 +24,43 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/holderCoffeeImgView"
+                android:id="@+id/itemImgView"
                 android:layout_width="@dimen/dimen_3xl"
                 android:layout_height="@dimen/dimen_100"
                 android:contentDescription="@{model.title}"
                 android:scaleType="centerCrop"
-                app:imageResource="@{model.image}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:loadImg="@{model.imageUrl}"
                 tools:src="@mipmap/smarty_logo" />
 
             <TextView
-                android:id="@+id/holderTitleTxtView"
+                android:id="@+id/titleTxtView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/dimen_m"
                 android:layout_marginTop="@dimen/dimen_m"
                 android:text="@{model.title}"
-                android:textSize="18sp"
-                android:textStyle="bold"
+                style="@style/text_18_bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/holderCoffeeImgView"
+                app:layout_constraintEnd_toStartOf="@id/itemImgView"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="Coffee" />
+                tools:text="Κρέας" />
 
             <TextView
-                android:id="@+id/holderPriceTxtView"
+                android:id="@+id/quantityTxtView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="@dimen/dimen_m"
                 android:layout_marginTop="@dimen/dimen_s"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/holderCoffeeImgView"
+                app:layout_constraintEnd_toStartOf="@id/itemImgView"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/holderTitleTxtView"
-                app:productPrice="@{model.price}"
-                tools:text="Coffee" />
+                app:layout_constraintTop_toBottomOf="@id/titleTxtView"
+                app:setQuantity="@{model}"
+                tools:text="1" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

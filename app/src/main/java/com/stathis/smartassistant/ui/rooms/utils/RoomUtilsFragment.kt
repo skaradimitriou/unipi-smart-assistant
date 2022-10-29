@@ -37,6 +37,7 @@ class RoomUtilsFragment : BaseFragment<FragmentRoomUtilsBinding>(R.layout.fragme
         getString(R.string.lights_screen_title) -> goToLightManagementScreen(util)
         getString(R.string.temperature_screen_title) -> goToTemperatureScreen(util)
         getString(R.string.music) -> goToHomepodScreen(util)
+        getString(R.string.fridge) -> goToFridgeScreen()
         else -> binding.showSnackbar("Δεν εχει υλοποιηθεί ακόμα")
     }
 
@@ -64,6 +65,15 @@ class RoomUtilsFragment : BaseFragment<FragmentRoomUtilsBinding>(R.layout.fragme
 
     private fun goToHomepodScreen(util: RoomUtil) {
         val action = RoomUtilsFragmentDirections.goToHomepodScreen(util, args.room)
+        findNavController().navigate(action)
+    }
+
+    /*
+     * Navigates to the fridge screen via safeargs
+     */
+
+    private fun goToFridgeScreen() {
+        val action = RoomUtilsFragmentDirections.goToFridgeScreen()
         findNavController().navigate(action)
     }
 }
