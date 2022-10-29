@@ -2,6 +2,7 @@ package com.stathis.smartassistant.ui.dashboard.planner
 
 import android.content.Intent
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.google.gson.Gson
 import com.stathis.smartassistant.R
 import com.stathis.smartassistant.abstraction.BaseFragment
@@ -11,6 +12,8 @@ import com.stathis.smartassistant.ui.details.EventInfoActivity
 import com.stathis.smartassistant.ui.events.EventsActivity
 import com.stathis.smartassistant.util.EVENT
 import com.stathis.smartassistant.util.setScreenTitle
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class PlannerFragment : BaseFragment<FragmentPlannerBinding>(R.layout.fragment_planner) {
 
@@ -25,6 +28,10 @@ class PlannerFragment : BaseFragment<FragmentPlannerBinding>(R.layout.fragment_p
     override fun startOps() {
         viewModel.getUserEvents()
         viewModel.observe(viewLifecycleOwner, showEmptyScreen = { isEmpty ->
+            lifecycleScope.launch {
+                delay(1000)
+                binding.plannerRecycler.scrollToPosition(0)
+            }
             binding.emptyCalendar = isEmpty
         })
 

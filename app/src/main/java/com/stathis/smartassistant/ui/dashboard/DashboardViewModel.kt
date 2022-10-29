@@ -22,6 +22,7 @@ class DashboardViewModel : ViewModel() {
     private val firestore = FirebaseFirestore.getInstance()
     var job: Job? = null
     val notifications = MutableLiveData<List<Notification>>()
+    val documentIds = MutableLiveData<List<String>>()
     val unreadNotifications = MutableLiveData<Int>()
     val readNotifications = MutableLiveData<Boolean>()
     val adapter = NotificationsAdapter()
@@ -45,10 +46,12 @@ class DashboardViewModel : ViewModel() {
             .orderBy(TIMESTAMP, Query.Direction.DESCENDING)
             .get().await()
 
+        val ids = documents.map { it.id }
         val list = documents.toListOf<Notification>()
         val unreadMessages = list.count { !it.hasBeenRead }
 
         notifications.postValue(list)
+        documentIds.postValue(ids)
         unreadNotifications.postValue(unreadMessages)
     }
 
@@ -61,6 +64,12 @@ class DashboardViewModel : ViewModel() {
     fun readAllNotifications() {
         val notifications = notifications.value
         notifications?.forEach { it.hasBeenRead = true }
+
+        documentIds.value?.forEach { docId ->
+            firestore.collection(NOTIFICATIONS)
+                .document(docId)
+                .update(mapOf("hasBeenRead" to true))
+        }
     }
 
     override fun onCleared() {

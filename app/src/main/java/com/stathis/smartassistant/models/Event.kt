@@ -1,15 +1,18 @@
 package com.stathis.smartassistant.models
 
 import android.annotation.SuppressLint
+import com.google.firebase.Timestamp
 import com.stathis.smartassistant.abstraction.LocalModel
 import com.stathis.smartassistant.models.wardrobe.ShoeCategory
 import com.stathis.smartassistant.models.wardrobe.Shoes
 import java.time.Duration
 import java.time.LocalTime
+import java.util.*
 
 data class Event(
     val title: String,
     val date: String,
+    val timestamp: Timestamp? = Timestamp(Date()),
     val time: String,
     val location: String,
     val transportationOption: TransportationOption? = null,
@@ -19,7 +22,7 @@ data class Event(
     val shoes: Shoes? = null
 ) : LocalModel {
     constructor() : this(
-        "", "", "", "",
+        "", "", Timestamp(Date()), "", "",
         TransportationOption("", 0, 0, false),
         ParkingInfo("", ""),
         CoffeeShop("", 0, 0, 0, true, false),

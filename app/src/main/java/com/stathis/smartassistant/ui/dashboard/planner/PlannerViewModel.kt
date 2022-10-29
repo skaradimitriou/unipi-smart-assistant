@@ -6,11 +6,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.Query
 import com.stathis.smartassistant.callbacks.EventsCallback
 import com.stathis.smartassistant.callbacks.ItemCallback
 import com.stathis.smartassistant.models.Event
 import com.stathis.smartassistant.ui.dashboard.planner.adapter.PlannerAdapter
 import com.stathis.smartassistant.util.EVENTS
+import com.stathis.smartassistant.util.TIMESTAMP
 import com.stathis.smartassistant.util.toListOf
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -30,7 +32,10 @@ class PlannerViewModel : ViewModel(), ItemCallback {
     }
 
     private suspend fun getEventsFromDb() {
-        val document = firestore.collection(EVENTS).get().await()
+        val document = firestore.collection(EVENTS)
+            .orderBy(TIMESTAMP, Query.Direction.DESCENDING)
+            .get().await()
+
         val list = document.toListOf<Event>()
         events.postValue(list)
     }

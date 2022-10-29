@@ -1,11 +1,11 @@
 package com.stathis.smartassistant.ui.feed
 
-import androidx.fragment.app.viewModels
+import androidx.activity.viewModels
 import com.stathis.smartassistant.R
-import com.stathis.smartassistant.abstraction.BaseFragment
+import com.stathis.smartassistant.abstraction.BaseActivity
 import com.stathis.smartassistant.databinding.ActivityFeedingBinding
 
-class FeedingActivity : BaseFragment<ActivityFeedingBinding>(R.layout.activity_feeding) {
+class FeedingActivity : BaseActivity<ActivityFeedingBinding>(R.layout.activity_feeding) {
 
     private val viewModel: FeedingViewModel by viewModels()
 
