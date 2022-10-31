@@ -263,5 +263,6 @@
     <string name="fridge_cta">Προβολή περιεχομένου ψυγείου</string>
     <string name="fridge_details_title">Περιεχόμενο Ψυγείου</string>
     <string name="fridge_item_quantity">Ποσότητα: %d</string>
+    <string name="active_title">Ενεργοποίηση</string>
 
 </resources>

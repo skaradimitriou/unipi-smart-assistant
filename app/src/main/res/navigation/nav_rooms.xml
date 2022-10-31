@@ -31,6 +31,9 @@
         <action
             android:id="@+id/goToFridgeScreen"
             app:destination="@id/fridgeFragment" />
+        <action
+            android:id="@+id/goToGeneralUtilScreen"
+            app:destination="@id/generalUtilFragment" />
     </fragment>
     <fragment
         android:id="@+id/lightsManagementFragment"
@@ -84,4 +87,15 @@
         android:id="@+id/fridgeDetailsFragment"
         android:name="com.stathis.smartassistant.ui.rooms.fridge.FridgeDetailsFragment"
         android:label="FridgeDetailsFragment" />
+    <fragment
+        android:id="@+id/generalUtilFragment"
+        android:name="com.stathis.smartassistant.ui.rooms.general.GeneralUtilFragment"
+        android:label="GeneralUtilFragment" >
+        <argument
+            android:name="util"
+            app:argType="com.stathis.smartassistant.models.RoomUtil" />
+        <argument
+            android:name="room"
+            app:argType="com.stathis.smartassistant.models.Room" />
+    </fragment>
 </navigation>

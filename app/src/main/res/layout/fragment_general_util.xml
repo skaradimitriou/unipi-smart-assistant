@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/grey_bg"
+        android:padding="@dimen/dimen_l"
+        tools:context=".ui.rooms.general.GeneralUtilFragment">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/utilCardView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_100"
+            app:cardCornerRadius="@dimen/dimen_m"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/dimen_m">
+
+                <TextView
+                    android:id="@+id/utilHeaderTxtView"
+                    style="@style/text_18_bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/active_title"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/utilToggle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/utilHeaderTxtView" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/utilImgView"
+            android:layout_width="@dimen/dimen_300"
+            android:layout_height="@dimen/dimen_300"
+            android:layout_marginTop="@dimen/dimen_xl"
+            android:scaleType="centerInside"
+            tools:src="@drawable/light_on"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/utilCardView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/grey_bg"
-        android:padding="@dimen/dimen_l"
+        android:padding="@dimen/dimen_m"
         tools:context=".ui.wardrobe.intro.WardrobeIntroFragment">
 
         <com.airbnb.lottie.LottieAnimationView
