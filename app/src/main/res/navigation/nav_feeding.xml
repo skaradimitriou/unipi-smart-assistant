@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_feeding"
+    app:startDestination="@id/petIntroFragment">
+
+    <fragment
+        android:id="@+id/petIntroFragment"
+        android:name="com.stathis.smartassistant.ui.feed.intro.PetIntroFragment"
+        android:label="PetIntroFragment">
+        <action
+            android:id="@+id/goToFeedingOptionsScreen"
+            app:destination="@id/feedingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/feedingFragment"
+        android:name="com.stathis.smartassistant.ui.feed.feeding.FeedingFragment"
+        android:label="FeedingFragment" />
+</navigation>

@@ -1,6 +1,9 @@
 package com.stathis.smartassistant.ui.feed
 
+import android.view.MenuItem
 import androidx.activity.viewModels
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
 import com.stathis.smartassistant.R
 import com.stathis.smartassistant.abstraction.BaseActivity
 import com.stathis.smartassistant.databinding.ActivityFeedingBinding
@@ -9,8 +12,11 @@ class FeedingActivity : BaseActivity<ActivityFeedingBinding>(R.layout.activity_f
 
     private val viewModel: FeedingViewModel by viewModels()
 
+    private lateinit var navController: NavController
+
     override fun init() {
-        //
+        navController = findNavController(R.id.feeding_nav_host_fragment)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     override fun startOps() {
@@ -19,5 +25,17 @@ class FeedingActivity : BaseActivity<ActivityFeedingBinding>(R.layout.activity_f
 
     override fun stopOps() {
         //
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean = when (item.itemId) {
+        android.R.id.home -> {
+            if (navController.graph.startDestinationId == navController.currentDestination?.id) {
+                finish()
+            } else {
+                navController.popBackStack()
+            }
+            true
+        }
+        else -> false
     }
 }

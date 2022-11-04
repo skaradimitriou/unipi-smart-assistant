@@ -23,6 +23,7 @@ abstract class BaseFragment<VB : ViewDataBinding>(val layoutId: Int) : Fragment(
     ): View? {
         val viewRoot = LayoutInflater.from(requireContext()).inflate(layoutId, container, false)
         binding = DataBindingUtil.bind(viewRoot)!!
+        binding.lifecycleOwner = viewLifecycleOwner
         return binding.root
     }
 
