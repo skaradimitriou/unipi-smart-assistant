@@ -1,14 +1,17 @@
 package com.stathis.smartassistant.models.pets
 
+import android.os.Parcelable
 import com.stathis.smartassistant.abstraction.LocalModel
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class Pet(
     val nickname: String,
     val image: Int,
     val type: PetCategory,
     val color: PetColor,
     val utils: List<PetUtil>? = null
-) : LocalModel {
+) : Parcelable, LocalModel {
     override fun equalsContent(obj: LocalModel): Boolean = when (obj) {
         is Pet -> nickname == obj.nickname && type == obj.type && color == obj.color
         else -> false
@@ -33,10 +36,11 @@ data class MyPetsPromo(
     }
 }
 
+@Parcelize
 data class PetUtil(
     val title: String,
     val progress: Int
-) : LocalModel {
+) : Parcelable, LocalModel {
     override fun equalsContent(obj: LocalModel): Boolean = when (obj) {
         is PetUtil -> title == obj.title && progress == obj.progress
         else -> false

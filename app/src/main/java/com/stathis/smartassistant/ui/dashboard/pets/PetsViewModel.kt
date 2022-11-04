@@ -1,50 +1,51 @@
 package com.stathis.smartassistant.ui.dashboard.pets
 
+import android.app.Application
 import android.view.View
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.stathis.smartassistant.R
+import com.stathis.smartassistant.abstraction.BaseViewModel
 import com.stathis.smartassistant.abstraction.LocalModel
 import com.stathis.smartassistant.callbacks.ItemCallback
 import com.stathis.smartassistant.callbacks.pets.PetLandingCallback
 import com.stathis.smartassistant.models.pets.*
 import com.stathis.smartassistant.ui.dashboard.pets.adapter.PetLandingAdapter
 
-class PetsViewModel : ViewModel(), ItemCallback {
+class PetsViewModel(app: Application) : BaseViewModel(app), ItemCallback {
 
     val adapter = PetLandingAdapter(this)
-    val petLandingData = MutableLiveData<List<LocalModel>>()
+    private val petLandingData = MutableLiveData<List<LocalModel>>()
     private lateinit var callback: PetLandingCallback
 
     fun getData() {
         val myPets = listOf(
             Pet(
-                nickname = "Makis",
+                nickname = getString(R.string.makis),
                 image = R.drawable.makis,
                 type = PetCategory.CAT,
                 color = PetColor.GREY,
             ),
             Pet(
-                nickname = "Sakis",
+                nickname = getString(R.string.sakis),
                 image = R.drawable.sakis,
                 type = PetCategory.CAT,
                 color = PetColor.BLACK
             ),
             Pet(
-                nickname = "Takis",
+                nickname = getString(R.string.takis),
                 image = R.drawable.takis,
                 type = PetCategory.CAT,
                 color = PetColor.BLACK
             ),
             Pet(
-                nickname = "Melenia",
+                nickname = getString(R.string.melenia),
                 image = R.drawable.melenia,
                 type = PetCategory.CAT,
                 color = PetColor.BLACK
             ),
             Pet(
-                nickname = "Tenia",
+                nickname = getString(R.string.tenia),
                 image = R.drawable.tenia,
                 type = PetCategory.CAT,
                 color = PetColor.BLACK
@@ -53,15 +54,12 @@ class PetsViewModel : ViewModel(), ItemCallback {
 
         val list = listOf(
             PetsPromo(
-                title = "This is a title",
-                description = "This is the description of my pets promo"
-            ),
-            PetsPromo(
-                title = "This is a title",
-                description = "This is the description of my pets promo"
+                title = getString(R.string.smart_feeding),
+                description = getString(R.string.smart_feeding_subtitle),
+                image = R.drawable.feeding
             ),
             MyPetsPromo(
-                title = "Τα κατοικίδιά μου",
+                title = getString(R.string.my_pets_title),
                 petList = myPets
             )
         )

@@ -264,5 +264,13 @@
     <string name="fridge_details_title">Περιεχόμενο Ψυγείου</string>
     <string name="fridge_item_quantity">Ποσότητα: %d</string>
     <string name="active_title">Ενεργοποίηση</string>
+    <string name="smart_feeding">Έξυπνο Ταίσμα</string>
+    <string name="smart_feeding_subtitle">Ταίσε το κατοικίδιό σου μέσα απο το Smarty</string>
+    <string name="my_pets_title">Τα κατοικίδιά μου</string>
+    <string name="makis">Makis</string>
+    <string name="sakis">Sakis</string>
+    <string name="takis">Takis</string>
+    <string name="melenia">Melenia</string>
+    <string name="tenia">Tenia</string>
 
 </resources>

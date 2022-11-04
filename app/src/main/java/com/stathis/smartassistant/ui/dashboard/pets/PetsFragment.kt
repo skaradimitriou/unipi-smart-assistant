@@ -8,9 +8,10 @@ import com.stathis.smartassistant.callbacks.pets.PetLandingCallback
 import com.stathis.smartassistant.databinding.FragmentPetsBinding
 import com.stathis.smartassistant.models.pets.Pet
 import com.stathis.smartassistant.models.pets.PetsPromo
+import com.stathis.smartassistant.ui.feed.FeedingActivity
 import com.stathis.smartassistant.ui.petdetails.PetDetailsActivity
+import com.stathis.smartassistant.util.PET_DETAILS
 import com.stathis.smartassistant.util.setScreenTitle
-import timber.log.Timber
 
 class PetsFragment : BaseFragment<FragmentPetsBinding>(R.layout.fragment_pets) {
 
@@ -25,16 +26,31 @@ class PetsFragment : BaseFragment<FragmentPetsBinding>(R.layout.fragment_pets) {
         viewModel.getData()
         viewModel.observe(viewLifecycleOwner, object : PetLandingCallback {
             override fun onPetPromoTap(promo: PetsPromo) {
-                Timber.d("CLICKED")
+                goToFeedingFlow()
             }
 
-            override fun onPetTap(pet: Pet) {
-                startActivity(Intent(requireContext(), PetDetailsActivity::class.java))
-            }
+            override fun onPetTap(pet: Pet) = goToPetDetails(pet)
         })
     }
 
     override fun stopOps() {
         viewModel.release(viewLifecycleOwner)
+    }
+
+    /*
+     * Opens Pet Details Activity and passes the model as parcelable
+     */
+    private fun goToPetDetails(pet: Pet) {
+        startActivity(Intent(requireContext(), PetDetailsActivity::class.java).apply {
+            putExtra(PET_DETAILS, pet)
+        })
+    }
+
+    /*
+     * Starts the pet feeding flow
+     */
+
+    private fun goToFeedingFlow() {
+        startActivity(Intent(requireContext(), FeedingActivity::class.java))
     }
 }

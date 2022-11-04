@@ -8,6 +8,10 @@
         <variable
             name="model"
             type="com.stathis.smartassistant.models.pets.PetsPromo" />
+
+        <variable
+            name="callback"
+            type="com.stathis.smartassistant.callbacks.ItemCallback" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,14 +19,17 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dimen_10"
         android:background="@color/white"
-        android:padding="@dimen/dimen_m">
+        android:padding="@dimen/dimen_m"
+        android:onClick="@{(view) -> callback.onItemTap(view)}"
+        android:tag="@{model}">
 
         <TextView
             android:id="@+id/promoTitleTxtView"
             style="@style/text_18_bold"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@{model.title}"
+            app:layout_constraintEnd_toStartOf="@id/promoImgView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet." />
@@ -34,9 +41,21 @@
             android:paddingTop="@dimen/dimen_s"
             android:text="@{model.description}"
             android:textSize="16sp"
+            app:layout_constraintEnd_toStartOf="@id/promoImgView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/promoTitleTxtView"
             tools:text="Lorem ipsum sit dolor amet. Lorem ipsum sit dolor amet." />
+
+        <ImageView
+            android:id="@+id/promoImgView"
+            android:layout_width="@dimen/dimen_3xl"
+            android:layout_height="@dimen/dimen_3xl"
+            android:scaleType="centerCrop"
+            app:imageResource="@{model.image}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@mipmap/smarty_logo" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

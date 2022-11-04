@@ -17,3 +17,9 @@ const val ENERGY = "energy"
 const val SEQ = "seq"
 const val NOTIFICATIONS = "notifications"
 const val TIMESTAMP = "timestamp"
+
+/**
+ * Pets epic
+ */
+
+const val PET_DETAILS = "PET_DETAILS"

@@ -6,6 +6,10 @@
     <data>
 
         <variable
+            name="pet"
+            type="com.stathis.smartassistant.models.pets.Pet" />
+
+        <variable
             name="viewModel"
             type="com.stathis.smartassistant.ui.petdetails.PetDetailsViewModel" />
     </data>
@@ -36,11 +40,12 @@
             android:id="@+id/petImgView"
             android:layout_width="@dimen/dimen_80"
             android:layout_height="@dimen/dimen_80"
-            android:src="@drawable/makis"
+            app:imageResource="@{pet.image}"
             app:layout_constraintBottom_toBottomOf="@id/centerPointView"
             app:layout_constraintEnd_toEndOf="@id/centerPointView"
             app:layout_constraintStart_toStartOf="@id/centerPointView"
-            app:layout_constraintTop_toTopOf="@id/centerPointView" />
+            app:layout_constraintTop_toTopOf="@id/centerPointView"
+            tools:src="@drawable/makis" />
 
         <TextView
             android:id="@+id/petNicknameTxtView"
@@ -48,12 +53,13 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/dimen_m"
             android:layout_marginBottom="@dimen/dimen_s"
-            android:text="@string/dummy_pet_title"
+            android:text="@{pet.nickname}"
             android:textColor="@color/white"
             android:textSize="22sp"
             app:layout_constraintBottom_toBottomOf="@id/petDetailsBgView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/petImgView" />
+            app:layout_constraintStart_toEndOf="@id/petImgView"
+            tools:text="@string/dummy_pet_title" />
 
         <TextView
             android:id="@+id/petTypeTxtView"
@@ -61,10 +67,11 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/dimen_m"
             android:layout_marginTop="@dimen/dimen_s"
-            android:text="@string/dummy_pet_type"
+            android:text="@{pet.type.name()}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/petImgView"
-            app:layout_constraintTop_toBottomOf="@id/petDetailsBgView" />
+            app:layout_constraintTop_toBottomOf="@id/petDetailsBgView"
+            tools:text="@string/dummy_pet_type" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/petDetailsRecyclerView"
