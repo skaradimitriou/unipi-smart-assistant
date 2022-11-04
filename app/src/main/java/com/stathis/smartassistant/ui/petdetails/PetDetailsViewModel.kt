@@ -1,42 +1,29 @@
 package com.stathis.smartassistant.ui.petdetails
 
+import android.app.Application
 import androidx.lifecycle.ViewModel
+import com.stathis.smartassistant.R
+import com.stathis.smartassistant.abstraction.BaseViewModel
 import com.stathis.smartassistant.models.pets.PetUtil
 import com.stathis.smartassistant.ui.petdetails.adapter.PetDetailsAdapter
 import kotlin.random.Random
 
-class PetDetailsViewModel : ViewModel() {
+class PetDetailsViewModel(val app: Application) : BaseViewModel(app) {
 
     val adapter = PetDetailsAdapter()
 
     fun bindList() {
         val list = listOf(
             PetUtil(
-                title = "Title #1",
+                title = getString(R.string.need_for_food),
                 progress = Random.nextInt(20, 100)
             ),
             PetUtil(
-                title = "Title #2",
+                title = getString(R.string.need_for_water),
                 progress = Random.nextInt(20, 100)
             ),
             PetUtil(
-                title = "Title #3",
-                progress = Random.nextInt(20, 100)
-            ),
-            PetUtil(
-                title = "Title #4",
-                progress = Random.nextInt(20, 100)
-            ),
-            PetUtil(
-                title = "Title #5",
-                progress = Random.nextInt(20, 100)
-            ),
-            PetUtil(
-                title = "Title #6",
-                progress = Random.nextInt(20, 100)
-            ),
-            PetUtil(
-                title = "Title #7",
+                title = getString(R.string.need_to_play),
                 progress = Random.nextInt(20, 100)
             )
         )

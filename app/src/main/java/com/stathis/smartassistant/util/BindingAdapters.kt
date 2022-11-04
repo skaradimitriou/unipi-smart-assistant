@@ -10,6 +10,9 @@ import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.stathis.smartassistant.R
 import com.stathis.smartassistant.models.*
+import com.stathis.smartassistant.models.pets.Pet
+import com.stathis.smartassistant.models.pets.PetCategory
+import com.stathis.smartassistant.models.pets.PetUtil
 import com.stathis.smartassistant.models.rooms.FridgeDetail
 import com.stathis.smartassistant.models.wardrobe.AddressInfo
 
@@ -171,4 +174,17 @@ fun TextView.energyConsumption(model: EnergyModel) {
 @BindingAdapter("setQuantity")
 fun TextView.setQuantity(model: FridgeDetail) {
     text = context.getString(R.string.fridge_item_quantity, model.quantity)
+}
+
+@BindingAdapter("setPetType")
+fun TextView.setPetType(model: Pet) {
+    text = when (model.type) {
+        PetCategory.CAT -> context.getString(R.string.cat)
+        PetCategory.DOG -> context.getString(R.string.dog)
+    }
+}
+
+@BindingAdapter("setPetDetailsProgress")
+fun TextView.setPetDetailsProgress(model: PetUtil) {
+    text = context.getString(R.string.pet_detail_placeholder, model.progress)
 }

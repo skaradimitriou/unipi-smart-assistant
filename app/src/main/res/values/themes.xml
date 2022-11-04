@@ -25,6 +25,12 @@
 
     <!-- Text Styles -->
 
+    <style name="text_30_bold_blue" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/navy_blue</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
     <style name="text_22_bold" parent="Widget.AppCompat.TextView">
         <item name="android:textColor">@color/dark_text_color</item>
         <item name="android:textSize">22sp</item>

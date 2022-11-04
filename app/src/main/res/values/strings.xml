@@ -264,6 +264,8 @@
     <string name="fridge_details_title">Περιεχόμενο Ψυγείου</string>
     <string name="fridge_item_quantity">Ποσότητα: %d</string>
     <string name="active_title">Ενεργοποίηση</string>
+
+    <!-- Pet Landing Screen -->
     <string name="smart_feeding">Έξυπνο Ταίσμα</string>
     <string name="smart_feeding_subtitle">Ταίσε το κατοικίδιό σου μέσα απο το Smarty</string>
     <string name="my_pets_title">Τα κατοικίδιά μου</string>
@@ -272,5 +274,13 @@
     <string name="takis">Takis</string>
     <string name="melenia">Melenia</string>
     <string name="tenia">Tenia</string>
+
+    <!-- Pet Details Screen -->
+    <string name="pet_detail_placeholder">%d%%</string>
+    <string name="cat">Γάτα</string>
+    <string name="dog">Σκύλος</string>
+    <string name="need_for_food">Ανάγκη για τροφή</string>
+    <string name="need_for_water">Ανάγκη για νερό</string>
+    <string name="need_to_play">Ανάγκη για παιχνίδι</string>
 
 </resources>

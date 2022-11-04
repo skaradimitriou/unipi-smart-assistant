@@ -35,4 +35,7 @@
     <color name="dark_text_color">#333333</color>
     <color name="description_grey">#999999</color>
 
+    <!-- Color with 50% alpha -->
+    <color name="navy_blue_70">#702c3477</color>
+
 </resources>
