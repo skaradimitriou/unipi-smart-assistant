@@ -10,12 +10,14 @@ import com.stathis.smartassistant.models.Notification
 import com.stathis.smartassistant.ui.dashboard.notifications.adapter.NotificationsAdapter
 import com.stathis.smartassistant.util.NOTIFICATIONS
 import com.stathis.smartassistant.util.TIMESTAMP
+import com.stathis.smartassistant.util.createNotification
 import com.stathis.smartassistant.util.toListOf
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
+import kotlin.random.Random
 
 class DashboardViewModel : ViewModel() {
 

@@ -14,6 +14,10 @@
         <variable
             name="emptyCalendar"
             type="Boolean" />
+
+        <variable
+            name="userIsBusy"
+            type="Boolean" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -22,10 +26,35 @@
         android:background="@color/grey_bg"
         tools:context=".ui.dashboard.planner.PlannerFragment">
 
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/manyEventsConstraint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_10"
+            android:background="@drawable/round_corners_light_blue"
+            android:padding="@dimen/dimen_m"
+            android:visibility="@{userIsBusy ? View.VISIBLE : View.GONE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/infoTxtView"
+                style="@style/text_16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/too_many_events"
+                android:textColor="@color/blueish_gray"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/plannerRecycler"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginTop="@dimen/dimen_s"
             android:adapter="@{viewModel.adapter}"
             android:clipToPadding="false"
             android:orientation="vertical"
@@ -34,7 +63,7 @@
             android:visibility="@{emptyCalendar? View.GONE : View.VISIBLE}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/manyEventsConstraint"
             tools:listitem="@layout/holder_event_item_row" />
 
         <androidx.constraintlayout.widget.ConstraintLayout

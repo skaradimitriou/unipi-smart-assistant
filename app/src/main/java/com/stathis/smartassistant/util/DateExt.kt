@@ -44,3 +44,14 @@ fun getCurrentTime(): String {
     val outputFormat = SimpleDateFormat("HH", Locale("el", "GR"))
     return outputFormat.format(date)
 }
+
+/**
+ * Helper fun to get the full date in the format of: Κυριακή, 9 Οκτωβρίου 2022
+ */
+
+@SuppressLint("SimpleDateFormat")
+fun getCurrentDate(): String {
+    val date = Date()
+    val outputFormat = SimpleDateFormat("dd/MM/yyyy", Locale("el", "GR"))
+    return outputFormat.format(date)
+}

@@ -27,6 +27,8 @@ class PlannerFragment : BaseFragment<FragmentPlannerBinding>(R.layout.fragment_p
 
     override fun startOps() {
         viewModel.getUserEvents()
+        viewModel.notifyAboutPetStatus()
+
         viewModel.observe(viewLifecycleOwner, showEmptyScreen = { isEmpty ->
             lifecycleScope.launch {
                 delay(1000)
@@ -34,6 +36,10 @@ class PlannerFragment : BaseFragment<FragmentPlannerBinding>(R.layout.fragment_p
             }
             binding.emptyCalendar = isEmpty
         })
+
+        viewModel.isUserBusy.observe(viewLifecycleOwner) { isBusy ->
+            binding.userIsBusy = isBusy
+        }
 
         viewModel.onEventTap { event ->
             goToEventInfoScreen(event)

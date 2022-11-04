@@ -1,29 +1,35 @@
 package com.stathis.smartassistant.ui.dashboard.planner
 
+import android.app.Application
 import android.view.View
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
+import com.stathis.smartassistant.R
+import com.stathis.smartassistant.abstraction.BaseViewModel
 import com.stathis.smartassistant.callbacks.EventsCallback
 import com.stathis.smartassistant.callbacks.ItemCallback
 import com.stathis.smartassistant.models.Event
+import com.stathis.smartassistant.models.NotificationType
 import com.stathis.smartassistant.ui.dashboard.planner.adapter.PlannerAdapter
-import com.stathis.smartassistant.util.EVENTS
-import com.stathis.smartassistant.util.TIMESTAMP
-import com.stathis.smartassistant.util.toListOf
+import com.stathis.smartassistant.util.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
+import kotlin.random.Random
 
-class PlannerViewModel : ViewModel(), ItemCallback {
+class PlannerViewModel(val app: Application) : BaseViewModel(app), ItemCallback {
 
     val adapter = PlannerAdapter(this)
     val firestore by lazy { FirebaseFirestore.getInstance() }
     private lateinit var callback: EventsCallback
     val events = MutableLiveData<List<Event>>()
+    val randomNumber = Random.nextInt(1, 6)
+
+    val isUserBusy: LiveData<Boolean>
+        get() = _isUserBusy
+
+    private val _isUserBusy = MutableLiveData(false)
 
     fun getUserEvents() {
         viewModelScope.launch(Dispatchers.IO) {
@@ -37,7 +43,32 @@ class PlannerViewModel : ViewModel(), ItemCallback {
             .get().await()
 
         val list = document.toListOf<Event>()
-        events.postValue(list)
+
+        /*
+         * Filtering list from firestore to get today's events only
+         * If user has more than 3 events, he is considered busy and thus he should
+         * see the feed-a-pet notification in the view layer
+         */
+
+        val myList = list.filter { it.date == getCurrentDate() }
+        val willBeBusy = myList.size >= 3
+
+        events.postValue(myList)
+        _isUserBusy.postValue(willBeBusy)
+    }
+
+    fun notifyAboutPetStatus() {
+        if (randomNumber == 3 || randomNumber == 5) {
+            viewModelScope.launch(Dispatchers.IO) {
+                val notification = createNotification(
+                    title = getString(R.string.pet_status_notification_title),
+                    description = getString(R.string.pet_status_notification_desc),
+                    category = NotificationType.PETS
+                )
+
+                firestore.collection(NOTIFICATIONS).add(notification).await()
+            }
+        }
     }
 
     fun observe(owner: LifecycleOwner, showEmptyScreen: (Boolean) -> Unit) {

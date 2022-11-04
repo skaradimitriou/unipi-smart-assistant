@@ -304,5 +304,8 @@
     <string name="empty" />
     <string name="pet_feed_result_desc">Η ενέργεια πραγματοποιήθηκε με επιτυχία</string>
     <string name="pet_feed_result_cta">Επιστροφή στα κατοικίδια</string>
+    <string name="too_many_events">Σήμερα έχεις προγραμματίσει πολλά events. Προτείνουμε να ταίσεις τα κατοικίδια σου επειδή θα λείπεις για αρκετές ώρες.</string>
 
+    <string name="pet_status_notification_title">Επίβλεψη κατοικιδίου</string>
+    <string name="pet_status_notification_desc">Το κατοικίδιο σου έκανε μια σοβαρή ζημιά στο σαλόνι</string>
 </resources>
