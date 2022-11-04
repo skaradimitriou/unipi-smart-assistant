@@ -15,5 +15,13 @@
     <fragment
         android:id="@+id/feedingFragment"
         android:name="com.stathis.smartassistant.ui.feed.feeding.FeedingFragment"
-        android:label="FeedingFragment" />
+        android:label="FeedingFragment">
+        <action
+            android:id="@+id/goToQuantityScreen"
+            app:destination="@id/feedingQuantityFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/feedingQuantityFragment"
+        android:name="com.stathis.smartassistant.ui.feed.quantity.FeedingQuantityFragment"
+        android:label="FeedingQuantityFragment" />
 </navigation>

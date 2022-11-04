@@ -284,5 +284,9 @@
     <string name="need_to_play">Ανάγκη για παιχνίδι</string>
     <string name="select_pet_title">Επιλογή Κατοικιδίου</string>
     <string name="feeding_type_title">Επιλογή Ενέργειας</string>
+    <string name="feed_water_title">Νερό</string>
+    <string name="feed_water_desc">Δώσε στο κατοικίδιο σου πόσιμο νερό να ξεδιψάσει</string>
+    <string name="feed_food_title">Τροφή</string>
+    <string name="feed_food_desc">Δώσε στο κατοικίδιό σου την ενέργεια που χρειάζεται</string>
 
 </resources>

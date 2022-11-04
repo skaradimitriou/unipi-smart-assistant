@@ -1,11 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/grey_bg"
+        android:padding="@dimen/dimen_m"
         tools:context=".ui.feed.feeding.FeedingFragment">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/foodCardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/dimen_10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/dimen_m">
+
+                <ImageView
+                    android:id="@+id/foodImgView"
+                    android:layout_width="@dimen/dimen_2xl"
+                    android:layout_height="@dimen/dimen_2xl"
+                    android:src="@drawable/food"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/foodTitleTxtView"
+                    style="@style/text_16_bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:paddingVertical="@dimen/dimen_s"
+                    android:text="@string/feed_food_title"
+                    app:layout_constraintTop_toBottomOf="@id/foodImgView" />
+
+                <TextView
+                    android:id="@+id/foodDescTxtView"
+                    style="@style/text_16"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/feed_food_desc"
+                    app:layout_constraintTop_toBottomOf="@id/foodTitleTxtView" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/waterCardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_l"
+            app:cardCornerRadius="@dimen/dimen_10"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/foodCardView">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="@dimen/dimen_m">
+
+                <ImageView
+                    android:id="@+id/waterImgView"
+                    android:layout_width="@dimen/dimen_2xl"
+                    android:layout_height="@dimen/dimen_2xl"
+                    android:src="@drawable/water"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/waterTitleTxtView"
+                    style="@style/text_16_bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:paddingVertical="@dimen/dimen_s"
+                    android:text="@string/feed_water_title"
+                    app:layout_constraintTop_toBottomOf="@id/waterImgView" />
+
+                <TextView
+                    android:id="@+id/waterDescTxtView"
+                    style="@style/text_16"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="@string/feed_water_desc"
+                    app:layout_constraintTop_toBottomOf="@id/waterTitleTxtView" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
