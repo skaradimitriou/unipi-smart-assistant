@@ -282,11 +282,27 @@
     <string name="need_for_food">Ανάγκη για τροφή</string>
     <string name="need_for_water">Ανάγκη για νερό</string>
     <string name="need_to_play">Ανάγκη για παιχνίδι</string>
+
+    <!-- Feed Pet Selection -->
     <string name="select_pet_title">Επιλογή Κατοικιδίου</string>
+
+    <!-- Feeding Pet Action Selection -->
     <string name="feeding_type_title">Επιλογή Ενέργειας</string>
     <string name="feed_water_title">Νερό</string>
     <string name="feed_water_desc">Δώσε στο κατοικίδιο σου πόσιμο νερό να ξεδιψάσει</string>
     <string name="feed_food_title">Τροφή</string>
     <string name="feed_food_desc">Δώσε στο κατοικίδιό σου την ενέργεια που χρειάζεται</string>
+
+    <!-- Feeding Quantity -->
+    <string name="feed_quantity_title">Επιλογή Ποσότητας</string>
+
+    <!-- Feeding Result -->
+    <string name="feed_notification_title">Έξυπνη Ταίστρα</string>
+    <string name="feed_notification_description">Μόλις %1s στο κατοικίδιο με όνομα %2s</string>
+    <string name="gave_water">έδωσες νερό</string>
+    <string name="gave_food">έδωσες τροφή</string>
+    <string name="empty" />
+    <string name="pet_feed_result_desc">Η ενέργεια πραγματοποιήθηκε με επιτυχία</string>
+    <string name="pet_feed_result_cta">Επιστροφή στα κατοικίδια</string>
 
 </resources>

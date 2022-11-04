@@ -20,7 +20,14 @@ class FeedingActivity : BaseActivity<ActivityFeedingBinding>(R.layout.activity_f
     }
 
     override fun startOps() {
-        //
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if (destination.id == R.id.petResultFragment) {
+                //disable action bar back button
+                supportActionBar?.setDisplayHomeAsUpEnabled(false)
+            } else {
+                supportActionBar?.setDisplayHomeAsUpEnabled(true)
+            }
+        }
     }
 
     override fun stopOps() {

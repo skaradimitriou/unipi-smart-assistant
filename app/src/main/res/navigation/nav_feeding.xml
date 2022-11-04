@@ -23,5 +23,13 @@
     <fragment
         android:id="@+id/feedingQuantityFragment"
         android:name="com.stathis.smartassistant.ui.feed.quantity.FeedingQuantityFragment"
-        android:label="FeedingQuantityFragment" />
+        android:label="FeedingQuantityFragment">
+        <action
+            android:id="@+id/goToResultScreen"
+            app:destination="@id/petResultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/petResultFragment"
+        android:name="com.stathis.smartassistant.ui.feed.result.PetResultFragment"
+        android:label="PetResultFragment" />
 </navigation>
