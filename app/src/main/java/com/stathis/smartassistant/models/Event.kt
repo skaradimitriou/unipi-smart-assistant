@@ -46,7 +46,7 @@ data class Event(
     }
 
     fun hasAdditionals(): Boolean {
-        return shop != null && coffee != null
+        return shop?.shopTitle != "" && coffee?.title != ""
     }
 
     @SuppressLint("NewApi")
