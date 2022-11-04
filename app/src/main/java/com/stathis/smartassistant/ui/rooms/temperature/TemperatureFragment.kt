@@ -32,6 +32,7 @@ class TemperatureFragment :
 
         args.util.heatLevel?.let {
             binding.heatLevelTxtView.setTemperatureInCelcius(it)
+            viewModel.heatLevel = it
         }
     }
 

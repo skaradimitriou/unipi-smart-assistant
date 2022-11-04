@@ -7,6 +7,7 @@ import com.stathis.smartassistant.abstraction.BaseFragment
 import com.stathis.smartassistant.databinding.FragmentTrafficBinding
 import com.stathis.smartassistant.models.TransportationOption
 import com.stathis.smartassistant.ui.events.EventsViewModel
+import com.stathis.smartassistant.util.setRoutePhoto
 import com.stathis.smartassistant.util.toUiModel
 
 class TrafficFragment : BaseFragment<FragmentTrafficBinding>(R.layout.fragment_traffic) {
@@ -19,7 +20,10 @@ class TrafficFragment : BaseFragment<FragmentTrafficBinding>(R.layout.fragment_t
     }
 
     override fun startOps() {
-        //FIXME: Bind appropriate traffic photo on ui based on traffic
+        val option = viewModel.transportationOption
+        option?.let {
+            binding.trafficRouteImgView.setRoutePhoto(it)
+        }
 
         binding.nextButton.setOnClickListener {
             val transportOption = viewModel.transportationOption.toUiModel()

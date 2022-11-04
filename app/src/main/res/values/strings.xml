@@ -308,4 +308,9 @@
 
     <string name="pet_status_notification_title">Επίβλεψη κατοικιδίου</string>
     <string name="pet_status_notification_desc">Το κατοικίδιο σου έκανε μια σοβαρή ζημιά στο σαλόνι</string>
+    <string name="feed_quantity">Αύξησε η μείωσε την τροφή που θα ήθελες να δώσεις στο κατοικίδιο σου</string>
+    <string name="feed_quantity_food_title">Τροφή</string>
+    <string name="dummy_quantity">100γρ</string>
+    <string name="water">Νερό</string>
+    <string name="fill_water_bowl">Γέμισε το μπωλάκι του κατοικιδίου σου με νερό</string>
 </resources>

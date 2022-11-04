@@ -3,6 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="userWillFeedPet"
+            type="Boolean" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -10,15 +19,100 @@
         android:padding="@dimen/dimen_m"
         tools:context=".ui.feed.quantity.FeedingQuantityFragment">
 
-        <Button
-            android:id="@+id/nextButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/continue_btn"
-            android:textAllCaps="false"
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/quantityImgView"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dimen_180"
+            android:padding="@dimen/dimen_m"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_rawRes="@raw/feed_cat" />
 
+        <TextView
+            android:id="@+id/quantityHeaderTxtView"
+            style="@style/text_22_bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:paddingTop="@dimen/dimen_m"
+            android:text="@string/feed_quantity_food_title"
+            app:layout_constraintTop_toBottomOf="@id/quantityImgView" />
+
+        <TextView
+            android:id="@+id/quantityDescTxtView"
+            style="@style/text_16"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:paddingTop="@dimen/dimen_s"
+            android:text="@string/feed_quantity"
+            app:layout_constraintTop_toBottomOf="@id/quantityHeaderTxtView" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/feedCounter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen_s"
+            android:visibility="@{userWillFeedPet ? View.VISIBLE : View.GONE}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/quantityDescTxtView">
+
+            <ImageView
+                android:id="@+id/decreaseImgView"
+                android:layout_width="@dimen/dimen_1.5xl"
+                android:layout_height="@dimen/dimen_1.5xl"
+                android:background="@drawable/ic_decrease"
+                android:backgroundTint="@color/navy_blue"
+                app:layout_constraintEnd_toStartOf="@id/quantityLevelTxtView"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/increaseImgView"
+                android:layout_width="@dimen/dimen_1.5xl"
+                android:layout_height="@dimen/dimen_1.5xl"
+                android:background="@drawable/ic_increase"
+                android:backgroundTint="@color/navy_blue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/quantityLevelTxtView"
+                app:layout_constraintTop_toTopOf="@id/decreaseImgView" />
+
+            <TextView
+                android:id="@+id/quantityLevelTxtView"
+                style="@style/text_22_bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="@id/increaseImgView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/increaseImgView"
+                tools:text="@string/dummy_quantity" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/bottomConstraint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dimen_s"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <Button
+                android:id="@+id/nextButton"
+                style="@style/primaryButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/continue_btn"
+                android:textAllCaps="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

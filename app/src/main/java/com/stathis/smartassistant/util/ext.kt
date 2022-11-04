@@ -20,10 +20,7 @@ import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.stathis.smartassistant.R
-import com.stathis.smartassistant.models.EnergyModel
-import com.stathis.smartassistant.models.Notification
-import com.stathis.smartassistant.models.NotificationType
-import com.stathis.smartassistant.models.SugarType
+import com.stathis.smartassistant.models.*
 import com.stathis.smartassistant.models.wardrobe.ShoeCategory
 import java.util.*
 
@@ -217,10 +214,28 @@ fun BarChart.toChartLabels(data: List<EnergyModel>) {
  * Helper fun to create a single notification in a simple way
  */
 
-fun createNotification(title: String, description: String, category : NotificationType): Notification = Notification(
+fun createNotification(
+    title: String,
+    description: String,
+    category: NotificationType
+): Notification = Notification(
     title = title,
     description = description,
     category = category,
     date = Date(),
     hasBeenRead = false
 )
+
+/**
+ * Helper fun to draw route maps for events traffic fragment
+ */
+
+fun ImageView.setRoutePhoto(model: TransportationOption) {
+    val imageResource = when (model.title) {
+        resources.getString(R.string.transport_bus) -> R.drawable.route_bus
+        resources.getString(R.string.transport_walk) -> R.drawable.route_walking
+        resources.getString(R.string.transport_car) -> R.drawable.route_car
+        else -> R.drawable.route_bus
+    }
+    setImageResource(imageResource)
+}
