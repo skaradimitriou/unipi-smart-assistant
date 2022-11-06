@@ -23,3 +23,9 @@ const val TIMESTAMP = "timestamp"
  */
 
 const val PET_DETAILS = "PET_DETAILS"
+
+/**
+ * General
+ */
+
+const val COMPLETED_ONBOARDING = "COMPLETED_ONBOARDING"

@@ -313,4 +313,6 @@
     <string name="dummy_quantity">100γρ</string>
     <string name="water">Νερό</string>
     <string name="fill_water_bowl">Γέμισε το μπωλάκι του κατοικιδίου σου με νερό</string>
+    <string name="skip">Παράλειψη</string>
+    <string name="continue_to_app">Συνέχεια στην εφαρμογή</string>
 </resources>

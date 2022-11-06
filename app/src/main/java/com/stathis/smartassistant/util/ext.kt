@@ -239,3 +239,24 @@ fun ImageView.setRoutePhoto(model: TransportationOption) {
     }
     setImageResource(imageResource)
 }
+
+/**
+ * Helper fun to save a boolean to shared preferences
+ */
+
+fun Context.saveToSharedPreferences(key: String, value: Boolean) {
+    val sharedPreference = getSharedPreferences(key, Context.MODE_PRIVATE)
+    val editor = sharedPreference.edit()
+    editor.putBoolean(key, value)
+    editor.apply()
+}
+
+
+/**
+ * Helper fun to read a boolean to shared preferences
+ */
+
+fun Context.readFromSharedPreferences(key: String): Boolean {
+    val sharedPreference = getSharedPreferences(key, Context.MODE_PRIVATE)
+    return sharedPreference.getBoolean(key, false)
+}
