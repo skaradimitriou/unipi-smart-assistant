@@ -16,7 +16,6 @@ class OnboardingActivity : BaseActivity<ActivityOnboardingBinding>(R.layout.acti
 
     override fun init() {
         supportActionBar?.hide()
-
         binding.viewModel = viewModel
 
         if (readFromSharedPreferences(COMPLETED_ONBOARDING)) {
@@ -27,7 +26,7 @@ class OnboardingActivity : BaseActivity<ActivityOnboardingBinding>(R.layout.acti
     override fun startOps() {
         binding.nextBtn.setOnClickListener {
             when (binding.onboardingViewpager.currentItem) {
-                in 0..3 -> {
+                in 0..4 -> {
                     binding.onboardingViewpager.currentItem =
                         binding.onboardingViewpager.currentItem + 1
                 }
@@ -36,11 +35,6 @@ class OnboardingActivity : BaseActivity<ActivityOnboardingBinding>(R.layout.acti
         }
 
         binding.getStartedBtn.setOnClickListener {
-            saveOnboardingCompletion()
-            goToHomepage()
-        }
-
-        binding.onboardingSkipBtn.setOnClickListener {
             saveOnboardingCompletion()
             goToHomepage()
         }

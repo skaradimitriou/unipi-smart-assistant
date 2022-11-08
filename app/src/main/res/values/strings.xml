@@ -315,4 +315,16 @@
     <string name="fill_water_bowl">Γέμισε το μπωλάκι του κατοικιδίου σου με νερό</string>
     <string name="skip">Παράλειψη</string>
     <string name="continue_to_app">Συνέχεια στην εφαρμογή</string>
+    <string name="onboarding_home_title">Έξυπνο Σπίτι</string>
+    <string name="onboarding_home_description">Διαχειριστείτε τις έξυπνες συσκευές του σπιτιού σας ανά δωμάτιο.</string>
+    <string name="onboarding_planner_title">Βοηθός Ημέρας</string>
+    <string name="onboarding_planner_description">Οργανώστε τα συμβάντα της καθημερινότητας σας γρήγορα και απλά.</string>
+    <string name="onboarding_wardrobe_title">Έξυπνη Παπουτσοθήκη</string>
+    <string name="onboarding_wardrobe_description">Βρείτε τα κατάλληλα παπούτσια για κάποιο συμβάν ή παραγγείλτε νεα.</string>
+    <string name="onboarding_pet_title">Κατοικίδια</string>
+    <string name="onboarding_pet_description">Ταίστε και παρακολουθήστε τις ενέργειες που πραγματοποιούν τα κατοικίδια σας στο σπίτι.</string>
+    <string name="onboarding_notification_title">Ειδοποιήσεις</string>
+    <string name="onboarding_notification_description">Λάβετε ειδοποιήσεις για τις ενέργειες σας εντός εφαρμογής σε πραγματικό χρόνο.</string>
+    <string name="onboarding_energy_title">Διαχείριση Ενέργειας</string>
+    <string name="onboarding_energy_description">Δείτε την ενεργειακή σας κατανάλωση σε kwH ανά μήνα.</string>
 </resources>

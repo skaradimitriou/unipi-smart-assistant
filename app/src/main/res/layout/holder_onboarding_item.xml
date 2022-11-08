@@ -18,6 +18,7 @@
             android:id="@+id/onboardingImgView"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen_250"
+            android:padding="@dimen/dimen_l"
             android:contentDescription="@string/app_name"
             app:imageResource="@{model.imageResource}"
             app:layout_constraintEnd_toEndOf="parent"

@@ -15,33 +15,36 @@ class OnboardingViewModel(app: Application) : BaseViewModel(app) {
     }
 
     private fun createList() {
-        //FIXME: Add promo onboarding items
-
         val list = listOf(
             OnboardingItem(
-                R.mipmap.smarty_logo,
-                getString(R.string.app_name),
-                getString(R.string.app_name)
+                R.drawable.onboarding_home,
+                getString(R.string.onboarding_home_title),
+                getString(R.string.onboarding_home_description)
             ),
             OnboardingItem(
-                R.mipmap.smarty_logo,
-                getString(R.string.app_name),
-                getString(R.string.app_name)
+                R.drawable.onboarding_planner,
+                getString(R.string.onboarding_planner_title),
+                getString(R.string.onboarding_planner_description)
             ),
             OnboardingItem(
-                R.mipmap.smarty_logo,
-                getString(R.string.app_name),
-                getString(R.string.app_name)
+                R.drawable.onboarding_wardrobe,
+                getString(R.string.onboarding_wardrobe_title),
+                getString(R.string.onboarding_wardrobe_description)
             ),
             OnboardingItem(
-                R.mipmap.smarty_logo,
-                getString(R.string.app_name),
-                getString(R.string.app_name)
+                R.drawable.onboarding_pets,
+                getString(R.string.onboarding_pet_title),
+                getString(R.string.onboarding_pet_description)
             ),
             OnboardingItem(
-                R.mipmap.smarty_logo,
-                getString(R.string.app_name),
-                getString(R.string.app_name)
+                R.drawable.onboarding_notifications,
+                getString(R.string.onboarding_notification_title),
+                getString(R.string.onboarding_notification_description)
+            ),
+            OnboardingItem(
+                R.drawable.onboarding_charts,
+                getString(R.string.onboarding_energy_title),
+                getString(R.string.onboarding_energy_description)
             )
         )
         adapter.submitList(list)
