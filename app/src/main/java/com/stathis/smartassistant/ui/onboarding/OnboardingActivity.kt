@@ -17,10 +17,6 @@ class OnboardingActivity : BaseActivity<ActivityOnboardingBinding>(R.layout.acti
     override fun init() {
         supportActionBar?.hide()
         binding.viewModel = viewModel
-
-        if (readFromSharedPreferences(COMPLETED_ONBOARDING)) {
-            goToHomepage()
-        }
     }
 
     override fun startOps() {

@@ -11,7 +11,6 @@
         android:roundIcon="@mipmap/smarty_logo_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartAssistant">
-
         <activity
             android:name=".ui.energy.EnergyConsumptionActivity"
             android:exported="false" />
@@ -41,6 +40,9 @@
             android:exported="false" />
         <activity
             android:name=".ui.onboarding.OnboardingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.splash.FirstActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

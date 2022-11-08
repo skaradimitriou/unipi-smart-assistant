@@ -1,5 +1,11 @@
 package com.stathis.smartassistant.util
 
+/**
+ * Splash Screen Consts
+ */
+const val SPLASH_SCREEN_LOADING_TIME = 3000L
+
+
 const val ROOM_NAME = "ROOM_NAME"
 
 const val DEFAULT_DATE_FORMAT = "dd/MM/yyy"
