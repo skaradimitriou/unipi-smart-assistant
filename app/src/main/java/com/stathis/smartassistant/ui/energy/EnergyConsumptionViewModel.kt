@@ -1,6 +1,8 @@
 package com.stathis.smartassistant.ui.energy
 
+
 import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -20,8 +22,24 @@ class EnergyConsumptionViewModel : ViewModel() {
 
     private val firestore = FirebaseFirestore.getInstance()
     val adapter = EnergyAdapter()
-    val data = MutableLiveData<List<EnergyModel>>()
-    val dataset = MutableLiveData<List<BarEntry>>()
+
+    /**
+     * Data refers to the data being obtained from the firestore db
+     */
+
+    val data: LiveData<List<EnergyModel>>
+        get() = _data
+
+    private val _data: MutableLiveData<List<EnergyModel>> = MutableLiveData(listOf())
+
+    /**
+     * Dataset refers to the data being displayed inside the graph area of the view layer
+     */
+
+    val dataset: LiveData<List<BarEntry>>
+        get() = _dataset
+
+    private val _dataset: MutableLiveData<List<BarEntry>> = MutableLiveData(listOf())
 
     init {
         getChartData()
@@ -42,18 +60,20 @@ class EnergyConsumptionViewModel : ViewModel() {
         //convert list values to dataset for the view's chart
         val set: List<BarEntry> = list.map { BarEntry(it.seq.toFloat(), it.value.toFloat()) }
 
-        data.postValue(list)
-        dataset.postValue(set)
+        _data.postValue(list)
+        _dataset.postValue(set)
     }
 
     fun observe(owner: LifecycleOwner) {
-        data.observe(owner) { list ->
+        _data.observe(owner) { list ->
             adapter.submitList(list)
         }
     }
 
     fun release(owner: LifecycleOwner) {
         data.removeObservers(owner)
+        _data.removeObservers(owner)
         dataset.removeObservers(owner)
+        _dataset.removeObservers(owner)
     }
 }

@@ -17,6 +17,8 @@ class EnergyConsumptionActivity :
         title = getString(R.string.energy_management_title)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         binding.viewModel = viewModel
+        //clears the data text before loading the data
+        binding.chart.setNoDataText("")
     }
 
     override fun startOps() {
