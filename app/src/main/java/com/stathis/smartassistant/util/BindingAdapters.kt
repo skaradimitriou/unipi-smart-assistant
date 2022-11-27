@@ -111,12 +111,12 @@ fun TextView.plannerDate(date: String) {
 }
 
 @BindingAdapter("setFullName")
-fun TextView.setFullName(data: AddressInfo) {
-    text = data.firstName + " " + data.lastName
+fun TextView.setFullName(data: AddressInfo?) {
+    text = data?.firstName + " " + data?.lastName
 }
 
 @BindingAdapter("rating")
-fun TextView.rating(rating: Double) {
+fun TextView.rating(rating: Double?) {
     text = context.getString(R.string.rating_text, rating)
 }
 
