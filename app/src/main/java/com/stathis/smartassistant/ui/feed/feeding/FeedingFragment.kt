@@ -20,11 +20,11 @@ class FeedingFragment : BaseFragment<FragmentFeedingBinding>(R.layout.fragment_f
 
     override fun startOps() {
         binding.foodCardView.setOnClickListener {
-            decideNextScreen(type = FeedingType.FOOD)
+            decideNextScreen(type = FeedingType.FOOD_NOW)
         }
 
         binding.waterCardView.setOnClickListener {
-            decideNextScreen(type = FeedingType.WATER)
+            decideNextScreen(type = FeedingType.WATER_NOW)
         }
     }
 

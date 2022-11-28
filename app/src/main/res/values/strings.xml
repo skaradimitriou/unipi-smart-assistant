@@ -327,4 +327,12 @@
     <string name="onboarding_notification_description">Λάβετε ειδοποιήσεις για τις ενέργειες σας εντός εφαρμογής σε πραγματικό χρόνο.</string>
     <string name="onboarding_energy_title">Διαχείριση Ενέργειας</string>
     <string name="onboarding_energy_description">Δείτε την ενεργειακή σας κατανάλωση σε kwH ανά μήνα.</string>
+    <string name="feed_planner_title">Προγραμματισμός Ταίστρας</string>
+    <string name="feed_planner_desc">Πλέον έχετε την δυνατότητα να ταίσετε ή να γεμίσετε το μπωλ του κατοικιδίου σας είτε αυτή τη στιγμή είτε σε συγκεκριμένη μέρα και ώρα.</string>
+    <string name="feed_planner_btn">Άμεσο ταίσμα</string>
+    <string name="feed_planner_schedule_btn">Μεταχρονολογημένο ταίσμα</string>
+    <string name="scheduled_water">προγραμματισες να δωσεις νερο</string>
+    <string name="scheduled_food">προγραμματισες να δωσεις τροφή</string>
+    <string name="put_water">βάλετε νερό</string>
+    <string name="put_food">ταίσετε</string>
 </resources>

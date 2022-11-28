@@ -23,8 +23,10 @@ class FeedingViewModel(val app: Application) : BaseViewModel(app) {
 
     fun saveNotificationToDb() {
         val description = when (feedType) {
-            FeedingType.WATER -> getString(R.string.gave_water)
-            FeedingType.FOOD -> getString(R.string.gave_food)
+            FeedingType.WATER_NOW -> getString(R.string.gave_water)
+            FeedingType.WATER_LATER -> getString(R.string.scheduled_water)
+            FeedingType.FOOD_NOW -> getString(R.string.gave_food)
+            FeedingType.FOOD_LATER -> getString(R.string.scheduled_food)
             else -> getString(R.string.empty)
         }
 

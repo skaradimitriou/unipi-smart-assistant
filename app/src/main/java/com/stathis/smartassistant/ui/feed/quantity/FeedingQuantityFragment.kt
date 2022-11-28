@@ -9,6 +9,7 @@ import com.stathis.smartassistant.databinding.FragmentFeedingQuantityBinding
 import com.stathis.smartassistant.models.feeding.FeedingType
 import com.stathis.smartassistant.ui.feed.FeedingViewModel
 import com.stathis.smartassistant.util.setScreenTitle
+import com.stathis.smartassistant.util.showTimePicker
 
 class FeedingQuantityFragment :
     BaseFragment<FragmentFeedingQuantityBinding>(R.layout.fragment_feeding_quantity) {
@@ -18,9 +19,9 @@ class FeedingQuantityFragment :
 
     override fun init() {
         setScreenTitle(getString(R.string.feed_quantity_title))
-        binding.userWillFeedPet = sharedViewModel.feedType == FeedingType.FOOD
+        binding.userWillFeedPet = sharedViewModel.feedType == FeedingType.FOOD_NOW
 
-        if (sharedViewModel.feedType == FeedingType.WATER) {
+        if (sharedViewModel.feedType == FeedingType.WATER_NOW) {
             binding.quantityHeaderTxtView.text = getString(R.string.water)
             binding.quantityDescTxtView.text = getString(R.string.fill_water_bowl)
         }
@@ -36,7 +37,7 @@ class FeedingQuantityFragment :
         }
 
         binding.nextButton.setOnClickListener {
-            goToResultScreen()
+            goToScheduleScreen()
         }
 
         viewModel.counter.observe(viewLifecycleOwner) { counter ->
@@ -49,11 +50,11 @@ class FeedingQuantityFragment :
     }
 
     /*
-     * Navigate to the result screen of the feeding flow
+     * Navigate to the schedule screen of the feeding flow
      */
 
-    private fun goToResultScreen() {
-        val action = FeedingQuantityFragmentDirections.goToResultScreen()
+    private fun goToScheduleScreen() {
+        val action = FeedingQuantityFragmentDirections.goToFeedScheduleScreen()
         findNavController().navigate(action)
     }
 }

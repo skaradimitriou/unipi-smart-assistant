@@ -25,11 +25,19 @@
         android:name="com.stathis.smartassistant.ui.feed.quantity.FeedingQuantityFragment"
         android:label="FeedingQuantityFragment">
         <action
-            android:id="@+id/goToResultScreen"
-            app:destination="@id/petResultFragment" />
+            android:id="@+id/goToFeedScheduleScreen"
+            app:destination="@id/feedScheduleFragment" />
     </fragment>
     <fragment
         android:id="@+id/petResultFragment"
         android:name="com.stathis.smartassistant.ui.feed.result.PetResultFragment"
         android:label="PetResultFragment" />
+    <fragment
+        android:id="@+id/feedScheduleFragment"
+        android:name="com.stathis.smartassistant.ui.feed.schedule.FeedScheduleFragment"
+        android:label="FeedScheduleFragment">
+        <action
+            android:id="@+id/goToResultScreen"
+            app:destination="@id/petResultFragment" />
+    </fragment>
 </navigation>
